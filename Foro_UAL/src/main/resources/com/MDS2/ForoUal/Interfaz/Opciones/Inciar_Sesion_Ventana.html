@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;foroTheme&quot;}">
+  <meta name="vaadin-version" content="8.1.5">
+ </head>
+ <body>
+  <vaadin-absolute-layout width="600px" height="260px">
+   <vaadin-vertical-layout height="60%" margin="false">
+    <vaadin-label height-full :center :expand="5">
+     <h2><b>Iniciar Sesion</b></h2>
+    </vaadin-label>
+    <vaadin-button style-name="borderless-colored" plain-text _id="olvidarPass">
+      Olvidé la contraseña 
+    </vaadin-button>
+    <vaadin-absolute-layout width="80%" height="40px" :center>
+     <vaadin-text-field width-full _id="email" :left="25%"></vaadin-text-field>
+     <vaadin-label width="30%" plain-text>
+       Email 
+     </vaadin-label>
+    </vaadin-absolute-layout>
+    <vaadin-absolute-layout width="80%" height="40px" :middle :center>
+     <vaadin-label width="30%" height-full plain-text>
+       Contraseña 
+     </vaadin-label>
+     <vaadin-password-field width-full _id="contrasena" :left="25%"></vaadin-password-field>
+    </vaadin-absolute-layout>
+   </vaadin-vertical-layout>
+   <vaadin-vertical-layout spacing="false" size-full margin="false" :top="80%">
+    <vaadin-horizontal-layout width-full height="80%">
+     <vaadin-button width="60%" height-full plain-text _id="cancelar" :bottom :center>
+       Cancelar 
+     </vaadin-button>
+     <vaadin-button width="60%" height-full plain-text _id="continuar" :bottom :center>
+       Continuar 
+     </vaadin-button>
+    </vaadin-horizontal-layout>
+   </vaadin-vertical-layout>
+   <vaadin-label visible="false" style-name="failure" plain-text _id="error" :top="62%" :right="10%">
+     Label 
+   </vaadin-label>
+  </vaadin-absolute-layout>
+ </body>
+</html>

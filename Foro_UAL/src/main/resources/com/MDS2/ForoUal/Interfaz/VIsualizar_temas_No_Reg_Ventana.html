@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;foroTheme&quot;}">
+  <meta name="vaadin-version" content="8.1.5">
+ </head>
+ <body>
+  <vaadin-absolute-layout>
+   <vaadin-panel width="80%" height="99%" _id="listaTemas" :top="112px" :left="205px"></vaadin-panel>
+   <vaadin-panel height="57px" _id="panelSuperior"></vaadin-panel>
+   <vaadin-panel width="80%" height="50px" :top="60px" :left="205px">
+    <vaadin-horizontal-layout size-full>
+     <vaadin-label style-name="large" plain-text _id="titulo" :middle :center>
+       Label 
+     </vaadin-label>
+     <vaadin-label plain-text _id="subtitulo" :middle :center>
+       Label 
+     </vaadin-label>
+     <vaadin-menu-bar style-name="borderless small" _id="ordenar" :bottom :right>
+      <menu>
+        Ordenar 
+       <menu>
+         Nombre 
+       </menu>
+       <menu>
+         Me Gusta 
+       </menu>
+       <menu>
+         Mensajes 
+       </menu>
+      </menu>
+     </vaadin-menu-bar>
+    </vaadin-horizontal-layout>
+   </vaadin-panel>
+  </vaadin-absolute-layout>
+ </body>
+</html>

@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;foroTheme&quot;}">
+  <meta name="vaadin-version" content="8.1.5">
+ </head>
+ <body>
+  <vaadin-absolute-layout icon="https://cdn2.iconfinder.com/data/icons/ui-22/24/521-512.png" caption="a">
+   <vaadin-panel width="80%" height="99%" _id="perfil" :top="65px" :left="205px">
+    <vaadin-vertical-layout>
+     <vaadin-horizontal-layout width="85%">
+      <vaadin-image source="https://www.spica-siam.com/wp-content/uploads/2017/12/user-demo.png" width="250px" height="250px" _id="fotoPerfil" :middle :center></vaadin-image>
+      <vaadin-vertical-layout>
+       <vaadin-label style-name="h2" plain-text _id="userName">
+         MiUsuarioDePruebas 
+       </vaadin-label>
+       <vaadin-label plain-text _id="realName">
+         MiUsuario Pruebas Martinez 
+       </vaadin-label>
+       <vaadin-label plain-text _id="email">
+         prueba@yopmail.com 
+       </vaadin-label>
+       <vaadin-label width-full plain-text _id="descpription">
+         Esta es una descripcion de usuario de pruebas, es para comprobar que todo está bien configurado, por favor ignorar este mensaje 
+       </vaadin-label>
+      </vaadin-vertical-layout>
+     </vaadin-horizontal-layout>
+    </vaadin-vertical-layout>
+   </vaadin-panel>
+   <vaadin-panel height="57px" _id="panelSuperior"></vaadin-panel>
+   <vaadin-panel width="200px" height="99%" _id="panelOpciones" :top="65px" :left="0%"></vaadin-panel>
+   <vaadin-panel height="99%" _id="panelAmigos" :top="65px" :left="84%"></vaadin-panel>
+  </vaadin-absolute-layout>
+ </body>
+</html>

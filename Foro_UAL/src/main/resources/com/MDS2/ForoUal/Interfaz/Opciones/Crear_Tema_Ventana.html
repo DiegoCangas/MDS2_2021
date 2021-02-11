@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;foroTheme&quot;}">
+  <meta name="vaadin-version" content="8.1.5">
+ </head>
+ <body>
+  <vaadin-vertical-layout spacing="false" width="600px" height="260px" margin-left="false" margin-right="false" margin-top="false">
+   <vaadin-vertical-layout height="135%" margin="false">
+    <vaadin-label :middle :center :expand="5">
+     <h2><b>Crear Tema</b></h2>
+    </vaadin-label>
+    <vaadin-horizontal-layout :middle :center>
+     <vaadin-label width="100px" plain-text :middle>
+       Nombre 
+     </vaadin-label>
+     <vaadin-text-field width="300px" _id="nombre"></vaadin-text-field>
+    </vaadin-horizontal-layout>
+    <vaadin-horizontal-layout :middle :center>
+     <vaadin-label width="100px" plain-text :middle>
+       Descripccion 
+     </vaadin-label>
+     <vaadin-text-field width="300px" _id="descripcion"></vaadin-text-field>
+    </vaadin-horizontal-layout>
+   </vaadin-vertical-layout>
+   <vaadin-horizontal-layout width-full height="55%" :bottom :center>
+    <vaadin-button width="60%" height="60%" plain-text _id="cancelar" :bottom :center>
+      Cancelar 
+    </vaadin-button>
+    <vaadin-button width="60%" height="60%" plain-text _id="continuar" :bottom :center>
+      Continuar 
+    </vaadin-button>
+   </vaadin-horizontal-layout>
+  </vaadin-vertical-layout>
+ </body>
+</html>

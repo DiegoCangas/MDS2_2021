@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;foroTheme&quot;}">
+  <meta name="vaadin-version" content="8.1.5">
+ </head>
+ <body>
+  <vaadin-vertical-layout width="600px">
+   <vaadin-label :middle :center>
+    <h2><b>NuevoMensaje</b></h2>
+   </vaadin-label>
+   <vaadin-text-area width-full height="179px" _id="texto"></vaadin-text-area>
+   <vaadin-label plain-text _id="respuestaAText">
+     En Respuesta A: 
+   </vaadin-label>
+   <vaadin-text-area width-full height="50px" readonly _id="respuestaA"></vaadin-text-area>
+   <vaadin-horizontal-layout>
+    <vaadin-button plain-text _id="fotos">
+      Fotos 
+    </vaadin-button>
+    <vaadin-button plain-text _id="video">
+      Video 
+    </vaadin-button>
+   </vaadin-horizontal-layout>
+   <vaadin-horizontal-layout style-name="card">
+    <vaadin-button width="110px" height="93px" plain-text _id="add">
+      + 
+    </vaadin-button>
+    <vaadin-button visible="false" width="110px" height="93px" plain-text _id="add1">
+      + 
+    </vaadin-button>
+    <vaadin-button visible="false" width="110px" height="93px" plain-text _id="add2">
+      + 
+    </vaadin-button>
+   </vaadin-horizontal-layout>
+   <vaadin-text-field visible="false" width-full value="resource URL" _id="resourceURL"></vaadin-text-field>
+   <vaadin-panel style-name="borderless" width-auto height="70px"></vaadin-panel>
+   <vaadin-horizontal-layout size-full>
+    <vaadin-button width="60%" height="60%" plain-text _id="cancelar" :middle :center>
+      Cancelar 
+    </vaadin-button>
+    <vaadin-button width="60%" height="60%" plain-text _id="continuar" :middle :center>
+      Continuar 
+    </vaadin-button>
+   </vaadin-horizontal-layout>
+  </vaadin-vertical-layout>
+ </body>
+</html>

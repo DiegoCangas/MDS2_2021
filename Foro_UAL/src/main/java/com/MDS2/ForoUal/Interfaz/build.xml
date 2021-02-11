@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="build">
+	<path id="build.classpath">
+		<pathelement location="classes"/>
+	</path>
+	<target name="init">
+		<mkdir dir="classes"/>
+	</target>
+	<target name="clean">
+		<delete dir="classes"/>
+	</target>
+	<target depends="init" name="build">
+		<javac srcdir="." destdir="classes" source="1.5" target="1.5" fork="yes">
+			<classpath refid="build.classpath"/>
+			<include name="Visualizar_Mensaje_NoRegistrado.java"/>
+			<include name="Ver_Amigo.java"/>
+			<include name="visualizar_Mensaje.java"/>
+			<include name="Visualizar_Mensajes.java"/>
+			<include name="Ultimos_Mensajes.java"/>
+			<include name="Ver_OtroPerfil.java"/>
+			<include name="Ver_Amigos.java"/>
+			<include name="Ocultar_Tema.java"/>
+			<include name="Opciones_Temas_Moderador.java"/>
+			<include name="Visualizar_Temas_Mod.java"/>
+			<include name="Ocultar_Mensaje.java"/>
+			<include name="Opciones_Mensajes_Mod.java"/>
+			<include name="Responder_Mensaje.java"/>
+			<include name="Crear_Mensaje.java"/>
+			<include name="Reportar_Mensaje.java"/>
+			<include name="Opciones_Mensajes.java"/>
+			<include name="Visualizar_Mensajes_Registrado.java"/>
+			<include name="Eliminar_Mensaje.java"/>
+			<include name="Opciones_Mensajes_Administrador.java"/>
+			<include name="Visualizar_Mensajes_Administrador.java"/>
+			<include name="Visualizar_Mensajes_Mod.java"/>
+			<include name="Moderador.java"/>
+			<include name="Opciones_OtroUsuario_Moderador.java"/>
+			<include name="Modificar_Numero_Ultimos_Mensajes.java"/>
+			<include name="Banear.java"/>
+			<include name="Opciones_OtroUsuario_Administrador.java"/>
+			<include name="Visualizar_OtroUsuario_Admininistrador.java"/>
+			<include name="Visualizar_OtroUsuario_Moderador.java"/>
+			<include name="Opciones_Perfil.java"/>
+			<include name="Darse_de_baja.java"/>
+			<include name="Editar_Perfil.java"/>
+			<include name="Buscar_Amigos.java"/>
+			<include name="Opciones_Perfil_Usuario.java"/>
+			<include name="recuperar_contrasena.java"/>
+			<include name="Correo_Electronico.java"/>
+			<include name="Registrarse.java"/>
+			<include name="Panel_Superior.java"/>
+			<include name="Iniciar_Sesi�n.java"/>
+			<include name="Opciones_Temas.java"/>
+			<include name="Crear_Tema.java"/>
+			<include name="Opciones_Secciones.java"/>
+			<include name="Crear_Secci�n.java"/>
+			<include name="Ver_Tema.java"/>
+			<include name="Ver_Seccion.java"/>
+			<include name="interfaz/Cambiar_Estado_Tema.java"/>
+			<include name="interfaz/Opciones_Temas_Administrador.java"/>
+			<include name="interfaz/Visualizar_Temas_Administrador.java"/>
+			<include name="interfaz/Administrador.java"/>
+			<include name="interfaz/Visualizar_Secciones_Administrador.java"/>
+			<include name="interfaz/Visualizar_Secciones_Registrado.java"/>
+			<include name="interfaz/Visualizar_Secciones.java"/>
+			<include name="interfaz/Visualizar_Raiz__No_Reg_.java"/>
+			<include name="interfaz/Usuario_no_Logueado.java"/>
+			<include name="interfaz/Visualizar_Temas_No_Reg.java"/>
+			<include name="interfaz/Ver_Temas.java"/>
+			<include name="interfaz/Visualizar_Temas_Registrado.java"/>
+			<include name="interfaz/Usuario_Logueado.java"/>
+			<include name="interfaz/panel_Superior_Registrado.java"/>
+			<include name="Cerrar_Tema.java"/>
+			<include name="Pantallas_navegacion.java"/>
+		</javac>
+	</target>
+</project>

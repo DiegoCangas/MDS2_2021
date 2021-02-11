@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;foroTheme&quot;}">
+  <meta name="vaadin-version" content="8.1.5">
+ </head>
+ <body>
+  <vaadin-vertical-layout spacing="false" width="600px" margin-left="false" margin-right="false" margin-top="false">
+   <vaadin-vertical-layout height="150%" margin="false" :middle :center>
+    <vaadin-label :middle :center :expand="5">
+     <h2><b>Recuperar Contraseña</b></h2>
+    </vaadin-label>
+    <vaadin-absolute-layout width="80%" height="40px" :center>
+     <vaadin-text-field width-full _id="email" :left="25%"></vaadin-text-field>
+     <vaadin-label width="30%" plain-text>
+       Email 
+     </vaadin-label>
+    </vaadin-absolute-layout>
+    <vaadin-absolute-layout width="80%" height="50px" :middle :center>
+     <vaadin-label width-full height="130%" plain-text>
+       Introduzca el Email asociado a su cuenta para recibir una nueva contraseña en su email 
+     </vaadin-label>
+    </vaadin-absolute-layout>
+   </vaadin-vertical-layout>
+   <vaadin-panel style-name="borderless" size-auto></vaadin-panel>
+   <vaadin-label visible="false" style-name="light success" plain-text _id="pass" :center>
+     Label 
+   </vaadin-label>
+   <vaadin-panel style-name="borderless" size-auto></vaadin-panel>
+   <vaadin-horizontal-layout width-full height="55%" :bottom :center>
+    <vaadin-button width="60%" height="60%" plain-text _id="cancelar" :bottom :center>
+      Cancelar 
+    </vaadin-button>
+    <vaadin-button width="60%" height="60%" plain-text _id="continuar" :bottom :center>
+      Recuperar 
+    </vaadin-button>
+   </vaadin-horizontal-layout>
+  </vaadin-vertical-layout>
+ </body>
+</html>

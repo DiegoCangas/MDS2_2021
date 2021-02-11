@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;foroTheme&quot;}">
+  <meta name="vaadin-version" content="8.1.5">
+ </head>
+ <body>
+  <vaadin-absolute-layout style-name="card">
+   <vaadin-button width="185px" height="80%" plain-text _id="cerrarSesion" :top="20%" :right="9px">
+     Cerrar Sesion 
+   </vaadin-button>
+   <vaadin-button width="185px" height="80%" plain-text _id="perfil" :top="20%" :right="203px">
+     Perfil 
+   </vaadin-button>
+   <vaadin-horizontal-layout height-full>
+    <vaadin-image visible="false" source="https://api.time.com/wp-content/uploads/2019/08/better-smartphone-photos.jpg" height="57px" _id="photo" :middle :center></vaadin-image>
+    <vaadin-label visible="false" style-name="large" plain-text _id="username" :middle :center>
+      Label 
+    </vaadin-label>
+    <vaadin-horizontal-layout width="80px" height-full _id="notification">
+     <vaadin-image source="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-bell-512.png" height="70%" :middle></vaadin-image>
+    </vaadin-horizontal-layout>
+   </vaadin-horizontal-layout>
+  </vaadin-absolute-layout>
+ </body>
+</html>
