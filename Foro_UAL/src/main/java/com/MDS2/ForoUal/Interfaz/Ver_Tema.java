@@ -16,9 +16,6 @@ public class Ver_Tema extends Ver_Tema_Ventana {
 	public void Dar_Me_Gusta_Tema() {
 		throw new UnsupportedOperationException();
 	}
-	
-	private Tema tema = new Tema();
-	
 	public Ver_Tema (Tema t){
 		nombreTema.setValue(t.getTitulo());
 		descripcion.setValue(t.getSubtitulo());
@@ -64,5 +61,4 @@ public class Ver_Tema extends Ver_Tema_Ventana {
 			foroUI.singleton.VisualizarSeccion(t.getContiene());
 		});
 	}
-	
 }

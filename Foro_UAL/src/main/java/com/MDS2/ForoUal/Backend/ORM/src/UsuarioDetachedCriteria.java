@@ -1,4 +1,3 @@
-package com.MDS2.ForoUal.Backend.ORM.src;
 /**
  * "Visual Paradigm: DO NOT MODIFY THIS FILE!"
  * 
@@ -12,6 +11,8 @@ package com.MDS2.ForoUal.Backend.ORM.src;
  * Licensee: PABLO DANIEL(University of Almeria)
  * License Type: Academic
  */
+package com.MDS2.ForoUal.Backend.ORM.src;
+
 import java.util.List;
 import org.hibernate.criterion.DetachedCriteria;
 import org.orm.PersistentSession;
@@ -28,7 +29,6 @@ public class UsuarioDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final BooleanExpression baneado;
 	public final LongExpression IDusuario;
 	public final StringExpression nombreReal;
-	public final BooleanExpression esModerador;
 	public final CollectionExpression reportes_usuario;
 	public final CollectionExpression amigo_de;
 	public final CollectionExpression pertenece;
@@ -50,7 +50,6 @@ public class UsuarioDetachedCriteria extends AbstractORMDetachedCriteria {
 		baneado = new BooleanExpression("baneado", this.getDetachedCriteria());
 		IDusuario = new LongExpression("IDusuario", this.getDetachedCriteria());
 		nombreReal = new StringExpression("nombreReal", this.getDetachedCriteria());
-		esModerador = new BooleanExpression("esModerador", this.getDetachedCriteria());
 		reportes_usuario = new CollectionExpression("ORM_reportes_usuario", this.getDetachedCriteria());
 		amigo_de = new CollectionExpression("ORM_amigo_de", this.getDetachedCriteria());
 		pertenece = new CollectionExpression("ORM_pertenece", this.getDetachedCriteria());
@@ -73,7 +72,6 @@ public class UsuarioDetachedCriteria extends AbstractORMDetachedCriteria {
 		baneado = new BooleanExpression("baneado", this.getDetachedCriteria());
 		IDusuario = new LongExpression("IDusuario", this.getDetachedCriteria());
 		nombreReal = new StringExpression("nombreReal", this.getDetachedCriteria());
-		esModerador = new BooleanExpression("esModerador", this.getDetachedCriteria());
 		reportes_usuario = new CollectionExpression("ORM_reportes_usuario", this.getDetachedCriteria());
 		amigo_de = new CollectionExpression("ORM_amigo_de", this.getDetachedCriteria());
 		pertenece = new CollectionExpression("ORM_pertenece", this.getDetachedCriteria());

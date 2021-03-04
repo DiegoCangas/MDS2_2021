@@ -11,20 +11,17 @@ import com.vaadin.ui.Button.ClickEvent;
 
 
 public class Ocultar_Mensaje extends Ocultar_Mensaje_Ventana{
-	private Mensaje _mensaje = new Mensaje();
+	private Mensaje _mensaje;
 	private Button _ocultar;
 	public Opciones_Mensajes_Mod _opciones_Mensajes_Mod;
 
 	public Ocultar_Mensaje (Mensaje m) {
-		
-		this._mensaje = m;
-		
 		continuar.addClickListener(new Button.ClickListener() {
 			
 			@Override
 			public void buttonClick(ClickEvent event) {
 				// TODO Auto-generated method stub
-				ocultar_mensaje();
+				ocultar_mensaje(m);
 				UI c = UI.getCurrent();
 				Window w = (Window)c.getWindows().toArray()[c.getWindows().size()-1];
 				c.removeWindow(w);
@@ -43,7 +40,7 @@ public class Ocultar_Mensaje extends Ocultar_Mensaje_Ventana{
 			}
 		});
 	}
-	public void ocultar_mensaje() {
-		foroUI.db.Ocultar_Mensaje((long)_mensaje.getORMID());
+	public void ocultar_mensaje(Mensaje m) {
+		foroUI.db.Ocultar_Mensaje((long)m.getORMID());
 	}
 }

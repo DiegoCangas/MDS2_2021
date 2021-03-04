@@ -1,8 +1,9 @@
-package com.MDS2.ForoUal.Backend.ORM.src;
 /**
  * Licensee: PABLO DANIEL(University of Almeria)
  * License Type: Academic
  */
+package com.MDS2.ForoUal.Backend.ORM.src;
+
 import org.orm.*;
 public class DeleteMDS1Data {
 	public void deleteTestData() throws PersistentException {
@@ -23,15 +24,18 @@ public class DeleteMDS1Data {
 			Usuario usuario = UsuarioDAO.loadUsuarioByQuery(null, null);
 			// Delete the persistent object
 			UsuarioDAO.delete(usuario);
+			Moderador moderador = ModeradorDAO.loadModeradorByQuery(null, null);
+			// Delete the persistent object
+			ModeradorDAO.delete(moderador);
+			Administrador administrador = AdministradorDAO.loadAdministradorByQuery(null, null);
+			// Delete the persistent object
+			AdministradorDAO.delete(administrador);
 			Media_ media_ = Media_DAO.loadMedia_ByQuery(null, null);
 			// Delete the persistent object
 			Media_DAO.delete(media_);
 			Notificacion notificacion = NotificacionDAO.loadNotificacionByQuery(null, null);
 			// Delete the persistent object
 			NotificacionDAO.delete(notificacion);
-			Administrador administrador = AdministradorDAO.loadAdministradorByQuery(null, null);
-			// Delete the persistent object
-			AdministradorDAO.delete(administrador);
 			t.commit();
 		}
 		catch (Exception e) {

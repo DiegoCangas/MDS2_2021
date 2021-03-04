@@ -34,7 +34,6 @@ public class BD_Notificaciones {
 			return null;
 		}
 	}
-	
 	public void Crear_Notificacion (int aId, String aMensaje) {
 		Usuario u;
 		try {
@@ -48,7 +47,6 @@ public class BD_Notificaciones {
 		}
 
 	}
-	
 	public Notificacion[] Cargar_Notificaciones(int aId) {
 		try {
 			return NotificacionDAO.listNotificacionByQuery("UsuarioID = " +aId, "idnotificacion DESC");

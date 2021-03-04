@@ -36,17 +36,17 @@ public class recuperar_contrasena extends Recuperar_Contrasena_Ventana{
 			@Override
 			public void buttonClick(ClickEvent event) {
 				// TODO Auto-generated method stub
-				mandarCorreo();
+				mandarCorreo(email.getValue());
 			
 			}
 		});
 	}
 
-	public boolean mandarCorreo() {
+	public boolean mandarCorreo(String userName) {
 		String s = PasswordUtils.getSalt(7);
 		pass.setVisible(true);
 		pass.setValue(s);
-		foroUI.db.Recuperar_Contrasenia_Perfil(email.getValue(), s);
+		foroUI.db.Recuperar_Contrasenia_Perfil(userName, s);
 		return true;
 	}
 }

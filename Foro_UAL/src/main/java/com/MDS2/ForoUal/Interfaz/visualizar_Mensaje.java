@@ -17,9 +17,8 @@ public class visualizar_Mensaje extends Visualizar_Mensaje_Ventana{
 	public Opciones_Perfil _unnamed_Opciones_Perfil_;
 	public visualizar_Mensaje _respuesta_de;
 	public Vector<visualizar_Mensaje> _unnamed_visualizar_Mensaje_ = new Vector<visualizar_Mensaje>();
-	private Mensaje mensaje = new Mensaje();
+
 	public visualizar_Mensaje(Mensaje m) {
-		mensaje = m;
 		texto.setValue(m.getTexto().replaceAll("<Ocultado>", "").replaceAll("<Borrado>", ""));
 		respuestaA.setVisible(!m.respuesta_de.isEmpty());
 		if(!m.respuesta_de.isEmpty() && m.respuesta_de.toArray()[0] != null)
@@ -36,7 +35,7 @@ public class visualizar_Mensaje extends Visualizar_Mensaje_Ventana{
 		
 		
 		if(m.media_mensaje.size() > 0) {
-		if(foroUI.db.Tipo_Media(m.media_mensaje.toArray()[0].getUrl()) != 1) {
+		if(foroUI.db.GetSourceType(m.media_mensaje.toArray()[0].getUrl()) != 1) {
 			
 			Media_[] im = m.media_mensaje.toArray();
 			
@@ -58,7 +57,7 @@ public class visualizar_Mensaje extends Visualizar_Mensaje_Ventana{
 		creadorYFecha.setValue(m.getEnvia_mensaje().getNombreUsuario()+" el "+m.getFechaCreacion());
 		numeroMeGusta.setValue(m.getNumeroMeGusta()+"");
 		
-		meGustaLayout.addLayoutClickListener(e -> Dar__Me_Gusta__Mensaje());
+		meGustaLayout.addLayoutClickListener(e -> Dar__Me_Gusta__Mensaje(m));
 		
 		addLayoutClickListener(e -> {
 			if(Visualizar_Mensajes.action == 1) {
@@ -87,10 +86,9 @@ public class visualizar_Mensaje extends Visualizar_Mensaje_Ventana{
 			
 		});
 	}
-	
-	public void Dar__Me_Gusta__Mensaje() {
+	public void Dar__Me_Gusta__Mensaje(Mensaje m) {
 		if(foroUI.user == null) return;
-		foroUI.db.Dar_Megusta_Mensaje((long)mensaje.getORMID());
-		foroUI.singleton.VisualizarTema(mensaje.getMensaje_());
+		foroUI.db.Dar_Megusta_Mensaje((long)m.getORMID());
+		foroUI.singleton.VisualizarTema(m.getMensaje_());
 	}
 }

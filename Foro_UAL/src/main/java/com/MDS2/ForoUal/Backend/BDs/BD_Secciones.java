@@ -32,8 +32,6 @@ public class BD_Secciones {
 			e1.printStackTrace();
 		}
 		
-		
-		
 		try {
 			SeccionDAO.save(s);
 			return s;
@@ -43,18 +41,10 @@ public class BD_Secciones {
 		}
 	}
 
-	public Seccion[] Cargar_Secciones() {
-		try {
-			return SeccionDAO.listSeccionByQuery("1=1", "ID");
-		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
-			return new Seccion[] {};
-		}
-	}
-	public void Eliminar_Seccion(int aId) {
+	public void Eliminar_Seccion(int id)  {
 		Seccion s;
 		try {
-			s = SeccionDAO.getSeccionByORMID(aId);
+			s = SeccionDAO.getSeccionByORMID(id);
 			s.setMarcado(true);
 			SeccionDAO.save(s);
 		} catch (PersistentException e) {
@@ -63,5 +53,14 @@ public class BD_Secciones {
 		}
 		
 		
+		}
+	
+	public Seccion[] Cargar_Secciones() {
+		try {
+			return SeccionDAO.listSeccionByQuery("1=1", "ID");
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			return new Seccion[] {};
+		}
 	}
 }

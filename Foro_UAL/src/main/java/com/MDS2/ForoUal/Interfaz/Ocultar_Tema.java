@@ -15,15 +15,12 @@ public class Ocultar_Tema extends Ocultar_Tema_Ventana{
 	private Event _selectTema;
 	public Opciones_Temas_Moderador _opciones_Temas_Moderador;
 
-	private Tema tema = new Tema();
-	
 	public Ocultar_Tema(Tema t) {
-		this.tema = t;
 	continuar.addClickListener(new Button.ClickListener() {
 		
 		@Override
 		public void buttonClick(ClickEvent event) {
-			ocultarTema();
+			ocultarTema(t);
 			UI c = UI.getCurrent();
 			Window w = (Window)c.getWindows().toArray()[c.getWindows().size()-1];
 			c.removeWindow(w);
@@ -42,7 +39,7 @@ public class Ocultar_Tema extends Ocultar_Tema_Ventana{
 		}
 	});
 	}
-	public void ocultarTema() {
-		foroUI.db.Cambiar_Estado(tema,(long)2);	
+	public void ocultarTema(Tema t) {
+		foroUI.db.Cambiar_Estado(t,(long)2);	
 	}
 }

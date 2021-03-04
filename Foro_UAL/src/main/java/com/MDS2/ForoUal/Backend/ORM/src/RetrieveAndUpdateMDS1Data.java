@@ -1,8 +1,9 @@
-package com.MDS2.ForoUal.Backend.ORM.src;
 /**
  * Licensee: PABLO DANIEL(University of Almeria)
  * License Type: Academic
  */
+package com.MDS2.ForoUal.Backend.ORM.src;
+
 import org.orm.*;
 public class RetrieveAndUpdateMDS1Data {
 	public void retrieveAndUpdateTestData() throws PersistentException {
@@ -23,15 +24,18 @@ public class RetrieveAndUpdateMDS1Data {
 			Usuario usuario = UsuarioDAO.loadUsuarioByQuery(null, null);
 			// Update the properties of the persistent object
 			UsuarioDAO.save(usuario);
+			Moderador moderador = ModeradorDAO.loadModeradorByQuery(null, null);
+			// Update the properties of the persistent object
+			ModeradorDAO.save(moderador);
+			Administrador administrador = AdministradorDAO.loadAdministradorByQuery(null, null);
+			// Update the properties of the persistent object
+			AdministradorDAO.save(administrador);
 			Media_ media_ = Media_DAO.loadMedia_ByQuery(null, null);
 			// Update the properties of the persistent object
 			Media_DAO.save(media_);
 			Notificacion notificacion = NotificacionDAO.loadNotificacionByQuery(null, null);
 			// Update the properties of the persistent object
 			NotificacionDAO.save(notificacion);
-			Administrador administrador = AdministradorDAO.loadAdministradorByQuery(null, null);
-			// Update the properties of the persistent object
-			AdministradorDAO.save(administrador);
 			t.commit();
 		}
 		catch (Exception e) {
@@ -71,6 +75,18 @@ public class RetrieveAndUpdateMDS1Data {
 		//usuarioCriteria.ID.eq();
 		System.out.println(usuarioCriteria.uniqueUsuario());
 		
+		System.out.println("Retrieving Moderador by ModeradorCriteria");
+		ModeradorCriteria moderadorCriteria = new ModeradorCriteria();
+		// Please uncomment the follow line and fill in parameter(s)
+		//moderadorCriteria.ID.eq();
+		System.out.println(moderadorCriteria.uniqueModerador());
+		
+		System.out.println("Retrieving Administrador by AdministradorCriteria");
+		AdministradorCriteria administradorCriteria = new AdministradorCriteria();
+		// Please uncomment the follow line and fill in parameter(s)
+		//administradorCriteria.ID.eq();
+		System.out.println(administradorCriteria.uniqueAdministrador());
+		
 		System.out.println("Retrieving Media_ by Media_Criteria");
 		Media_Criteria media_Criteria = new Media_Criteria();
 		// Please uncomment the follow line and fill in parameter(s)
@@ -82,12 +98,6 @@ public class RetrieveAndUpdateMDS1Data {
 		// Please uncomment the follow line and fill in parameter(s)
 		//notificacionCriteria.idnotificacion.eq();
 		System.out.println(notificacionCriteria.uniqueNotificacion());
-		
-		System.out.println("Retrieving Administrador by AdministradorCriteria");
-		AdministradorCriteria administradorCriteria = new AdministradorCriteria();
-		// Please uncomment the follow line and fill in parameter(s)
-		//administradorCriteria.ID.eq();
-		System.out.println(administradorCriteria.uniqueAdministrador());
 		
 	}
 	

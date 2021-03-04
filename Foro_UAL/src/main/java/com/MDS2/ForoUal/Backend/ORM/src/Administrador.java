@@ -1,5 +1,6 @@
 package com.MDS2.ForoUal.Backend.ORM.src;
 
+
 /**
  * "Visual Paradigm: DO NOT MODIFY THIS FILE!"
  * 
@@ -13,6 +14,7 @@ package com.MDS2.ForoUal.Backend.ORM.src;
  * Licensee: PABLO DANIEL(University of Almeria)
  * License Type: Academic
  */
+
 import java.io.Serializable;
 import javax.persistence.*;
 @Entity
@@ -20,8 +22,7 @@ import javax.persistence.*;
 @Table(name="`Administrador`")
 @Inheritance(strategy=InheritanceType.JOINED)
 @DiscriminatorValue("Administradores")
-@PrimaryKeyJoinColumn(name="`UsuarioID`", referencedColumnName="`ID`")
-public class Administrador extends Usuario implements Serializable {
+public class Administrador extends Moderador implements Serializable {
 	public Administrador() {
 	}
 	

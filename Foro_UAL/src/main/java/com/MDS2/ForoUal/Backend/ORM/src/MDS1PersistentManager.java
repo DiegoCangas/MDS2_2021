@@ -1,4 +1,3 @@
-package com.MDS2.ForoUal.Backend.ORM.src;
 /**
  * "Visual Paradigm: DO NOT MODIFY THIS FILE!"
  * 
@@ -12,6 +11,8 @@ package com.MDS2.ForoUal.Backend.ORM.src;
  * Licensee: PABLO DANIEL(University of Almeria)
  * License Type: Academic
  */
+package com.MDS2.ForoUal.Backend.ORM.src;
+
 import org.orm.*;
 import org.orm.cfg.JDBCConnectionSetting;
 import org.hibernate.*;
@@ -41,9 +42,10 @@ public class MDS1PersistentManager extends PersistentManager {
 		aMetadataSources.addAnnotatedClass(Seccion.class);
 		aMetadataSources.addAnnotatedClass(Mensaje.class);
 		aMetadataSources.addAnnotatedClass(Usuario.class);
+		aMetadataSources.addAnnotatedClass(Moderador.class);
+		aMetadataSources.addAnnotatedClass(Administrador.class);
 		aMetadataSources.addAnnotatedClass(Media_.class);
 		aMetadataSources.addAnnotatedClass(Notificacion.class);
-		aMetadataSources.addAnnotatedClass(Administrador.class);
 	}
 	
 	public String getProjectName() {

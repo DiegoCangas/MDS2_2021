@@ -16,7 +16,7 @@ public class Opciones_OtroUsuario_Administrador extends Opciones_OtroUsuario_Adm
 	public Banear _banear;
 
 	public Opciones_OtroUsuario_Administrador(Usuario u) {
-		cambiarRol.setCaption(u.getEsModerador()?"Quitar Moderador":"Hacer Moderador");
+		
 		if(u.getBaneado()) banear.setCaption("Desbanear");
 		banear.addClickListener(new Button.ClickListener() {
 			
@@ -31,10 +31,8 @@ public class Opciones_OtroUsuario_Administrador extends Opciones_OtroUsuario_Adm
 			@Override
 			public void buttonClick(ClickEvent event) {
 				// TODO Auto-generated method stub
-				cambiarRol.setCaption(!foroUI.db.EsModerador(u.getORMID())?"Quitar Moderador":"Hacer Moderador");
-				Modificar_Rol(u);
-				
-					
+					cambiarRol.setCaption(foroUI.db.esModerador(u.getNombreUsuario())?"Quitar Moderador":"Hacer Moderador");
+					Modificar_Rol(u);
 			}
 		});
 		modMensajes.addClickListener(new Button.ClickListener() {
@@ -50,10 +48,7 @@ public class Opciones_OtroUsuario_Administrador extends Opciones_OtroUsuario_Adm
 	}
 	
 	public void Modificar_Rol(Usuario u) {
-		if(!u.getEsModerador())
-			foroUI.db.Insertar_Moderador(u.getORMID());
-		else
-			foroUI.db.Eliminar_Moderador(u.getORMID());
+		foroUI.db.Modificar_Rol(u.getNombreUsuario());
 	}
 
 	public void Modificcar_Estado_Usuario(Usuario u) {

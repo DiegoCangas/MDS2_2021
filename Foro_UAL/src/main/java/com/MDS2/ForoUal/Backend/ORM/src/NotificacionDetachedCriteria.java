@@ -1,4 +1,3 @@
-package com.MDS2.ForoUal.Backend.ORM.src;
 /**
  * "Visual Paradigm: DO NOT MODIFY THIS FILE!"
  * 
@@ -12,6 +11,8 @@ package com.MDS2.ForoUal.Backend.ORM.src;
  * Licensee: PABLO DANIEL(University of Almeria)
  * License Type: Academic
  */
+package com.MDS2.ForoUal.Backend.ORM.src;
+
 import java.util.List;
 import org.hibernate.criterion.DetachedCriteria;
 import org.orm.PersistentSession;

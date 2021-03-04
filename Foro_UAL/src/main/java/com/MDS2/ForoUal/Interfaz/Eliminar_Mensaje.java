@@ -11,18 +11,16 @@ import com.vaadin.ui.Button.ClickEvent;
 public class Eliminar_Mensaje extends Eliminar_Mensaje_Ventana{
 	private Button _eliminar;
 	private Button _seleccionarMnj;
-	private Mensaje _mensaje = new Mensaje();
+	private Mensaje _mensaje;
 	public Opciones_Mensajes_Administrador _opciones_Mensajes_Administrador;
 
 	public Eliminar_Mensaje (Mensaje m) {
-		
-		_mensaje = m;
 		continuar.addClickListener(new Button.ClickListener() {
 			
 			@Override
 			public void buttonClick(ClickEvent event) {
 				// TODO Auto-generated method stub
-				eliminar_mensaje();
+				eliminar_mensaje((long)m.getORMID());
 				UI c = UI.getCurrent();
 				Window w = (Window)c.getWindows().toArray()[c.getWindows().size()-1];
 				c.removeWindow(w);
@@ -40,7 +38,7 @@ public class Eliminar_Mensaje extends Eliminar_Mensaje_Ventana{
 			}
 		});
 	}
-	public void eliminar_mensaje() {
-		foroUI.db.Eliminar_Mensaje((long)_mensaje.getORMID());
+	public void eliminar_mensaje(Long aId) {
+		foroUI.db.Eliminar_Mensaje(aId);
 	}
 }

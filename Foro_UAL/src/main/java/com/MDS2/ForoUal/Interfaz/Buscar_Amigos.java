@@ -20,9 +20,9 @@ public class Buscar_Amigos extends Buscar_Amigos_Ventana{
 	public Opciones_Perfil_Usuario _opciones_Perfil_OtroUsuario;
 
 	public Buscar_Amigos () {
-		Generar_Amigos();
+		Generar_Amigos("");
 		nombre.addValueChangeListener(event -> {
-			Generar_Amigos();
+			Generar_Amigos(nombre.getValue());
 		});
 		cancelar.addClickListener(new Button.ClickListener() {
 			
@@ -36,14 +36,8 @@ public class Buscar_Amigos extends Buscar_Amigos_Ventana{
 			}
 		});
 	}
-	public void  Generar_Amigos() {
-		Usuario[] us = null;
-		if(nombre.getValue() == null || nombre.getValue() == "") {
-			 us = foroUI.db.Buscar_Amigo_PorNombre("");
-		} else {
-			 us = foroUI.db.Buscar_Amigo_PorNombre(nombre.getValue());
-
-		}
+	public void  Generar_Amigos(String s) {
+		Usuario[] us = foroUI.db.Buscar_Amigo_PorNombre(s);
 		System.out.println(us.length);
 		amigos.removeAllComponents();
 		for(Usuario u : us) {

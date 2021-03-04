@@ -13,29 +13,26 @@ public class Cambiar_Estado_Tema extends Cambiar_Estado_Tema_Ventana{
 	private Button _cambiarEstado;
 	private Button _selectTema;
 	public Opciones_Temas_Administrador _opciones_Temas_Administrador;
-	private Tema tema = new Tema();
-	
-	
+
 	public Cambiar_Estado_Tema(Tema t) {
-		tema = t;
-		cambiarEstado();
+		cambiarEstado(t);
 	}
 	
-	public void cambiarEstado() {
+	public void cambiarEstado(Tema t) {
 		
-		if(tema.getTipoTema() == 0)
+		if(t.getTipoTema() == 0)
 			publicoPanel.setPrimaryStyleName("well");
-		else if(tema.getTipoTema() == 1)
+		else if(t.getTipoTema() == 1)
 			privadoPanel.setPrimaryStyleName("well");
-		else if(tema.getTipoTema() == 2)
+		else if(t.getTipoTema() == 2)
 			ocultoPanel.setPrimaryStyleName("well");
-		else if(tema.getTipoTema() == 3)
+		else if(t.getTipoTema() == 3)
 			borradoPanel.setPrimaryStyleName("well");
 		
 		
 		publico.addClickListener((event) -> {
 
-				foroUI.db.Cambiar_Estado(tema,(long)0);	
+				foroUI.db.Cambiar_Estado(t,(long)0);	
 				UI c = UI.getCurrent();
 				Window w = (Window)c.getWindows().toArray()[c.getWindows().size()-1];
 				c.removeWindow(w);
@@ -49,7 +46,7 @@ public class Cambiar_Estado_Tema extends Cambiar_Estado_Tema_Ventana{
 		});
 		privado.addClickListener((event) -> {
 
-			foroUI.db.Cambiar_Estado(tema,(long)1);	
+			foroUI.db.Cambiar_Estado(t,(long)1);	
 			UI c = UI.getCurrent();
 			Window w = (Window)c.getWindows().toArray()[c.getWindows().size()-1];
 			c.removeWindow(w);
@@ -61,7 +58,7 @@ public class Cambiar_Estado_Tema extends Cambiar_Estado_Tema_Ventana{
 	});
 		oculto.addClickListener((event) -> {
 
-			foroUI.db.Cambiar_Estado(tema,(long)2);	
+			foroUI.db.Cambiar_Estado(t,(long)2);	
 			UI c = UI.getCurrent();
 			Window w = (Window)c.getWindows().toArray()[c.getWindows().size()-1];
 			c.removeWindow(w);
@@ -73,7 +70,7 @@ public class Cambiar_Estado_Tema extends Cambiar_Estado_Tema_Ventana{
 	});
 		borrado.addClickListener((event) -> {
 
-			foroUI.db.Cambiar_Estado(tema,(long)3);	
+			foroUI.db.Cambiar_Estado(t,(long)3);	
 			UI c = UI.getCurrent();
 			Window w = (Window)c.getWindows().toArray()[c.getWindows().size()-1];
 			c.removeWindow(w);

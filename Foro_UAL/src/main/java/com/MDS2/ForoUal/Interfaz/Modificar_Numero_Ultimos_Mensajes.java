@@ -46,9 +46,7 @@ public class Modificar_Numero_Ultimos_Mensajes extends Modificar_Numero_Ultimos_
 			}
 		});
 	}
-	
 	public void aceptar(int aNumeroMensajes) {
 		Ver_OtroPerfil.messageLimit = aNumeroMensajes;
 	}
-	
 }

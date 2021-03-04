@@ -1,4 +1,5 @@
 package com.MDS2.ForoUal.Backend.ORM.src;
+
 /**
  * "Visual Paradigm: DO NOT MODIFY THIS FILE!"
  * 
@@ -28,7 +29,6 @@ public class AdministradorDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final BooleanExpression baneado;
 	public final LongExpression IDusuario;
 	public final StringExpression nombreReal;
-	public final BooleanExpression esModerador;
 	public final CollectionExpression reportes_usuario;
 	public final CollectionExpression amigo_de;
 	public final CollectionExpression pertenece;
@@ -37,6 +37,7 @@ public class AdministradorDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final CollectionExpression notificacion_usuario;
 	public final CollectionExpression megusta;
 	public final CollectionExpression megusta_tema;
+	public final LongExpression idMod;
 	public final LongExpression idAdmin;
 	public final CollectionExpression es_creada;
 	
@@ -52,7 +53,6 @@ public class AdministradorDetachedCriteria extends AbstractORMDetachedCriteria {
 		baneado = new BooleanExpression("baneado", this.getDetachedCriteria());
 		IDusuario = new LongExpression("IDusuario", this.getDetachedCriteria());
 		nombreReal = new StringExpression("nombreReal", this.getDetachedCriteria());
-		esModerador = new BooleanExpression("esModerador", this.getDetachedCriteria());
 		reportes_usuario = new CollectionExpression("ORM_reportes_usuario", this.getDetachedCriteria());
 		amigo_de = new CollectionExpression("ORM_amigo_de", this.getDetachedCriteria());
 		pertenece = new CollectionExpression("ORM_pertenece", this.getDetachedCriteria());
@@ -61,6 +61,7 @@ public class AdministradorDetachedCriteria extends AbstractORMDetachedCriteria {
 		notificacion_usuario = new CollectionExpression("ORM_notificacion_usuario", this.getDetachedCriteria());
 		megusta = new CollectionExpression("ORM_megusta", this.getDetachedCriteria());
 		megusta_tema = new CollectionExpression("ORM_megusta_tema", this.getDetachedCriteria());
+		idMod = new LongExpression("idMod", this.getDetachedCriteria());
 		idAdmin = new LongExpression("idAdmin", this.getDetachedCriteria());
 		es_creada = new CollectionExpression("ORM_es_creada", this.getDetachedCriteria());
 	}
@@ -77,7 +78,6 @@ public class AdministradorDetachedCriteria extends AbstractORMDetachedCriteria {
 		baneado = new BooleanExpression("baneado", this.getDetachedCriteria());
 		IDusuario = new LongExpression("IDusuario", this.getDetachedCriteria());
 		nombreReal = new StringExpression("nombreReal", this.getDetachedCriteria());
-		esModerador = new BooleanExpression("esModerador", this.getDetachedCriteria());
 		reportes_usuario = new CollectionExpression("ORM_reportes_usuario", this.getDetachedCriteria());
 		amigo_de = new CollectionExpression("ORM_amigo_de", this.getDetachedCriteria());
 		pertenece = new CollectionExpression("ORM_pertenece", this.getDetachedCriteria());
@@ -86,6 +86,7 @@ public class AdministradorDetachedCriteria extends AbstractORMDetachedCriteria {
 		notificacion_usuario = new CollectionExpression("ORM_notificacion_usuario", this.getDetachedCriteria());
 		megusta = new CollectionExpression("ORM_megusta", this.getDetachedCriteria());
 		megusta_tema = new CollectionExpression("ORM_megusta_tema", this.getDetachedCriteria());
+		idMod = new LongExpression("idMod", this.getDetachedCriteria());
 		idAdmin = new LongExpression("idAdmin", this.getDetachedCriteria());
 		es_creada = new CollectionExpression("ORM_es_creada", this.getDetachedCriteria());
 	}

@@ -1,4 +1,5 @@
 package com.MDS2.ForoUal.Backend.ORM.src;
+
 /**
  * "Visual Paradigm: DO NOT MODIFY THIS FILE!"
  * 
@@ -28,7 +29,6 @@ public class AdministradorCriteria extends AbstractORMCriteria {
 	public final BooleanExpression baneado;
 	public final LongExpression IDusuario;
 	public final StringExpression nombreReal;
-	public final BooleanExpression esModerador;
 	public final CollectionExpression reportes_usuario;
 	public final CollectionExpression amigo_de;
 	public final CollectionExpression pertenece;
@@ -37,6 +37,7 @@ public class AdministradorCriteria extends AbstractORMCriteria {
 	public final CollectionExpression notificacion_usuario;
 	public final CollectionExpression megusta;
 	public final CollectionExpression megusta_tema;
+	public final LongExpression idMod;
 	public final LongExpression idAdmin;
 	public final CollectionExpression es_creada;
 	
@@ -52,7 +53,6 @@ public class AdministradorCriteria extends AbstractORMCriteria {
 		baneado = new BooleanExpression("baneado", this);
 		IDusuario = new LongExpression("IDusuario", this);
 		nombreReal = new StringExpression("nombreReal", this);
-		esModerador = new BooleanExpression("esModerador", this);
 		reportes_usuario = new CollectionExpression("ORM_reportes_usuario", this);
 		amigo_de = new CollectionExpression("ORM_amigo_de", this);
 		pertenece = new CollectionExpression("ORM_pertenece", this);
@@ -61,6 +61,7 @@ public class AdministradorCriteria extends AbstractORMCriteria {
 		notificacion_usuario = new CollectionExpression("ORM_notificacion_usuario", this);
 		megusta = new CollectionExpression("ORM_megusta", this);
 		megusta_tema = new CollectionExpression("ORM_megusta_tema", this);
+		idMod = new LongExpression("idMod", this);
 		idAdmin = new LongExpression("idAdmin", this);
 		es_creada = new CollectionExpression("ORM_es_creada", this);
 	}

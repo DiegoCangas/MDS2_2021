@@ -479,17 +479,6 @@
       <Index>false</Index>
       <UserTypes/>
     </Column>
-    <Column name="EsModerador">
-      <PrimaryKey>false</PrimaryKey>
-      <ForeignKey>false</ForeignKey>
-      <Type>1</Type>
-      <Length>1</Length>
-      <Nullable>false</Nullable>
-      <IDGenerator>native</IDGenerator>
-      <Unique>false</Unique>
-      <Index>false</Index>
-      <UserTypes/>
-    </Column>
   </Entity>
   <Entity name="Media_" Unlogged="false" PKClustered="0">
     <Column name="IDmedia">
@@ -556,6 +545,31 @@
       <ForeignKey>false</ForeignKey>
       <Type>27</Type>
       <Length>255</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
+  <Entity name="Moderador" Unlogged="false" PKClustered="0">
+    <Column name="IdMod">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>16</Type>
+      <Length>20</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="UsuarioID">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>Usuario.ID</ReferencedColumn>
+      <Type>16</Type>
+      <Length>20</Length>
       <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
@@ -692,6 +706,16 @@
       <UserTypes/>
     </Column>
   </Entity>
+  <ForeignKey name="FKModerador273168">
+    <ReferenceTable>Moderador</ReferenceTable>
+    <ReferencedTable>Usuario</ReferencedTable>
+    <Columns>
+      <Column>UsuarioID</Column>
+    </Columns>
+    <RefColumns>
+      <Column>ID</Column>
+    </RefColumns>
+  </ForeignKey>
   <ForeignKey name="FKAdministra741035">
     <ReferenceTable>Administrador</ReferenceTable>
     <ReferencedTable>Usuario</ReferencedTable>

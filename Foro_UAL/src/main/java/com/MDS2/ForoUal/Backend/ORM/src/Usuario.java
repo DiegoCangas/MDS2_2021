@@ -1,4 +1,3 @@
-package com.MDS2.ForoUal.Backend.ORM.src;
 /**
  * "Visual Paradigm: DO NOT MODIFY THIS FILE!"
  * 
@@ -12,6 +11,8 @@ package com.MDS2.ForoUal.Backend.ORM.src;
  * Licensee: PABLO DANIEL(University of Almeria)
  * License Type: Academic
  */
+package com.MDS2.ForoUal.Backend.ORM.src;
+
 import java.io.Serializable;
 import javax.persistence.*;
 @Entity
@@ -91,9 +92,6 @@ public class Usuario implements Serializable {
 	
 	@Column(name="`NombreReal`", nullable=false, length=255)	
 	private String nombreReal;
-	
-	@Column(name="`EsModerador`", nullable=false, length=1)	
-	private boolean esModerador;
 	
 	@OneToMany(mappedBy="usuario_reporte", targetEntity=Reporte.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
@@ -222,14 +220,6 @@ public class Usuario implements Serializable {
 	
 	public String getNombreReal() {
 		return nombreReal;
-	}
-	
-	public void setEsModerador(boolean value) {
-		this.esModerador = value;
-	}
-	
-	public boolean getEsModerador() {
-		return esModerador;
 	}
 	
 	private void setORM_Reportes_usuario(java.util.Set value) {

@@ -170,13 +170,17 @@ public class BD_Usuarios {
 
 		try {
 			Usuario u = UsuarioDAO.loadUsuarioByQuery(String.format("Email = '%s' AND Contrasenia = '%s'",aNombre,aContrasenia), "Email");
-			if(u == null) return false;
 			foroUI.user = u;
 			
 			//Privilegios
-			if(u.getEsModerador())
-				foroUI.privilegios = foroUI.Privilegios.moderador;
-
+			try {
+			Moderador mod = ModeradorDAO.getModeradorByORMID(u.getID());
+			if(mod != null) foroUI.privilegios = foroUI.Privilegios.moderador;
+			}
+			catch (Exception e)
+			{
+				
+			}
 			
 			try {
 			Administrador ad = AdministradorDAO.getAdministradorByORMID(u.getID());
@@ -184,6 +188,7 @@ public class BD_Usuarios {
 			}
 			catch (Exception e)
 			{
+				
 			}
 			
 			//Visualizar
@@ -192,7 +197,7 @@ public class BD_Usuarios {
 			System.out.println("Login as: " + foroUI.privilegios);
 			return u != null;
 			
-		} catch (Exception e) {
+		} catch (PersistentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return false;
@@ -240,17 +245,6 @@ public class BD_Usuarios {
 		try {
 			UsuarioDAO.save(u);
 			return true;
-		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return false;
-		}
-	}
-	public boolean EsModerador(Long aId) {
-		Usuario u;
-		try {
-			u = UsuarioDAO.getUsuarioByORMID(aId);
-			return u.getEsModerador();
 		} catch (PersistentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

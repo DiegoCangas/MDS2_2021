@@ -1,4 +1,3 @@
-package com.MDS2.ForoUal.Backend.ORM.src;
 /**
  * "Visual Paradigm: DO NOT MODIFY THIS FILE!"
  * 
@@ -12,6 +11,8 @@ package com.MDS2.ForoUal.Backend.ORM.src;
  * Licensee: PABLO DANIEL(University of Almeria)
  * License Type: Academic
  */
+package com.MDS2.ForoUal.Backend.ORM.src;
+
 import org.orm.*;
 import org.hibernate.Query;
 import org.hibernate.LockMode;
@@ -321,8 +322,8 @@ public class UsuarioDAO {
 	}
 	
 	public static boolean deleteAndDissociate(Usuario usuario)throws PersistentException {
-		if (usuario instanceof Administrador) {
-			return AdministradorDAO.deleteAndDissociate((Administrador) usuario);
+		if (usuario instanceof Moderador) {
+			return ModeradorDAO.deleteAndDissociate((Moderador) usuario);
 		}
 		
 		try {
@@ -367,8 +368,8 @@ public class UsuarioDAO {
 	}
 	
 	public static boolean deleteAndDissociate(Usuario usuario, org.orm.PersistentSession session)throws PersistentException {
-		if (usuario instanceof Administrador) {
-			return AdministradorDAO.deleteAndDissociate((Administrador) usuario, session);
+		if (usuario instanceof Moderador) {
+			return ModeradorDAO.deleteAndDissociate((Moderador) usuario, session);
 		}
 		
 		try {

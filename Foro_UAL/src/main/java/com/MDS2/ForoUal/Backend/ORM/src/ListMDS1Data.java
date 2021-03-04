@@ -1,8 +1,9 @@
-package com.MDS2.ForoUal.Backend.ORM.src;
 /**
  * Licensee: PABLO DANIEL(University of Almeria)
  * License Type: Academic
  */
+package com.MDS2.ForoUal.Backend.ORM.src;
+
 import org.orm.*;
 public class ListMDS1Data {
 	private static final int ROW_COUNT = 100;
@@ -48,6 +49,22 @@ public class ListMDS1Data {
 		}
 		System.out.println(length + " record(s) retrieved.");
 		
+		System.out.println("Listing Moderador...");
+		Moderador[] moderadors = ModeradorDAO.listModeradorByQuery(null, null);
+		length = Math.min(moderadors.length, ROW_COUNT);
+		for (int i = 0; i < length; i++) {
+			System.out.println(moderadors[i]);
+		}
+		System.out.println(length + " record(s) retrieved.");
+		
+		System.out.println("Listing Administrador...");
+		Administrador[] administradors = AdministradorDAO.listAdministradorByQuery(null, null);
+		length = Math.min(administradors.length, ROW_COUNT);
+		for (int i = 0; i < length; i++) {
+			System.out.println(administradors[i]);
+		}
+		System.out.println(length + " record(s) retrieved.");
+		
 		System.out.println("Listing Media_...");
 		Media_[] media_s = Media_DAO.listMedia_ByQuery(null, null);
 		length = Math.min(media_s.length, ROW_COUNT);
@@ -61,14 +78,6 @@ public class ListMDS1Data {
 		length = Math.min(notificacions.length, ROW_COUNT);
 		for (int i = 0; i < length; i++) {
 			System.out.println(notificacions[i]);
-		}
-		System.out.println(length + " record(s) retrieved.");
-		
-		System.out.println("Listing Administrador...");
-		Administrador[] administradors = AdministradorDAO.listAdministradorByQuery(null, null);
-		length = Math.min(administradors.length, ROW_COUNT);
-		for (int i = 0; i < length; i++) {
-			System.out.println(administradors[i]);
 		}
 		System.out.println(length + " record(s) retrieved.");
 		
@@ -135,6 +144,30 @@ public class ListMDS1Data {
 		}
 		System.out.println(length + " Usuario record(s) retrieved."); 
 		
+		System.out.println("Listing Moderador by Criteria...");
+		ModeradorCriteria moderadorCriteria = new ModeradorCriteria();
+		// Please uncomment the follow line and fill in parameter(s) 
+		//moderadorCriteria.ID.eq();
+		moderadorCriteria.setMaxResults(ROW_COUNT);
+		Moderador[] moderadors = moderadorCriteria.listModerador();
+		length =moderadors== null ? 0 : Math.min(moderadors.length, ROW_COUNT); 
+		for (int i = 0; i < length; i++) {
+			 System.out.println(moderadors[i]);
+		}
+		System.out.println(length + " Moderador record(s) retrieved."); 
+		
+		System.out.println("Listing Administrador by Criteria...");
+		AdministradorCriteria administradorCriteria = new AdministradorCriteria();
+		// Please uncomment the follow line and fill in parameter(s) 
+		//administradorCriteria.ID.eq();
+		administradorCriteria.setMaxResults(ROW_COUNT);
+		Administrador[] administradors = administradorCriteria.listAdministrador();
+		length =administradors== null ? 0 : Math.min(administradors.length, ROW_COUNT); 
+		for (int i = 0; i < length; i++) {
+			 System.out.println(administradors[i]);
+		}
+		System.out.println(length + " Administrador record(s) retrieved."); 
+		
 		System.out.println("Listing Media_ by Criteria...");
 		Media_Criteria media_Criteria = new Media_Criteria();
 		// Please uncomment the follow line and fill in parameter(s) 
@@ -158,18 +191,6 @@ public class ListMDS1Data {
 			 System.out.println(notificacions[i]);
 		}
 		System.out.println(length + " Notificacion record(s) retrieved."); 
-		
-		System.out.println("Listing Administrador by Criteria...");
-		AdministradorCriteria administradorCriteria = new AdministradorCriteria();
-		// Please uncomment the follow line and fill in parameter(s) 
-		//administradorCriteria.ID.eq();
-		administradorCriteria.setMaxResults(ROW_COUNT);
-		Administrador[] administradors = administradorCriteria.listAdministrador();
-		length =administradors== null ? 0 : Math.min(administradors.length, ROW_COUNT); 
-		for (int i = 0; i < length; i++) {
-			 System.out.println(administradors[i]);
-		}
-		System.out.println(length + " Administrador record(s) retrieved."); 
 		
 	}
 	
