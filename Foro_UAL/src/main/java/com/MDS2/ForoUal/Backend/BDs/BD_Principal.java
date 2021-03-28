@@ -1,12 +1,5 @@
 package com.MDS2.ForoUal.Backend.BDs;
 
-import java.util.ArrayList;
-
-import javax.print.attribute.standard.Media;
-
-import com.MDS2.ForoUal.Backend.Interfaces_BD.i_Administrador;
-import com.MDS2.ForoUal.Backend.Interfaces_BD.i_Moderador;
-import com.MDS2.ForoUal.Backend.Interfaces_BD.i_Usuario_No_Registrado;
 import com.MDS2.ForoUal.Backend.Interfaces_BD.i_Usuario_Registrado;
 import com.MDS2.ForoUal.Backend.ORM.src.Media_;
 import com.MDS2.ForoUal.Backend.ORM.src.Mensaje;
@@ -15,6 +8,7 @@ import com.MDS2.ForoUal.Backend.ORM.src.Reporte;
 import com.MDS2.ForoUal.Backend.ORM.src.Seccion;
 import com.MDS2.ForoUal.Backend.ORM.src.Tema;
 import com.MDS2.ForoUal.Backend.ORM.src.Usuario;
+import com.MDS2.ForoUal.Backend.BDs.BD_Medias;
 
 import antlr.collections.List;
 

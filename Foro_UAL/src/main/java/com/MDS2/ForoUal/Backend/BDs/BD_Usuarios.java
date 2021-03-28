@@ -1,10 +1,5 @@
 package com.MDS2.ForoUal.Backend.BDs;
 
-import java.io.UnsupportedEncodingException;
-import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
 import java.util.Vector;
 
 import com.MDS2.ForoUal.foroUI;
@@ -12,8 +7,6 @@ import com.MDS2.ForoUal.Backend.ORM.src.*;
 import com.MDS2.ForoUal.Interfaz.Ver_OtroPerfil;
 
 import org.orm.PersistentException;
-
-import com.mysql.cj.x.protobuf.MysqlxCrud.Order;
 
 import antlr.collections.List;
 

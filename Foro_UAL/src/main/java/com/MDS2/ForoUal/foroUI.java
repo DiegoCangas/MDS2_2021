@@ -11,11 +11,7 @@ import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
-import com.vaadin.ui.Button;
-import com.vaadin.ui.Label;
-import com.vaadin.ui.TextField;
 import com.vaadin.ui.UI;
-import com.vaadin.ui.VerticalLayout;
 
 /**
  * This UI is the application entry point. A UI may either represent a browser window 
@@ -26,6 +22,11 @@ import com.vaadin.ui.VerticalLayout;
  */
 @Theme("foroTheme")
 public class foroUI extends UI {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	static public BD_Principal db = new BD_Principal();
 	static public foroUI singleton;
 	public static Usuario user;
@@ -70,6 +71,8 @@ public class foroUI extends UI {
     @WebServlet(urlPatterns = "/*", name = "foroUIServlet", asyncSupported = true)
     @VaadinServletConfiguration(ui = foroUI.class, productionMode = false)
     public static class foroUIServlet extends VaadinServlet {
+
+	private static final long serialVersionUID = -1901962990546517871L;
     }
     public void VisualizarSeccion(Seccion s) {
     	if(user == null)

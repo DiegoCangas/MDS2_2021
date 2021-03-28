@@ -5,7 +5,6 @@ import java.util.Vector;
 import org.orm.PersistentException;
 
 import com.MDS2.ForoUal.Backend.ORM.src.Media_;
-import com.MDS2.ForoUal.Backend.ORM.src.Media_Criteria;
 import com.MDS2.ForoUal.Backend.ORM.src.Media_DAO;
 import com.MDS2.ForoUal.Backend.ORM.src.MensajeDAO;
 

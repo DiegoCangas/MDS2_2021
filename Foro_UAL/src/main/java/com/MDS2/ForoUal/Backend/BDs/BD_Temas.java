@@ -7,8 +7,6 @@ import java.util.Vector;
 import org.orm.PersistentException;
 
 import com.MDS2.ForoUal.foroUI;
-import com.MDS2.ForoUal.Backend.ORM.src.Mensaje;
-import com.MDS2.ForoUal.Backend.ORM.src.MensajeDAO;
 import com.MDS2.ForoUal.Backend.ORM.src.Tema;
 import com.MDS2.ForoUal.Backend.ORM.src.TemaDAO;
 import com.MDS2.ForoUal.Interfaz.Visualizar_Temas_Registrado;
