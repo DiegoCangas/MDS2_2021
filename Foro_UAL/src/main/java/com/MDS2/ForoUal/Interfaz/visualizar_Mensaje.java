@@ -21,7 +21,9 @@ public class visualizar_Mensaje extends Visualizar_Mensaje_Ventana{
 	public visualizar_Mensaje(Mensaje m) {
 		mensaje = m;
 		texto.setValue(m.getTexto().replaceAll("<Ocultado>", "").replaceAll("<Borrado>", ""));
+		
 		respuestaA.setVisible(!m.respuesta_de.isEmpty());
+		
 		if(!m.respuesta_de.isEmpty() && m.respuesta_de.toArray()[0] != null)
 			respuestaA.setCaption(m.respuesta_de.toArray()[0].getTexto().replaceAll("<Ocultado>", "").replaceAll("<Borrado>", ""));
 		
@@ -34,25 +36,35 @@ public class visualizar_Mensaje extends Visualizar_Mensaje_Ventana{
 			}
 		}
 		
+		//Muestra un mensaje si el mensaje esta oculto o borrado
+		if (m.getTexto().contains("<Borrado>")) {
+			estado.setValue("Mensaje Borrado");
+		}
+		else if (m.getTexto().contains("<Ocultado>")) {
+			estado.setValue("Mensaje Oculto");
+		}
+		else
+			mensajeBorParent.setVisible(false);
 		
+		//Gestiona los archivos multimedia del mensaje
 		if(m.media_mensaje.size() > 0) {
-		if(foroUI.db.Tipo_Media(m.media_mensaje.toArray()[0].getUrl()) != 1) {
+			if(foroUI.db.Tipo_Media(m.media_mensaje.toArray()[0].getUrl()) != 1) {
 			
-			Media_[] im = m.media_mensaje.toArray();
+				Media_[] im = m.media_mensaje.toArray();
 			
-			if(im.length > 0) imagen1.setSource(new ExternalResource(im[0].getUrl()));
-			if(im.length > 1) imagen2.setSource(new ExternalResource(im[1].getUrl()));
-			if(im.length > 2) imagen3.setSource(new ExternalResource(im[2].getUrl()));	
+				if(im.length > 0) imagen1.setSource(new ExternalResource(im[0].getUrl()));
+				if(im.length > 1) imagen2.setSource(new ExternalResource(im[1].getUrl()));
+				if(im.length > 2) imagen3.setSource(new ExternalResource(im[2].getUrl()));	
 			
-			imagen1.setVisible(im.length>0);
-			imagen2.setVisible(im.length>1);
-			imagen3.setVisible(im.length>2);
-		}
+				imagen1.setVisible(im.length>0);
+				imagen2.setVisible(im.length>1);
+				imagen3.setVisible(im.length>2);
+			}
 		
-		else { 
-			video.setSource(new ExternalResource(m.media_mensaje.toArray()[0].getUrl()));
-			video.setVisible(true);
-		}
+			else { 
+				video.setSource(new ExternalResource(m.media_mensaje.toArray()[0].getUrl()));
+				video.setVisible(true);
+			}
 		}
 		
 		creadorYFecha.setValue(m.getEnvia_mensaje().getNombreUsuario()+" el "+m.getFechaCreacion());
