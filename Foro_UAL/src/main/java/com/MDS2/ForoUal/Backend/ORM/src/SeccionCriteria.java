@@ -49,15 +49,15 @@ public class SeccionCriteria extends AbstractORMCriteria {
 	}
 	
 	public SeccionCriteria() throws PersistentException {
-		this(MDS1PersistentManager.instance().getSession());
+		this(com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession());
 	}
 	
 	public AdministradorCriteria createCreaCriteria() {
 		return new AdministradorCriteria(createCriteria("crea"));
 	}
 	
-	public TemaCriteria createTemasCriteria() {
-		return new TemaCriteria(createCriteria("ORM_temas"));
+	public com.MDS2.ForoUal.Backend.ORM.src.TemaCriteria createTemasCriteria() {
+		return new com.MDS2.ForoUal.Backend.ORM.src.TemaCriteria(createCriteria("ORM_temas"));
 	}
 	
 	public Seccion uniqueSeccion() {

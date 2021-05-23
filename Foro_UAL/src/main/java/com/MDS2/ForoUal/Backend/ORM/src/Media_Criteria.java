@@ -37,7 +37,7 @@ public class Media_Criteria extends AbstractORMCriteria {
 	}
 	
 	public Media_Criteria() throws PersistentException {
-		this(MDS1PersistentManager.instance().getSession());
+		this(com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession());
 	}
 	
 	public MensajeCriteria createMensaje_mediaCriteria() {

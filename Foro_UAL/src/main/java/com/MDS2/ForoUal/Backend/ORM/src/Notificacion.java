@@ -23,8 +23,8 @@ public class Notificacion implements Serializable {
 	}
 	
 	private void this_setOwner(Object owner, int key) {
-		if (key == ORMConstants.KEY_NOTIFICACION_USUARIO_TICKET) {
-			this.usuario_ticket = (Usuario) owner;
+		if (key == com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_NOTIFICACION_USUARIO_TICKET) {
+			this.usuario_ticket = (com.MDS2.ForoUal.Backend.ORM.src.Usuario) owner;
 		}
 	}
 	
@@ -38,15 +38,15 @@ public class Notificacion implements Serializable {
 	
 	@Column(name="`Idnotificacion`", nullable=false, length=20)	
 	@Id	
-	@GeneratedValue(generator="NOTIFICACION_IDNOTIFICACION_GENERATOR")	
-	@org.hibernate.annotations.GenericGenerator(name="NOTIFICACION_IDNOTIFICACION_GENERATOR", strategy="native")	
+	@GeneratedValue(generator="COM_MDS2_FOROUAL_BACKEND_ORM_SRC_NOTIFICACION_IDNOTIFICACION_GENERATOR")	
+	@org.hibernate.annotations.GenericGenerator(name="COM_MDS2_FOROUAL_BACKEND_ORM_SRC_NOTIFICACION_IDNOTIFICACION_GENERATOR", strategy="native")	
 	private Long idnotificacion;
 	
-	@ManyToOne(targetEntity=Usuario.class, fetch=FetchType.LAZY)	
+	@ManyToOne(targetEntity=com.MDS2.ForoUal.Backend.ORM.src.Usuario.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
 	@JoinColumns(value={ @JoinColumn(name="`UsuarioID`", referencedColumnName="`ID`") }, foreignKey=@ForeignKey(name="FKNotificaci72175"))	
 	@org.hibernate.annotations.LazyToOne(value=org.hibernate.annotations.LazyToOneOption.NO_PROXY)	
-	private Usuario usuario_ticket;
+	private com.MDS2.ForoUal.Backend.ORM.src.Usuario usuario_ticket;
 	
 	@Column(name="`Mensaje`", nullable=false, length=255)	
 	private String mensaje;
@@ -75,7 +75,7 @@ public class Notificacion implements Serializable {
 		return mensaje;
 	}
 	
-	public void setUsuario_ticket(Usuario value) {
+	public void setUsuario_ticket(com.MDS2.ForoUal.Backend.ORM.src.Usuario value) {
 		if (usuario_ticket != null) {
 			usuario_ticket.notificacion_usuario.remove(this);
 		}
@@ -84,18 +84,18 @@ public class Notificacion implements Serializable {
 		}
 	}
 	
-	public Usuario getUsuario_ticket() {
+	public com.MDS2.ForoUal.Backend.ORM.src.Usuario getUsuario_ticket() {
 		return usuario_ticket;
 	}
 	
 	/**
 	 * This method is for internal use only.
 	 */
-	public void setORM_Usuario_ticket(Usuario value) {
+	public void setORM_Usuario_ticket(com.MDS2.ForoUal.Backend.ORM.src.Usuario value) {
 		this.usuario_ticket = value;
 	}
 	
-	private Usuario getORM_Usuario_ticket() {
+	private com.MDS2.ForoUal.Backend.ORM.src.Usuario getORM_Usuario_ticket() {
 		return usuario_ticket;
 	}
 	

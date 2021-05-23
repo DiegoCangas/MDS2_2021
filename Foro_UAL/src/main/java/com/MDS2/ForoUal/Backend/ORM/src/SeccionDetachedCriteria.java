@@ -31,7 +31,7 @@ public class SeccionDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final CollectionExpression temas;
 	
 	public SeccionDetachedCriteria() {
-		super(Seccion.class, SeccionCriteria.class);
+		super(com.MDS2.ForoUal.Backend.ORM.src.Seccion.class, com.MDS2.ForoUal.Backend.ORM.src.SeccionCriteria.class);
 		ID = new IntegerExpression("ID", this.getDetachedCriteria());
 		creaId = new LongExpression("crea.", this.getDetachedCriteria());
 		crea = new AssociationExpression("crea", this.getDetachedCriteria());
@@ -45,7 +45,7 @@ public class SeccionDetachedCriteria extends AbstractORMDetachedCriteria {
 	}
 	
 	public SeccionDetachedCriteria(DetachedCriteria aDetachedCriteria) {
-		super(aDetachedCriteria, SeccionCriteria.class);
+		super(aDetachedCriteria, com.MDS2.ForoUal.Backend.ORM.src.SeccionCriteria.class);
 		ID = new IntegerExpression("ID", this.getDetachedCriteria());
 		creaId = new LongExpression("crea.", this.getDetachedCriteria());
 		crea = new AssociationExpression("crea", this.getDetachedCriteria());
@@ -58,8 +58,8 @@ public class SeccionDetachedCriteria extends AbstractORMDetachedCriteria {
 		temas = new CollectionExpression("ORM_temas", this.getDetachedCriteria());
 	}
 	
-	public AdministradorDetachedCriteria createCreaCriteria() {
-		return new AdministradorDetachedCriteria(createCriteria("crea"));
+	public com.MDS2.ForoUal.Backend.ORM.src.AdministradorDetachedCriteria createCreaCriteria() {
+		return new com.MDS2.ForoUal.Backend.ORM.src.AdministradorDetachedCriteria(createCriteria("crea"));
 	}
 	
 	public TemaDetachedCriteria createTemasCriteria() {

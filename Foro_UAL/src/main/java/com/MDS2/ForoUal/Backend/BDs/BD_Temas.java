@@ -9,23 +9,26 @@ import org.orm.PersistentException;
 import com.MDS2.ForoUal.foroUI;
 import com.MDS2.ForoUal.Backend.ORM.src.Tema;
 import com.MDS2.ForoUal.Backend.ORM.src.TemaDAO;
+import com.MDS2.ForoUal.Backend.ORM.src.Usuario;
+import com.MDS2.ForoUal.Backend.ORM.src.UsuarioDAO;
 import com.MDS2.ForoUal.Interfaz.Visualizar_Temas_Registrado;
 
 public class BD_Temas {
 	public BD_Principal _bd_main_temas;
-	public Vector<TemaDAO> _unnamed_Temas_ = new Vector<TemaDAO>();
+	public Vector<Tema> _unnamed_Tema_ = new Vector<Tema>();
 
-	public Tema Crear_Tema(String aTitulo, String aSubtitulo) {
+	public Tema Crear_Tema(String aATitulo, String aASubtitulo, Long aIdUsuario) {
 		Tema t = TemaDAO.createTema();
-		t.setTitulo(aTitulo);
-		t.setSubtitulo(aSubtitulo);
-		t.setCrea_tema(foroUI.user);
+		t.setTitulo(aATitulo);
+		t.setSubtitulo(aASubtitulo);
 		t.setContiene(Visualizar_Temas_Registrado.sec);
 		t.setFechaCreacion(Time.from(Instant.now()));
 		t.setNumeroMeGusta(0);
 		t.setTipoTema(0);
 		t.setNombreUsuario(foroUI.user.getNombreUsuario());
 		try {
+			Usuario user = UsuarioDAO.getUsuarioByORMID(aIdUsuario);
+			t.setCrea_tema(user);
 			TemaDAO.save(t);
 			return t;
 		} catch (PersistentException e) {
@@ -35,15 +38,16 @@ public class BD_Temas {
 		}
 	}
 
-	public void Cambiar_Estado(Tema t, Long aId) {
-		t.setTipoTema(aId.intValue());
+	public void Cambiar_Estado(Long aId, Long estado) {
 		try {
+		Tema t = TemaDAO.getTemaByORMID(aId.intValue());
+		t.setTipoTema(aId.intValue());
+		
 			TemaDAO.save(t);
 		} catch (PersistentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 	}
 
 	public Tema[] Cargar_Temas_Administrador(String aSeccion) {
@@ -102,24 +106,30 @@ public class BD_Temas {
 		return new Tema[] {};
 	}
 
-	public void Cerrar_Tema(Long aId) throws PersistentException {
-		Tema t = TemaDAO.getTemaByORMID(aId.intValue());
+	public void Cerrar_Tema(Long aId) {
+		try {
+			Tema t = TemaDAO.getTemaByORMID(aId.intValue());
 		
-		if (t == null) return;
+			if (t == null) return;
 		
-		t.setTipoTema(2);
+			t.setTipoTema(2);
 		
-		TemaDAO.save(t);
+			TemaDAO.save(t);
+		}
+		catch (PersistentException e) {
+			e.printStackTrace();
+		}
 	}
 
-	public int Dar_Megusta_Tema(Long aId) {
+	public int Dar_Megusta_Tema(Long aId, Long aIdUsuario) {
 		Tema m = null;
 		try {
 			m = TemaDAO.loadTemaByORMID(aId.intValue());
-			
-			if(!m.gustaTema.contains(foroUI.user))
-				m.gustaTema.add(foroUI.user);
-			else m.gustaTema.remove(foroUI.user);
+			Usuario user = UsuarioDAO.getUsuarioByORMID(aIdUsuario);
+
+			if(!m.gustaTema.contains(user))
+				m.gustaTema.add(user);
+			else m.gustaTema.remove(user);
 			m.setNumeroMeGusta(m.gustaTema.size());
 			try {
 				TemaDAO.save(m);
@@ -136,14 +146,19 @@ public class BD_Temas {
 		return -1;
 	}
 
-	public void Ocultar_Tema(Long aId) throws PersistentException {
-		Tema t = TemaDAO.getTemaByORMID(aId.intValue());
+	public void Ocultar_Tema(Long aId) {
+		try {
+			Tema t = TemaDAO.getTemaByORMID(aId.intValue());
 		
-		if (t == null) return;
+			if (t == null) return;
 		
-		t.setTipoTema(1);
+			t.setTipoTema(1);
 		
-		TemaDAO.save(t);
+			TemaDAO.save(t);
+		}
+		catch (PersistentException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public Tema[] Ordenar_Temas(Tema[] aTemas, String aOrden) {

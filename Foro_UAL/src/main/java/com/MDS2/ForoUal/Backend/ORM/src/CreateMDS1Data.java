@@ -6,7 +6,6 @@ package com.MDS2.ForoUal.Backend.ORM.src;
 
 import org.orm.*;
 
-import com.MDS2.ForoUal.Backend.BDs.PasswordUtils;
 public class CreateMDS1Data {
 	public void createTestData() throws PersistentException {
 		PersistentTransaction t = MDS1PersistentManager.instance().getSession().beginTransaction();
@@ -33,7 +32,7 @@ public class CreateMDS1Data {
 			administrador.setFotoPerfil("https://thumbs.dreamstime.com/b/inicio-de-sesi%C3%B3n-administrador-en-el-icono-del-port%C3%A1til-vector-stock-166205404.jpg");
 			administrador.setNombreUsuario("Administrador");
 			administrador.setEmail("Administrador");
-			administrador.setContrasenia(PasswordUtils.generateSecurePassword("Administrador", "EqdmPh53c9x33EygXpTpcoJvc4VXLK"));
+			administrador.setContrasenia(com.MDS2.ForoUal.Backend.Utils.PasswordUtils.generateSecurePassword("Administrador", "EqdmPh53c9x33EygXpTpcoJvc4VXLK"));
 			administrador.setNombreReal("Administrador");
 			administrador.setDescripcion("El administrador del sistema");
 			// Initialize the properties of the persistent object here

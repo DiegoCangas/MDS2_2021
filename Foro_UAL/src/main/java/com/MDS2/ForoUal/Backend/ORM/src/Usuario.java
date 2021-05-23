@@ -24,28 +24,28 @@ public class Usuario implements Serializable {
 	}
 	
 	private java.util.Set this_getSet (int key) {
-		if (key == ORMConstants.KEY_USUARIO_REPORTES_USUARIO) {
+		if (key == com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_USUARIO_REPORTES_USUARIO) {
 			return ORM_reportes_usuario;
 		}
-		else if (key == ORMConstants.KEY_USUARIO_AMIGO_DE) {
+		else if (key == com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_USUARIO_AMIGO_DE) {
 			return ORM_amigo_de;
 		}
-		else if (key == ORMConstants.KEY_USUARIO_PERTENECE) {
+		else if (key == com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_USUARIO_PERTENECE) {
 			return ORM_pertenece;
 		}
-		else if (key == ORMConstants.KEY_USUARIO_USUARIOS) {
+		else if (key == com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_USUARIO_USUARIOS) {
 			return ORM_usuarios;
 		}
-		else if (key == ORMConstants.KEY_USUARIO_ES_CREADO) {
+		else if (key == com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_USUARIO_ES_CREADO) {
 			return ORM_es_creado;
 		}
-		else if (key == ORMConstants.KEY_USUARIO_NOTIFICACION_USUARIO) {
+		else if (key == com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_USUARIO_NOTIFICACION_USUARIO) {
 			return ORM_notificacion_usuario;
 		}
-		else if (key == ORMConstants.KEY_USUARIO_MEGUSTA) {
+		else if (key == com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_USUARIO_MEGUSTA) {
 			return ORM_megusta;
 		}
-		else if (key == ORMConstants.KEY_USUARIO_MEGUSTA_TEMA) {
+		else if (key == com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_USUARIO_MEGUSTA_TEMA) {
 			return ORM_megusta_tema;
 		}
 		
@@ -62,8 +62,8 @@ public class Usuario implements Serializable {
 	
 	@Column(name="`ID`", nullable=false, length=20)	
 	@Id	
-	@GeneratedValue(generator="USUARIO_ID_GENERATOR")	
-	@org.hibernate.annotations.GenericGenerator(name="USUARIO_ID_GENERATOR", strategy="native")	
+	@GeneratedValue(generator="COM_MDS2_FOROUAL_BACKEND_ORM_SRC_USUARIO_ID_GENERATOR")	
+	@org.hibernate.annotations.GenericGenerator(name="COM_MDS2_FOROUAL_BACKEND_ORM_SRC_USUARIO_ID_GENERATOR", strategy="native")	
 	private long ID;
 	
 	@Column(name="`Email`", nullable=false, length=255)	
@@ -93,43 +93,46 @@ public class Usuario implements Serializable {
 	@Column(name="`NombreReal`", nullable=false, length=255)	
 	private String nombreReal;
 	
-	@OneToMany(mappedBy="usuario_reporte", targetEntity=Reporte.class)	
+	@Column(name="`EsModerador`", nullable=false, length=1)	
+	private boolean esModerador;
+	
+	@OneToMany(mappedBy="usuario_reporte", targetEntity=com.MDS2.ForoUal.Backend.ORM.src.Reporte.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_reportes_usuario = new java.util.HashSet();
 	
-	@ManyToMany(targetEntity=Usuario.class)	
+	@ManyToMany(targetEntity=com.MDS2.ForoUal.Backend.ORM.src.Usuario.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
 	@JoinTable(name="`Usuario_Usuario`", joinColumns={ @JoinColumn(name="`UsuarioID2`") }, inverseJoinColumns={ @JoinColumn(name="`UsuarioID`") })	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_amigo_de = new java.util.HashSet();
 	
-	@OneToMany(mappedBy="envia_mensaje", targetEntity=Mensaje.class)	
+	@OneToMany(mappedBy="envia_mensaje", targetEntity=com.MDS2.ForoUal.Backend.ORM.src.Mensaje.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_pertenece = new java.util.HashSet();
 	
-	@ManyToMany(mappedBy="ORM_amigo_de", targetEntity=Usuario.class)	
+	@ManyToMany(mappedBy="ORM_amigo_de", targetEntity=com.MDS2.ForoUal.Backend.ORM.src.Usuario.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_usuarios = new java.util.HashSet();
 	
-	@OneToMany(mappedBy="crea_tema", targetEntity=Tema.class)	
+	@OneToMany(mappedBy="crea_tema", targetEntity=com.MDS2.ForoUal.Backend.ORM.src.Tema.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_es_creado = new java.util.HashSet();
 	
-	@OneToMany(mappedBy="usuario_ticket", targetEntity=Notificacion.class)	
+	@OneToMany(mappedBy="usuario_ticket", targetEntity=com.MDS2.ForoUal.Backend.ORM.src.Notificacion.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_notificacion_usuario = new java.util.HashSet();
 	
-	@ManyToMany(mappedBy="ORM_gustaMensaje", targetEntity=Mensaje.class)	
+	@ManyToMany(mappedBy="ORM_gustaMensaje", targetEntity=com.MDS2.ForoUal.Backend.ORM.src.Mensaje.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_megusta = new java.util.HashSet();
 	
-	@ManyToMany(mappedBy="ORM_gustaTema", targetEntity=Tema.class)	
+	@ManyToMany(mappedBy="ORM_gustaTema", targetEntity=com.MDS2.ForoUal.Backend.ORM.src.Tema.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_megusta_tema = new java.util.HashSet();
@@ -222,6 +225,14 @@ public class Usuario implements Serializable {
 		return nombreReal;
 	}
 	
+	public void setEsModerador(boolean value) {
+		this.esModerador = value;
+	}
+	
+	public boolean getEsModerador() {
+		return esModerador;
+	}
+	
 	private void setORM_Reportes_usuario(java.util.Set value) {
 		this.ORM_reportes_usuario = value;
 	}
@@ -231,7 +242,7 @@ public class Usuario implements Serializable {
 	}
 	
 	@Transient	
-	public final ReporteSetCollection reportes_usuario = new ReporteSetCollection(this, _ormAdapter, ORMConstants.KEY_USUARIO_REPORTES_USUARIO, ORMConstants.KEY_REPORTE_USUARIO_REPORTE, ORMConstants.KEY_MUL_ONE_TO_MANY);
+	public final com.MDS2.ForoUal.Backend.ORM.src.ReporteSetCollection reportes_usuario = new com.MDS2.ForoUal.Backend.ORM.src.ReporteSetCollection(this, _ormAdapter, com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_USUARIO_REPORTES_USUARIO, com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_REPORTE_USUARIO_REPORTE, com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
 	private void setORM_Amigo_de(java.util.Set value) {
 		this.ORM_amigo_de = value;
@@ -242,7 +253,7 @@ public class Usuario implements Serializable {
 	}
 	
 	@Transient	
-	public final UsuarioSetCollection amigo_de = new UsuarioSetCollection(this, _ormAdapter, ORMConstants.KEY_USUARIO_AMIGO_DE, ORMConstants.KEY_USUARIO_USUARIOS, ORMConstants.KEY_MUL_MANY_TO_MANY);
+	public final com.MDS2.ForoUal.Backend.ORM.src.UsuarioSetCollection amigo_de = new com.MDS2.ForoUal.Backend.ORM.src.UsuarioSetCollection(this, _ormAdapter, com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_USUARIO_AMIGO_DE, com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_USUARIO_USUARIOS, com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_MUL_MANY_TO_MANY);
 	
 	private void setORM_Pertenece(java.util.Set value) {
 		this.ORM_pertenece = value;
@@ -253,7 +264,7 @@ public class Usuario implements Serializable {
 	}
 	
 	@Transient	
-	public final MensajeSetCollection pertenece = new MensajeSetCollection(this, _ormAdapter, ORMConstants.KEY_USUARIO_PERTENECE, ORMConstants.KEY_MENSAJE_ENVIA_MENSAJE, ORMConstants.KEY_MUL_ONE_TO_MANY);
+	public final com.MDS2.ForoUal.Backend.ORM.src.MensajeSetCollection pertenece = new com.MDS2.ForoUal.Backend.ORM.src.MensajeSetCollection(this, _ormAdapter, com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_USUARIO_PERTENECE, com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_MENSAJE_ENVIA_MENSAJE, com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
 	private void setORM_Usuarios(java.util.Set value) {
 		this.ORM_usuarios = value;
@@ -264,7 +275,7 @@ public class Usuario implements Serializable {
 	}
 	
 	@Transient	
-	public final UsuarioSetCollection usuarios = new UsuarioSetCollection(this, _ormAdapter, ORMConstants.KEY_USUARIO_USUARIOS, ORMConstants.KEY_USUARIO_AMIGO_DE, ORMConstants.KEY_MUL_MANY_TO_MANY);
+	public final com.MDS2.ForoUal.Backend.ORM.src.UsuarioSetCollection usuarios = new com.MDS2.ForoUal.Backend.ORM.src.UsuarioSetCollection(this, _ormAdapter, com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_USUARIO_USUARIOS, com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_USUARIO_AMIGO_DE, com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_MUL_MANY_TO_MANY);
 	
 	private void setORM_Es_creado(java.util.Set value) {
 		this.ORM_es_creado = value;
@@ -275,7 +286,7 @@ public class Usuario implements Serializable {
 	}
 	
 	@Transient	
-	public final TemaSetCollection es_creado = new TemaSetCollection(this, _ormAdapter, ORMConstants.KEY_USUARIO_ES_CREADO, ORMConstants.KEY_TEMA_CREA_TEMA, ORMConstants.KEY_MUL_ONE_TO_MANY);
+	public final com.MDS2.ForoUal.Backend.ORM.src.TemaSetCollection es_creado = new com.MDS2.ForoUal.Backend.ORM.src.TemaSetCollection(this, _ormAdapter, com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_USUARIO_ES_CREADO, com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_TEMA_CREA_TEMA, com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
 	private void setORM_Notificacion_usuario(java.util.Set value) {
 		this.ORM_notificacion_usuario = value;
@@ -286,7 +297,7 @@ public class Usuario implements Serializable {
 	}
 	
 	@Transient	
-	public final NotificacionSetCollection notificacion_usuario = new NotificacionSetCollection(this, _ormAdapter, ORMConstants.KEY_USUARIO_NOTIFICACION_USUARIO, ORMConstants.KEY_NOTIFICACION_USUARIO_TICKET, ORMConstants.KEY_MUL_ONE_TO_MANY);
+	public final com.MDS2.ForoUal.Backend.ORM.src.NotificacionSetCollection notificacion_usuario = new com.MDS2.ForoUal.Backend.ORM.src.NotificacionSetCollection(this, _ormAdapter, com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_USUARIO_NOTIFICACION_USUARIO, com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_NOTIFICACION_USUARIO_TICKET, com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
 	private void setORM_Megusta(java.util.Set value) {
 		this.ORM_megusta = value;
@@ -297,7 +308,7 @@ public class Usuario implements Serializable {
 	}
 	
 	@Transient	
-	public final MensajeSetCollection megusta = new MensajeSetCollection(this, _ormAdapter, ORMConstants.KEY_USUARIO_MEGUSTA, ORMConstants.KEY_MENSAJE_GUSTAMENSAJE, ORMConstants.KEY_MUL_MANY_TO_MANY);
+	public final com.MDS2.ForoUal.Backend.ORM.src.MensajeSetCollection megusta = new com.MDS2.ForoUal.Backend.ORM.src.MensajeSetCollection(this, _ormAdapter, com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_USUARIO_MEGUSTA, com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_MENSAJE_GUSTAMENSAJE, com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_MUL_MANY_TO_MANY);
 	
 	private void setORM_Megusta_tema(java.util.Set value) {
 		this.ORM_megusta_tema = value;
@@ -308,7 +319,7 @@ public class Usuario implements Serializable {
 	}
 	
 	@Transient	
-	public final TemaSetCollection megusta_tema = new TemaSetCollection(this, _ormAdapter, ORMConstants.KEY_USUARIO_MEGUSTA_TEMA, ORMConstants.KEY_TEMA_GUSTATEMA, ORMConstants.KEY_MUL_MANY_TO_MANY);
+	public final com.MDS2.ForoUal.Backend.ORM.src.TemaSetCollection megusta_tema = new com.MDS2.ForoUal.Backend.ORM.src.TemaSetCollection(this, _ormAdapter, com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_USUARIO_MEGUSTA_TEMA, com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_TEMA_GUSTATEMA, com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_MUL_MANY_TO_MANY);
 	
 	public String toString() {
 		return String.valueOf(getID());

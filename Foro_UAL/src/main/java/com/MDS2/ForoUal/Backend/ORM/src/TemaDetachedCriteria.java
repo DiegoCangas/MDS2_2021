@@ -36,7 +36,7 @@ public class TemaDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final CollectionExpression gustaTema;
 	
 	public TemaDetachedCriteria() {
-		super(Tema.class, TemaCriteria.class);
+		super(com.MDS2.ForoUal.Backend.ORM.src.Tema.class, com.MDS2.ForoUal.Backend.ORM.src.TemaCriteria.class);
 		ID = new IntegerExpression("ID", this.getDetachedCriteria());
 		crea_temaId = new LongExpression("crea_tema.ID", this.getDetachedCriteria());
 		crea_tema = new AssociationExpression("crea_tema", this.getDetachedCriteria());
@@ -55,7 +55,7 @@ public class TemaDetachedCriteria extends AbstractORMDetachedCriteria {
 	}
 	
 	public TemaDetachedCriteria(DetachedCriteria aDetachedCriteria) {
-		super(aDetachedCriteria, TemaCriteria.class);
+		super(aDetachedCriteria, com.MDS2.ForoUal.Backend.ORM.src.TemaCriteria.class);
 		ID = new IntegerExpression("ID", this.getDetachedCriteria());
 		crea_temaId = new LongExpression("crea_tema.ID", this.getDetachedCriteria());
 		crea_tema = new AssociationExpression("crea_tema", this.getDetachedCriteria());
@@ -73,12 +73,12 @@ public class TemaDetachedCriteria extends AbstractORMDetachedCriteria {
 		gustaTema = new CollectionExpression("ORM_gustaTema", this.getDetachedCriteria());
 	}
 	
-	public UsuarioDetachedCriteria createCrea_temaCriteria() {
-		return new UsuarioDetachedCriteria(createCriteria("crea_tema"));
+	public com.MDS2.ForoUal.Backend.ORM.src.UsuarioDetachedCriteria createCrea_temaCriteria() {
+		return new com.MDS2.ForoUal.Backend.ORM.src.UsuarioDetachedCriteria(createCriteria("crea_tema"));
 	}
 	
-	public SeccionDetachedCriteria createContieneCriteria() {
-		return new SeccionDetachedCriteria(createCriteria("contiene"));
+	public com.MDS2.ForoUal.Backend.ORM.src.SeccionDetachedCriteria createContieneCriteria() {
+		return new com.MDS2.ForoUal.Backend.ORM.src.SeccionDetachedCriteria(createCriteria("contiene"));
 	}
 	
 	public MensajeDetachedCriteria createComponeCriteria() {

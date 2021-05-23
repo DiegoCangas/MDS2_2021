@@ -21,7 +21,7 @@ import java.util.List;
 public class Media_DAO {
 	public static Media_ loadMedia_ByORMID(Long IDmedia) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return loadMedia_ByORMID(session, IDmedia);
 		}
 		catch (Exception e) {
@@ -32,7 +32,7 @@ public class Media_DAO {
 	
 	public static Media_ getMedia_ByORMID(Long IDmedia) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return getMedia_ByORMID(session, IDmedia);
 		}
 		catch (Exception e) {
@@ -43,7 +43,7 @@ public class Media_DAO {
 	
 	public static Media_ loadMedia_ByORMID(Long IDmedia, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return loadMedia_ByORMID(session, IDmedia, lockMode);
 		}
 		catch (Exception e) {
@@ -54,7 +54,7 @@ public class Media_DAO {
 	
 	public static Media_ getMedia_ByORMID(Long IDmedia, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return getMedia_ByORMID(session, IDmedia, lockMode);
 		}
 		catch (Exception e) {
@@ -65,7 +65,7 @@ public class Media_DAO {
 	
 	public static Media_ loadMedia_ByORMID(PersistentSession session, Long IDmedia) throws PersistentException {
 		try {
-			return (Media_) session.load(Media_.class, IDmedia);
+			return (Media_) session.load(com.MDS2.ForoUal.Backend.ORM.src.Media_.class, IDmedia);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -75,7 +75,7 @@ public class Media_DAO {
 	
 	public static Media_ getMedia_ByORMID(PersistentSession session, Long IDmedia) throws PersistentException {
 		try {
-			return (Media_) session.get(Media_.class, IDmedia);
+			return (Media_) session.get(com.MDS2.ForoUal.Backend.ORM.src.Media_.class, IDmedia);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -85,7 +85,7 @@ public class Media_DAO {
 	
 	public static Media_ loadMedia_ByORMID(PersistentSession session, Long IDmedia, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Media_) session.load(Media_.class, IDmedia, lockMode);
+			return (Media_) session.load(com.MDS2.ForoUal.Backend.ORM.src.Media_.class, IDmedia, lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -95,7 +95,7 @@ public class Media_DAO {
 	
 	public static Media_ getMedia_ByORMID(PersistentSession session, Long IDmedia, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Media_) session.get(Media_.class, IDmedia, lockMode);
+			return (Media_) session.get(com.MDS2.ForoUal.Backend.ORM.src.Media_.class, IDmedia, lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -105,7 +105,7 @@ public class Media_DAO {
 	
 	public static List queryMedia_(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return queryMedia_(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -116,7 +116,7 @@ public class Media_DAO {
 	
 	public static List queryMedia_(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return queryMedia_(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -127,7 +127,7 @@ public class Media_DAO {
 	
 	public static Media_[] listMedia_ByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return listMedia_ByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -138,7 +138,7 @@ public class Media_DAO {
 	
 	public static Media_[] listMedia_ByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return listMedia_ByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -148,7 +148,7 @@ public class Media_DAO {
 	}
 	
 	public static List queryMedia_(PersistentSession session, String condition, String orderBy) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From Media_ as Media_");
+		StringBuffer sb = new StringBuffer("From com.MDS2.ForoUal.Backend.ORM.src.Media_ as Media_");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -164,7 +164,7 @@ public class Media_DAO {
 	}
 	
 	public static List queryMedia_(PersistentSession session, String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From Media_ as Media_");
+		StringBuffer sb = new StringBuffer("From com.MDS2.ForoUal.Backend.ORM.src.Media_ as Media_");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -204,7 +204,7 @@ public class Media_DAO {
 	
 	public static Media_ loadMedia_ByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return loadMedia_ByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -215,7 +215,7 @@ public class Media_DAO {
 	
 	public static Media_ loadMedia_ByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return loadMedia_ByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -242,7 +242,7 @@ public class Media_DAO {
 	
 	public static java.util.Iterator iterateMedia_ByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return iterateMedia_ByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -253,7 +253,7 @@ public class Media_DAO {
 	
 	public static java.util.Iterator iterateMedia_ByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return iterateMedia_ByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -263,7 +263,7 @@ public class Media_DAO {
 	}
 	
 	public static java.util.Iterator iterateMedia_ByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From Media_ as Media_");
+		StringBuffer sb = new StringBuffer("From com.MDS2.ForoUal.Backend.ORM.src.Media_ as Media_");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -279,7 +279,7 @@ public class Media_DAO {
 	}
 	
 	public static java.util.Iterator iterateMedia_ByQuery(PersistentSession session, String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From Media_ as Media_");
+		StringBuffer sb = new StringBuffer("From com.MDS2.ForoUal.Backend.ORM.src.Media_ as Media_");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -296,12 +296,12 @@ public class Media_DAO {
 	}
 	
 	public static Media_ createMedia_() {
-		return new Media_();
+		return new com.MDS2.ForoUal.Backend.ORM.src.Media_();
 	}
 	
-	public static boolean save(Media_ media_) throws PersistentException {
+	public static boolean save(com.MDS2.ForoUal.Backend.ORM.src.Media_ media_) throws PersistentException {
 		try {
-			MDS1PersistentManager.instance().saveObject(media_);
+			com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().saveObject(media_);
 			return true;
 		}
 		catch (Exception e) {
@@ -310,9 +310,9 @@ public class Media_DAO {
 		}
 	}
 	
-	public static boolean delete(Media_ media_) throws PersistentException {
+	public static boolean delete(com.MDS2.ForoUal.Backend.ORM.src.Media_ media_) throws PersistentException {
 		try {
-			MDS1PersistentManager.instance().deleteObject(media_);
+			com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().deleteObject(media_);
 			return true;
 		}
 		catch (Exception e) {
@@ -321,7 +321,7 @@ public class Media_DAO {
 		}
 	}
 	
-	public static boolean deleteAndDissociate(Media_ media_)throws PersistentException {
+	public static boolean deleteAndDissociate(com.MDS2.ForoUal.Backend.ORM.src.Media_ media_)throws PersistentException {
 		try {
 			if (media_.getMensaje_media() != null) {
 				media_.getMensaje_media().media_mensaje.remove(media_);
@@ -335,7 +335,7 @@ public class Media_DAO {
 		}
 	}
 	
-	public static boolean deleteAndDissociate(Media_ media_, org.orm.PersistentSession session)throws PersistentException {
+	public static boolean deleteAndDissociate(com.MDS2.ForoUal.Backend.ORM.src.Media_ media_, org.orm.PersistentSession session)throws PersistentException {
 		try {
 			if (media_.getMensaje_media() != null) {
 				media_.getMensaje_media().media_mensaje.remove(media_);
@@ -354,9 +354,9 @@ public class Media_DAO {
 		}
 	}
 	
-	public static boolean refresh(Media_ media_) throws PersistentException {
+	public static boolean refresh(com.MDS2.ForoUal.Backend.ORM.src.Media_ media_) throws PersistentException {
 		try {
-			MDS1PersistentManager.instance().getSession().refresh(media_);
+			com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession().refresh(media_);
 			return true;
 		}
 		catch (Exception e) {
@@ -365,9 +365,9 @@ public class Media_DAO {
 		}
 	}
 	
-	public static boolean evict(Media_ media_) throws PersistentException {
+	public static boolean evict(com.MDS2.ForoUal.Backend.ORM.src.Media_ media_) throws PersistentException {
 		try {
-			MDS1PersistentManager.instance().getSession().evict(media_);
+			com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession().evict(media_);
 			return true;
 		}
 		catch (Exception e) {

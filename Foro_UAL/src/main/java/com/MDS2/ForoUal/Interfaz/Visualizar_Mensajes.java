@@ -13,15 +13,15 @@ public class Visualizar_Mensajes extends Visualizar_Mensajes_Ventana{
 	public Vector<Ultimos_Mensajes> _ultimos_Mensajes = new Vector<Ultimos_Mensajes>();
 	public Vector<visualizar_Mensaje> _list_visualizar_Mensaje = new Vector<visualizar_Mensaje>();
 	public static int action = 0;
-	public static Tema tema;
+	public static Tema tema = new Tema();
 	
 	public Visualizar_Mensajes (Tema t) {
 		tema = t;
 		action = 0;
-		cargarMensajes(t);
+		cargarMensajes();
 	}
-	public void cargarMensajes(Tema t) {
-		Mensaje[] m = foroUI.db.Cargar_Mensajes(t);
+	public void cargarMensajes() {
+		Mensaje[] m = foroUI.db.Cargar_Mensajes(tema);
 		
 		for(Mensaje m2 : m) {
 			if(foroUI.user == null || (foroUI.user != null && foroUI.privilegios == foroUI.Privilegios.usuario))

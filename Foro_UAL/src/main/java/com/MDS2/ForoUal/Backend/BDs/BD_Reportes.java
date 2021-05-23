@@ -12,7 +12,7 @@ import com.MDS2.ForoUal.Backend.ORM.src.ReporteDAO;
 
 public class BD_Reportes {
 	public BD_Principal _bd_main_reportes;
-	public Vector<ReporteDAO> _unnamed_Reporte_ = new Vector<ReporteDAO>();
+	public Vector<Reporte> _unnamed_Reporte_ = new Vector<Reporte>();
 
 	public Reporte Crear_Reporte(int aIdMensaje, String aMensaje) {
 		Mensaje m = null;
@@ -39,16 +39,18 @@ public class BD_Reportes {
 		}
 		return null;
 	}
-	public Reporte Cargar_Reporte (int aId) {
+	public Reporte Cargar_Reporte (Long aIdMentsaje) {
 		try {
-			return ReporteDAO.loadReporteByQuery("MensajeID = " + aId, null);
+			return ReporteDAO.loadReporteByQuery("MensajeID = " + aIdMentsaje, null);
 		} catch (PersistentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
 		}
+		
 	}
-
+	
+	
 	public void Eliminar_Reporte(int aIdReporte) {
 		throw new UnsupportedOperationException();
 	}

@@ -15,9 +15,10 @@ public class Banear extends Banear_Ventana{
 	private Label _confirmacion;
 	private Event _aceptar;
 	public Opciones_OtroUsuario_Administrador _opciones_OtroUsuario_Administrador;
-
+	private Usuario usuario = new Usuario();
+	
 	public Banear(Usuario u) {
-		
+		usuario = u;
 		if(u.getBaneado()) {
 			
 			titulo.setValue(titulo.getValue().replace("Banear", "Desbanear"));
@@ -40,7 +41,7 @@ public class Banear extends Banear_Ventana{
 			@Override
 			public void buttonClick(ClickEvent event) {
 				// TODO Auto-generated method stub
-				banear(u);
+				banear();
 				UI c = UI.getCurrent();
 				Window w = (Window)c.getWindows().toArray()[c.getWindows().size()-1];
 				c.removeWindow(w);
@@ -55,11 +56,11 @@ public class Banear extends Banear_Ventana{
 			}
 		});
 	}
-	public boolean banear(Usuario u) {
-		if(u.getBaneado())
-			foroUI.db.Desbanear(u.getNombreUsuario());
+	public boolean banear() {
+		if(usuario.getBaneado())
+			foroUI.db.Desbanear(usuario.getNombreUsuario());
 		else
-			foroUI.db.Banear(u.getNombreUsuario());
+			foroUI.db.Banear(usuario.getNombreUsuario());
 		return true;
 	}
 }

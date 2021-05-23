@@ -37,7 +37,7 @@ public class NotificacionCriteria extends AbstractORMCriteria {
 	}
 	
 	public NotificacionCriteria() throws PersistentException {
-		this(MDS1PersistentManager.instance().getSession());
+		this(com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession());
 	}
 	
 	public UsuarioCriteria createUsuario_ticketCriteria() {

@@ -29,6 +29,7 @@ public class MensajeCriteria extends AbstractORMCriteria {
 	public final IntegerExpression numeroMeGusta;
 	public final StringExpression nombreUsuario;
 	public final BooleanExpression marcado;
+	public final DateExpression fechaCreacion;
 	public final CollectionExpression respondido_por;
 	public final CollectionExpression reportes_mensaje;
 	public final CollectionExpression media_mensaje;
@@ -47,6 +48,7 @@ public class MensajeCriteria extends AbstractORMCriteria {
 		numeroMeGusta = new IntegerExpression("numeroMeGusta", this);
 		nombreUsuario = new StringExpression("nombreUsuario", this);
 		marcado = new BooleanExpression("marcado", this);
+		fechaCreacion = new DateExpression("fechaCreacion", this);
 		respondido_por = new CollectionExpression("ORM_respondido_por", this);
 		reportes_mensaje = new CollectionExpression("ORM_reportes_mensaje", this);
 		media_mensaje = new CollectionExpression("ORM_media_mensaje", this);
@@ -59,7 +61,7 @@ public class MensajeCriteria extends AbstractORMCriteria {
 	}
 	
 	public MensajeCriteria() throws PersistentException {
-		this(MDS1PersistentManager.instance().getSession());
+		this(com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession());
 	}
 	
 	public UsuarioCriteria createEnvia_mensajeCriteria() {
@@ -70,24 +72,24 @@ public class MensajeCriteria extends AbstractORMCriteria {
 		return new TemaCriteria(createCriteria("mensaje_"));
 	}
 	
-	public MensajeCriteria createRespondido_porCriteria() {
-		return new MensajeCriteria(createCriteria("ORM_respondido_por"));
+	public com.MDS2.ForoUal.Backend.ORM.src.MensajeCriteria createRespondido_porCriteria() {
+		return new com.MDS2.ForoUal.Backend.ORM.src.MensajeCriteria(createCriteria("ORM_respondido_por"));
 	}
 	
-	public ReporteCriteria createReportes_mensajeCriteria() {
-		return new ReporteCriteria(createCriteria("ORM_reportes_mensaje"));
+	public com.MDS2.ForoUal.Backend.ORM.src.ReporteCriteria createReportes_mensajeCriteria() {
+		return new com.MDS2.ForoUal.Backend.ORM.src.ReporteCriteria(createCriteria("ORM_reportes_mensaje"));
 	}
 	
-	public Media_Criteria createMedia_mensajeCriteria() {
-		return new Media_Criteria(createCriteria("ORM_media_mensaje"));
+	public com.MDS2.ForoUal.Backend.ORM.src.Media_Criteria createMedia_mensajeCriteria() {
+		return new com.MDS2.ForoUal.Backend.ORM.src.Media_Criteria(createCriteria("ORM_media_mensaje"));
 	}
 	
-	public UsuarioCriteria createGustaMensajeCriteria() {
-		return new UsuarioCriteria(createCriteria("ORM_gustaMensaje"));
+	public com.MDS2.ForoUal.Backend.ORM.src.UsuarioCriteria createGustaMensajeCriteria() {
+		return new com.MDS2.ForoUal.Backend.ORM.src.UsuarioCriteria(createCriteria("ORM_gustaMensaje"));
 	}
 	
-	public MensajeCriteria createRespuesta_deCriteria() {
-		return new MensajeCriteria(createCriteria("ORM_respuesta_de"));
+	public com.MDS2.ForoUal.Backend.ORM.src.MensajeCriteria createRespuesta_deCriteria() {
+		return new com.MDS2.ForoUal.Backend.ORM.src.MensajeCriteria(createCriteria("ORM_respuesta_de"));
 	}
 	
 	public Mensaje uniqueMensaje() {

@@ -29,6 +29,7 @@ public class UsuarioDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final BooleanExpression baneado;
 	public final LongExpression IDusuario;
 	public final StringExpression nombreReal;
+	public final BooleanExpression esModerador;
 	public final CollectionExpression reportes_usuario;
 	public final CollectionExpression amigo_de;
 	public final CollectionExpression pertenece;
@@ -39,7 +40,7 @@ public class UsuarioDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final CollectionExpression megusta_tema;
 	
 	public UsuarioDetachedCriteria() {
-		super(Usuario.class, UsuarioCriteria.class);
+		super(com.MDS2.ForoUal.Backend.ORM.src.Usuario.class, com.MDS2.ForoUal.Backend.ORM.src.UsuarioCriteria.class);
 		ID = new LongExpression("ID", this.getDetachedCriteria());
 		email = new StringExpression("email", this.getDetachedCriteria());
 		nombreUsuario = new StringExpression("nombreUsuario", this.getDetachedCriteria());
@@ -50,6 +51,7 @@ public class UsuarioDetachedCriteria extends AbstractORMDetachedCriteria {
 		baneado = new BooleanExpression("baneado", this.getDetachedCriteria());
 		IDusuario = new LongExpression("IDusuario", this.getDetachedCriteria());
 		nombreReal = new StringExpression("nombreReal", this.getDetachedCriteria());
+		esModerador = new BooleanExpression("esModerador", this.getDetachedCriteria());
 		reportes_usuario = new CollectionExpression("ORM_reportes_usuario", this.getDetachedCriteria());
 		amigo_de = new CollectionExpression("ORM_amigo_de", this.getDetachedCriteria());
 		pertenece = new CollectionExpression("ORM_pertenece", this.getDetachedCriteria());
@@ -61,7 +63,7 @@ public class UsuarioDetachedCriteria extends AbstractORMDetachedCriteria {
 	}
 	
 	public UsuarioDetachedCriteria(DetachedCriteria aDetachedCriteria) {
-		super(aDetachedCriteria, UsuarioCriteria.class);
+		super(aDetachedCriteria, com.MDS2.ForoUal.Backend.ORM.src.UsuarioCriteria.class);
 		ID = new LongExpression("ID", this.getDetachedCriteria());
 		email = new StringExpression("email", this.getDetachedCriteria());
 		nombreUsuario = new StringExpression("nombreUsuario", this.getDetachedCriteria());
@@ -72,6 +74,7 @@ public class UsuarioDetachedCriteria extends AbstractORMDetachedCriteria {
 		baneado = new BooleanExpression("baneado", this.getDetachedCriteria());
 		IDusuario = new LongExpression("IDusuario", this.getDetachedCriteria());
 		nombreReal = new StringExpression("nombreReal", this.getDetachedCriteria());
+		esModerador = new BooleanExpression("esModerador", this.getDetachedCriteria());
 		reportes_usuario = new CollectionExpression("ORM_reportes_usuario", this.getDetachedCriteria());
 		amigo_de = new CollectionExpression("ORM_amigo_de", this.getDetachedCriteria());
 		pertenece = new CollectionExpression("ORM_pertenece", this.getDetachedCriteria());

@@ -31,7 +31,7 @@ public class Crear_Tema extends Crear_Tema_Ventana{
 			
 			@Override
 			public void buttonClick(ClickEvent event) {
-				foroUI.db.Crear_Tema(nombre.getValue(), descripcion.getValue());
+				foroUI.db.Crear_Tema(nombre.getValue(), descripcion.getValue(),foroUI.user.getORMID());
 				UI c = UI.getCurrent();
 				Window w = (Window)c.getWindows().toArray()[c.getWindows().size()-1];
 				c.removeWindow(w);

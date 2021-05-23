@@ -18,24 +18,26 @@ public class Ver_OtroPerfil extends Ver_OtroPerfil_Ventana{
 	public Usuario_Logueado _unnamed_Usuario_Logueado_;
 	public Ver_Amigos _unnamed_Ver_Amigos_;
 	public Ultimos_Mensajes _unnamed_Ultimos_Mensajes_;
+	private Usuario usuario = new Usuario();
 	
 	public static int messageLimit = 7;
 
 	public Ver_OtroPerfil (Usuario u) {
 		panelSuperior.setContent(new panel_Superior_Registrado(true));
 		panelOpciones.setVisible(false);	
-		cargarPerfil(u);
+		this.usuario = u;
+		cargarPerfil();
 	}
-	public void cargarPerfil(Usuario u) {
-		userName.setValue(u.getNombreUsuario());
-		realName.setValue(u.getNombreReal());
-		email.setValue(u.getEmail());
-		descpription.setValue(u.getDescripcion());
+	public void cargarPerfil() {
+		userName.setValue(usuario.getNombreUsuario());
+		realName.setValue(usuario.getNombreReal());
+		email.setValue(usuario.getEmail());
+		descpription.setValue(usuario.getDescripcion());
 		//Media_ m = foroUI.db.Cargar_Media(u.getFotoPerfil());
 		//if(m != null)
-			fotoPerfil.setSource(new ExternalResource(u.getFotoPerfil()));
+			fotoPerfil.setSource(new ExternalResource(usuario.getFotoPerfil()));
 		
-		ultimosMensajes.setContent(new Visualizar_Mensajes(u));
-		
+		ultimosMensajes.setContent(new Visualizar_Mensajes(usuario));
+		 
 	}
 }

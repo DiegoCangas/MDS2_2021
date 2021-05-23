@@ -3,7 +3,6 @@ package com.MDS2.ForoUal.Interfaz;
 import org.orm.PersistentException;
 
 import com.MDS2.ForoUal.foroUI;
-import com.MDS2.ForoUal.Backend.BDs.PasswordUtils;
 import com.MDS2.ForoUal.Backend.ORM.src.Usuario;
 import com.MDS2.ForoUal.Backend.ORM.src.UsuarioDAO;
 import com.MDS2.ForoUal.Interfaz.Opciones.Recuperar_Contrasena_Ventana;
@@ -36,17 +35,17 @@ public class recuperar_contrasena extends Recuperar_Contrasena_Ventana{
 			@Override
 			public void buttonClick(ClickEvent event) {
 				// TODO Auto-generated method stub
-				mandarCorreo(email.getValue());
+				mandarCorreo();
 			
 			}
 		});
 	}
 
-	public boolean mandarCorreo(String userName) {
-		String s = PasswordUtils.getSalt(7);
+	public boolean mandarCorreo() {
+		String s = com.MDS2.ForoUal.Backend.Utils.PasswordUtils.getSalt(7);
 		pass.setVisible(true);
 		pass.setValue(s);
-		foroUI.db.Recuperar_Contrasenia_Perfil(userName, s);
+		foroUI.db.Recuperar_Contrasenia_Perfil(email.getValue(), s);
 		return true;
 	}
 }

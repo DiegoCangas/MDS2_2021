@@ -12,7 +12,11 @@ import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
 
 public class Ver_Amigo extends Ver_Amigo_Ventana{
+	
+	private Usuario usuario = new Usuario();
+	
 	public Ver_Amigo(Usuario u, boolean search) {
+		usuario = u;
 			photo.setSource(new ExternalResource(u.getFotoPerfil()));
 		name.setValue(u.getNombreUsuario());
 		add.setVisible(search);
@@ -41,25 +45,25 @@ public class Ver_Amigo extends Ver_Amigo_Ventana{
 			public void buttonClick(ClickEvent event) {
 				// TODO Auto-generated method stub
 				if(foroUI.user.amigo_de.contains(u)){
-					Eliminar_Amigo(u);
+					Eliminar_Amigo();
 					add.setCaption("Añadir");
 				}
 				else {
-					Anadir_Amigo(u);
+					Anadir_Amigo();
 					add.setCaption("Eliminar");
 				}
 			}
 		});
 		
-		
 	}
-	public void Anadir_Amigo(Usuario u) {
-		foroUI.db.Insertar_Amigo(u.getNombreUsuario());
-		foroUI.db.Crear_Notificacion((int)u.getORMID(), foroUI.user.getNombreUsuario() + " te ha añadido como amigo");
+	
+	public void Anadir_Amigo() {
+		foroUI.db.Insertar_Amigo(usuario.getNombreUsuario(), foroUI.user.getORMID());
+		foroUI.db.Crear_Notificacion(usuario.getORMID(), foroUI.user.getNombreUsuario() + " te ha añadido como amigo");
 	}
 
-	public void Eliminar_Amigo(Usuario u) {
-		foroUI.db.Eliminar_Amigo(u.getNombreUsuario());
-		foroUI.db.Crear_Notificacion((int)u.getORMID(), foroUI.user.getNombreUsuario() + " te ha borrado como amigo");
+	public void Eliminar_Amigo() {
+		foroUI.db.Eliminar_Amigo(usuario.getNombreUsuario(),foroUI.user.getORMID());
+		foroUI.db.Crear_Notificacion(usuario.getORMID(), foroUI.user.getNombreUsuario() + " te ha borrado como amigo");
 	}
 }

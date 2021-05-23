@@ -93,7 +93,7 @@ public class NotificacionSetCollection extends org.orm.util.ORMSet {
 	}
 	
 	protected PersistentManager getPersistentManager() throws PersistentException {
-		return MDS1PersistentManager.instance();
+		return com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance();
 	}
 	
 }

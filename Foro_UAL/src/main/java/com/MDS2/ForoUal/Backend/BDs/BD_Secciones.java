@@ -13,7 +13,7 @@ import com.MDS2.ForoUal.Backend.ORM.src.SeccionDAO;
 
 public class BD_Secciones {
 	public BD_Principal _bd_main_secciones;
-	public Vector<SeccionDAO> _unnamed_Secciones_ = new Vector<SeccionDAO>();
+	public Vector<Seccion> _unnamed_Seccion_ = new Vector<Seccion>();
 
 	public Seccion Crear_Seccion(String aTitulo, String aSubtitulo) {
 		Seccion s = SeccionDAO.createSeccion();
@@ -31,6 +31,8 @@ public class BD_Secciones {
 			e1.printStackTrace();
 		}
 		
+		
+		
 		try {
 			SeccionDAO.save(s);
 			return s;
@@ -40,26 +42,24 @@ public class BD_Secciones {
 		}
 	}
 
-	public void Eliminar_Seccion(int id)  {
-		Seccion s;
-		try {
-			s = SeccionDAO.getSeccionByORMID(id);
-			s.setMarcado(true);
-			SeccionDAO.save(s);
-		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		
-		}
-	
 	public Seccion[] Cargar_Secciones() {
 		try {
 			return SeccionDAO.listSeccionByQuery("1=1", "ID");
 		} catch (PersistentException e) {
 			// TODO Auto-generated catch block
 			return new Seccion[] {};
+		}
+	}
+
+	public void Eliminar_Seccion(int aId) {
+		Seccion s;
+		try {
+			s = SeccionDAO.getSeccionByORMID(aId);
+			s.setMarcado(true);
+			SeccionDAO.save(s);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 }

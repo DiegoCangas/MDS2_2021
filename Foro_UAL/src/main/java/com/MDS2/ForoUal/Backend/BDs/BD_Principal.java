@@ -1,6 +1,5 @@
 package com.MDS2.ForoUal.Backend.BDs;
 
-import com.MDS2.ForoUal.Backend.Interfaces_BD.i_Usuario_Registrado;
 import com.MDS2.ForoUal.Backend.ORM.src.Media_;
 import com.MDS2.ForoUal.Backend.ORM.src.Mensaje;
 import com.MDS2.ForoUal.Backend.ORM.src.Notificacion;
@@ -8,19 +7,16 @@ import com.MDS2.ForoUal.Backend.ORM.src.Reporte;
 import com.MDS2.ForoUal.Backend.ORM.src.Seccion;
 import com.MDS2.ForoUal.Backend.ORM.src.Tema;
 import com.MDS2.ForoUal.Backend.ORM.src.Usuario;
-import com.MDS2.ForoUal.Backend.BDs.BD_Medias;
 
-import antlr.collections.List;
-
-public class BD_Principal implements i_Usuario_Registrado{
+public class BD_Principal implements i_Usuario_No_Registrado, i_Usuario_Registrado, i_Moderador, i_Administrador {
 	private BD_Medias _medias = new BD_Medias();
 	private BD_Reportes _reportes = new  BD_Reportes();
 	private BD_Usuarios _usuarios = new BD_Usuarios();
 	private BD_Mensajes _mensajes = new BD_Mensajes();
 	private BD_Temas _temas = new BD_Temas();
 	private BD_Secciones _seccioness = new BD_Secciones();
-	private BD_Notificaciones notificaciones = new BD_Notificaciones();
-	private BD_Moderadores _moderadores = new BD_Moderadores();
+	private BD_Notificaciones _notificaciones = new BD_Notificaciones();
+	private BD_Administradores _administradores = new BD_Administradores();
 	public BD_Usuarios _bd_usuarios;
 	public BD_Medias _bd_medias;
 	public BD_Reportes _bd_reportes;
@@ -29,107 +25,85 @@ public class BD_Principal implements i_Usuario_Registrado{
 	public BD_Secciones _bd_secciones;
 	public BD_Notificaciones _bd_notificaciones;
 	public BD_Administradores _bd_administrador;
-	public BD_Moderadores _bd_moderadores;
 
-	public void Registrar_Administrador(String aEmail, String aNombre, String aContrasenia, String aRepetirContrasenia) {
-		_bd_administrador.Registrar_Administrador(aEmail, aNombre, aContrasenia, aRepetirContrasenia);
-		
+	public void Eliminar_Mensaje(Long aId) {
+		_mensajes.Eliminar_Mensaje(aId);
 	}
 
-	public void Banear(String aNombre) {
-		_usuarios.Banear(aNombre);
-	}
-
-	public List Cargar_Usuario(String aNombre) {
-		throw new UnsupportedOperationException();
-	}
-
-	public List Cargar_Usuarios_Busqueda() {
-		throw new UnsupportedOperationException();
-	}
-
-	public Usuario[] Cargar_Amigos(String aNombre) {
-		return _usuarios.Cargar_Amigos(aNombre);
-	}
-
-	public Mensaje[] Cargar_Ultimos_Mensajes(String aNombre) {
-		return _usuarios.Cargar_Ultimos_Mensajes(aNombre);
-	}
-
-	public boolean Registrar_Usuario(String aEmail, String aNombre, String aContrasenia, String aNombre_completo, String aFoto_perfil, String aDescripcion) {
-
-		return _usuarios.Registrar_Usuario(aEmail, aNombre, aContrasenia, aNombre_completo, aFoto_perfil, aDescripcion);
-	}
-
-	public Mensaje[] Devolver_Ultimos_Mensajes(Long aIduser, int aNummensajes) {
-		throw new UnsupportedOperationException();
-	}
-
-	public boolean Darse_Baja(String aContrasenia, String aNombre) {
-		return _usuarios.Darse_Baja(aContrasenia, aNombre);
-	}
-
-	public void Editar_Perfil(String aDescripcion, String aEmail, String fotoPerfil, String aNombre_completo) {
-		_usuarios.Editar_Perfil(aDescripcion, aEmail, fotoPerfil, aNombre_completo);
-	}
-
-	public boolean Modificar_Rol(String aNombre) {
-		return _moderadores.Modificar_Rol(aNombre);
-	}
-
-	public Long Insertar_Media(String aUrl, int aId) {
-		return _medias.Insertar_Media(aUrl, aId);
-	}
-
-	public Reporte Crear_Reporte(int aIdMensaje, String aMensaje) {
-		throw new UnsupportedOperationException();
-	}
-
-	public void Eliminar_Reporte(int aIdReporte) {
-		throw new UnsupportedOperationException();
-	}
-
-	public Mensaje Crear_Mensaje(String aTexto, String[] urls,Mensaje respuestaA) {
-		return _mensajes.Crear_Mensaje(aTexto, urls, respuestaA);
-	}
-
-	public Mensaje[] Cargar_Mensajes(Tema t) {
-		return _mensajes.Cargar_Mensajes(t);
-	}
-	public void Denunciar_Mensaje(Long aId, String aMensaje) {
-		_reportes.Crear_Reporte(aId.intValue(), aMensaje);
-	}
-
-	public void Ocultar_Mensaje(Long aId) {
-		_mensajes.Ocultar_Mensaje(aId);
-	}
-
-	public Tema Crear_Tema(String aTitulo, String aSubtitulo) {
-		return _temas.Crear_Tema(aTitulo, aSubtitulo);
-	}
-
-	public void Cambiar_Estado(Tema t, Long aId) {
-		_temas.Cambiar_Estado(t,aId);
+	public void Eliminar_Seccion(int aId) {
+		_seccioness.Eliminar_Seccion(aId);
 	}
 
 	public Seccion Crear_Seccion(String aTitulo, String aSubtitulo) {
 		return _seccioness.Crear_Seccion(aTitulo, aSubtitulo);
 	}
 
-	public void Recuperar_Contrasenia_Perfil(String aNombre, String aContrasenia) {
-		_usuarios.Recuperar_Contrasenia_Perfil(aNombre, aContrasenia);
+	public void Cambiar_Estado(Long aId, Long aEstado) {
+		_temas.Cambiar_Estado(aId,aEstado);
 	}
 
-	public void Dar_Megusta_Mensaje(Long aId) {
-		_mensajes.Dar_Megusta_Mensaje(aId);
+	public Tema[] Cargar_Temas_Administrador(String aSeccion) {
+		return _temas.Cargar_Temas_Administrador(aSeccion);
 	}
 
-	public int Dar_Megusta_Tema(Long aId) {
-		return _temas.Dar_Megusta_Tema(aId);
+	public void Cerrar_Tema(Long aId) {
+		_temas.Cerrar_Tema(aId);
+	}
+
+	public void Banear(String aNombre) {
+		_usuarios.Banear(aNombre);
+	}
+
+	public void Desbanear(String aNombre) {
+		_usuarios.Desbanear(aNombre);
+	}
+
+	public boolean Modificar_Rol(String aNombre) {
+		return _usuarios.Modificar_Rol(aNombre);
+	}
+
+	public Mensaje[] Devolver_Ultimos_Mensajes(Usuario aAUser, int aANummensajes) {
+		return _usuarios.Devolver_Ultimos_Mensajes(aAUser, aANummensajes);
+	}
+
+	public void Ocultar_Mensaje(Long aId) {
+		_mensajes.Ocultar_Mensaje(aId);
+	}
+
+	public void Ocultar_Tema(Long aTema) {
+		_temas.Ocultar_Tema(aTema);
+	}
+
+	public Tema[] Cargar_Temas_Moderador(String aSeccion) {
+		return _temas.Cargar_Temas_Moderador(aSeccion);
+	}
+
+	public Mensaje[] Cargar_Mensajes_Moderador() {
+		return _mensajes.Cargar_Mensajes_Moderador();
+	}
+
+	public Media_ Cargar_Media(Long aAMedia) {
+		return _medias.Cargar_Media(aAMedia);
 	}
 
 	public boolean Iniciar_Sesion(String aNombre, String aContrasenia) {
 		return _usuarios.Iniciar_Sesion(aNombre, aContrasenia);
+	}
+
+	public boolean Registrar_Usuario(String aEmail, String aNombre, String aContrasenia, String aRepetirContrasenia, String aNombre_completo, String aFoto_perfil, String aDescripcion) {
+		return _usuarios.Registrar_Usuario(aEmail, aNombre, aContrasenia, aRepetirContrasenia, aNombre_completo, aFoto_perfil, aDescripcion);
+	}
+
+	public Mensaje[] Cargar_Mensajes_NoRegistrado() {
+		throw new UnsupportedOperationException();
+	}
+
+	public Mensaje[] Cargar_Mensajes(Tema aT) {
+		return _mensajes.Cargar_Mensajes(aT);
+	}
+
+	public Mensaje[] Ordenar_Mensajes(Mensaje[] aMensajes, String aOrden) {
+		return _mensajes.Ordenar_Mensajes(aMensajes, aOrden);
 	}
 
 	public Seccion[] Cargar_Secciones() {
@@ -140,114 +114,96 @@ public class BD_Principal implements i_Usuario_Registrado{
 		return _temas.Cargar_Temas_No_Registrado(aSeccion);
 	}
 
-	public Tema[] Cargar_Temas_Registrado(String aSeccion) {
-		return _temas.Cargar_Temas_Registrado(aSeccion);
+	public Tema[] Ordenar_Temas(Tema[] aTema, String aOrden) {
+		return _temas.Ordenar_Temas(aTema, aOrden);
 	}
 
-	public Tema[] Cargar_Temas_Administrador(String aSeccion) {
-		return _temas.Cargar_Temas_Administrador(aSeccion);
+	public Long Insertar_Media(String aAUrl) {
+		return (long)_medias.Insertar_Media(aAUrl);
 	}
 
-	public Tema[] Cargar_Temas_Moderador(String aSeccion) {
-		return _temas.Cargar_Temas_Moderador(aSeccion);
+	public void Dar_Megusta_Mensaje(Long aAId, Long aIdUsuario) {
+		_mensajes.Dar_Megusta_Mensaje(aAId,aIdUsuario);
 	}
 
-	public Mensaje[] Ordenar_Mensajes(Mensaje[] aMensajes, String aOrden) {
-		throw new UnsupportedOperationException();
+	public Mensaje Crear_Mensaje(String aTexto, String[] aMedia, Mensaje respuestaA, Long aIdCreador) {
+		return _mensajes.Crear_Mensaje(aTexto, aMedia, respuestaA, aIdCreador);
 	}
 
-	public Mensaje[] Cargar_Mensajes_NoRegistrado() {
-		throw new UnsupportedOperationException();
+	public Reporte Crear_Reporte(int aAIdMensaje, String aAMensaje) {
+		return _reportes.Crear_Reporte(aAIdMensaje, aAMensaje);
 	}
 
-	public Mensaje[] Cargar_Mensajes_Registrado() {
-		throw new UnsupportedOperationException();
+	public Notificacion Notificar_Admin(String aANombreUsuario, String aAMensaje) {
+		return _notificaciones.Notificar_Admin(aANombreUsuario, aAMensaje);
 	}
 
-	public Mensaje[] Cargar_Mensajes_Moderador() {
-		throw new UnsupportedOperationException();
+	public Tema Crear_Tema(String aATitulo, String aASubtitulo, Long aIdUsuario) {
+		return _temas.Crear_Tema(aATitulo, aASubtitulo, aIdUsuario);
 	}
 
-	public Mensaje[] Cargar_Mensajes_Administrador() {
-		throw new UnsupportedOperationException();
+	public Tema[] Cargar_Temas_Registrado(String aASeccion) {
+		return _temas.Cargar_Temas_Registrado(aASeccion);
 	}
 
-	public void Eliminar_Mensaje(Long aId) {
-		_mensajes.Eliminar_Mensaje(aId);
+	public int Dar_Megusta_Tema(Long aAId, Long aIdUsuario) {
+		return _temas.Dar_Megusta_Tema(aAId,aIdUsuario);
 	}
 
-	public void Desbanear(String aNombre) {
-		_usuarios.Desbanear(aNombre);
+	public Usuario[] Buscar_Amigo_PorNombre(String aANombre) {
+		return _usuarios.Buscar_Amigo_PorNombre(aANombre);
 	}
 
-	public Usuario[] Buscar_Amigo_PorNombre(String aNombre) {
-		return _usuarios.Buscar_Amigo_PorNombre(aNombre);
+	public Usuario[] Cargar_Amigos(String aANombre) {
+		return _usuarios.Cargar_Amigos(aANombre);
 	}
 
-	public void Cargar_Usuario_Administrador(String aNombre) {
-		throw new UnsupportedOperationException();
+	public boolean Darse_Baja(String aAContrasenia, String aANombre) {
+		return _usuarios.Darse_Baja(aAContrasenia, aANombre);
 	}
 
-	public void Eliminar_Amigo(String aNombre) {
-		_usuarios.Eliminar_Amigo(aNombre);
+	public void Editar_Perfil(String aADescripcion, String aAEmail, String aFotoPerfil, String aANombre_completo) {
+		_usuarios.Editar_Perfil(aADescripcion, aAEmail, aFotoPerfil, aANombre_completo);
 	}
 
-	public void Insertar_Amigo(String aNombre) {
-		_usuarios.Insertar_Amigo(aNombre);
+	public void Eliminar_Amigo(String aANombre, Long aIdUsuarioElimina) {
+		_usuarios.Eliminar_Amigo(aANombre,aIdUsuarioElimina);
 	}
 
-	public Notificacion Notificar_Admin(String aNombreUsuario, String aMensaje) {
-		return notificaciones.Notificar_Admin(aNombreUsuario, aMensaje);
-	}
-	public Media_ Cargar_Media (int aMedia) {
-		return _medias.Cargar_Media((long)aMedia);
-	}
-	public int GetSourceType (String s) {
-		return _medias.Tipo_Media(s);
-	}
-	public boolean esModerador (String aNombre) {
-		return _moderadores.esModerador(aNombre);
-	}
-	
-	public Media_ Cargar_Media(Long aMedia) {
-		// TODO Auto-generated method stub
-		return null;
+	public void Insertar_Amigo(String aANombre, Long aIdUsuarioInserta) {
+		_usuarios.Insertar_Amigo(aANombre,aIdUsuarioInserta);
 	}
 
-	public Tema[] Ordenar_Temas(Tema[] aTemas, String aOrden) {
-		// TODO Auto-generated method stub
-		return null;
+	public void Recuperar_Contrasenia_Perfil(String aANombre, String aNuevaContrasenia) {
+		_usuarios.Recuperar_Contrasenia_Perfil(aANombre, aNuevaContrasenia);
 	}
 
-	public void Eliminar_Seccion(int id) {
-		_seccioness.Eliminar_Seccion(id);
-		
+	public boolean Insertar_Moderador(Long aId) {
+		return _administradores.Insertar_Moderador(aId);
 	}
 
-
-	public void Cerrar_Tema(Long aId) {
-		// TODO Auto-generated method stub
-		
+	public boolean Eliminar_Moderador(Long aId) {
+		return _administradores.Eliminar_Moderador(aId);
 	}
 
-
-	public void Ocultar_Tema(Long aId) {
-		// TODO Auto-generated method stub
-		
+	public boolean EsModerador(Long aId) {
+		return _usuarios.EsModerador(aId);
 	}
 
-	
-	public int Tipo_Media(String m) {
-		return _medias.Tipo_Media(m);
+	public int Tipo_Media(String aM) {
+		return _medias.Tipo_Media(aM);
 	}
-	public Reporte Cargar_Reporte(int aId) {
-		return _reportes.Cargar_Reporte(aId);
+	public Reporte Cargar_Reporte (Long aIdMentsaje) {
+		return _reportes.Cargar_Reporte(aIdMentsaje);
 	}
-	public Notificacion[] Cargar_Notificaciones(int aId) {
-		return notificaciones.Cargar_Notificaciones(aId);
+	public void Crear_Notificacion (Long aId, String aMensaje) {
+		_notificaciones.Crear_Notificacion(aId, aMensaje);
 	}
-	public void Crear_Notificacion (int aId, String aMensaje) {
-		notificaciones.Crear_Notificacion(aId, aMensaje);
+	public Notificacion[] Cargar_Notificaciones(Long aId) {
+		return _notificaciones.Cargar_Notificaciones(aId);
+	}
+	public Mensaje[] Cargar_Ultimos_Mensajes(String aNombre) {
+		return _usuarios.Cargar_Ultimos_Mensajes(aNombre);
 	}
 
 }

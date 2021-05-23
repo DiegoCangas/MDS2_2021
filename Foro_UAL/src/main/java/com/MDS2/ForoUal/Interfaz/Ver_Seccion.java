@@ -17,6 +17,7 @@ public class Ver_Seccion extends Ver_Seccion_Ventana {
 	private Label _creador;
 	private Label _fecha;
 	public Visualizar_Secciones _visualizar_Secciones;
+	private Seccion seccion = new Seccion();
 	
 	public Ver_Seccion (Seccion s) {
 		nombreSuboforo.setValue(s.getTitulo());

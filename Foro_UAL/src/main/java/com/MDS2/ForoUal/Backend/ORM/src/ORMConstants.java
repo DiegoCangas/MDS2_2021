@@ -13,7 +13,6 @@
  */
 package com.MDS2.ForoUal.Backend.ORM.src;
 
-
 public interface ORMConstants extends org.orm.util.ORMBaseConstants {
 	final int KEY_ADMINISTRADOR_ES_CREADA = -1143840617;
 	

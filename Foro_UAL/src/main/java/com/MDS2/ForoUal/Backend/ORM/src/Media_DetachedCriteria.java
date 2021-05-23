@@ -25,7 +25,7 @@ public class Media_DetachedCriteria extends AbstractORMDetachedCriteria {
 	public final StringExpression url;
 	
 	public Media_DetachedCriteria() {
-		super(Media_.class, Media_Criteria.class);
+		super(com.MDS2.ForoUal.Backend.ORM.src.Media_.class, com.MDS2.ForoUal.Backend.ORM.src.Media_Criteria.class);
 		IDmedia = new LongExpression("IDmedia", this.getDetachedCriteria());
 		mensaje_mediaId = new IntegerExpression("mensaje_media.ID", this.getDetachedCriteria());
 		mensaje_media = new AssociationExpression("mensaje_media", this.getDetachedCriteria());
@@ -33,15 +33,15 @@ public class Media_DetachedCriteria extends AbstractORMDetachedCriteria {
 	}
 	
 	public Media_DetachedCriteria(DetachedCriteria aDetachedCriteria) {
-		super(aDetachedCriteria, Media_Criteria.class);
+		super(aDetachedCriteria, com.MDS2.ForoUal.Backend.ORM.src.Media_Criteria.class);
 		IDmedia = new LongExpression("IDmedia", this.getDetachedCriteria());
 		mensaje_mediaId = new IntegerExpression("mensaje_media.ID", this.getDetachedCriteria());
 		mensaje_media = new AssociationExpression("mensaje_media", this.getDetachedCriteria());
 		url = new StringExpression("url", this.getDetachedCriteria());
 	}
 	
-	public MensajeDetachedCriteria createMensaje_mediaCriteria() {
-		return new MensajeDetachedCriteria(createCriteria("mensaje_media"));
+	public com.MDS2.ForoUal.Backend.ORM.src.MensajeDetachedCriteria createMensaje_mediaCriteria() {
+		return new com.MDS2.ForoUal.Backend.ORM.src.MensajeDetachedCriteria(createCriteria("mensaje_media"));
 	}
 	
 	public Media_ uniqueMedia_(PersistentSession session) {

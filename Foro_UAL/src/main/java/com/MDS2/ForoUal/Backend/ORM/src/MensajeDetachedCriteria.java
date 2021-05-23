@@ -29,6 +29,7 @@ public class MensajeDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final IntegerExpression numeroMeGusta;
 	public final StringExpression nombreUsuario;
 	public final BooleanExpression marcado;
+	public final DateExpression fechaCreacion;
 	public final CollectionExpression respondido_por;
 	public final CollectionExpression reportes_mensaje;
 	public final CollectionExpression media_mensaje;
@@ -36,7 +37,7 @@ public class MensajeDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final CollectionExpression respuesta_de;
 	
 	public MensajeDetachedCriteria() {
-		super(Mensaje.class, MensajeCriteria.class);
+		super(com.MDS2.ForoUal.Backend.ORM.src.Mensaje.class, com.MDS2.ForoUal.Backend.ORM.src.MensajeCriteria.class);
 		ID = new IntegerExpression("ID", this.getDetachedCriteria());
 		envia_mensajeId = new LongExpression("envia_mensaje.ID", this.getDetachedCriteria());
 		envia_mensaje = new AssociationExpression("envia_mensaje", this.getDetachedCriteria());
@@ -47,6 +48,7 @@ public class MensajeDetachedCriteria extends AbstractORMDetachedCriteria {
 		numeroMeGusta = new IntegerExpression("numeroMeGusta", this.getDetachedCriteria());
 		nombreUsuario = new StringExpression("nombreUsuario", this.getDetachedCriteria());
 		marcado = new BooleanExpression("marcado", this.getDetachedCriteria());
+		fechaCreacion = new DateExpression("fechaCreacion", this.getDetachedCriteria());
 		respondido_por = new CollectionExpression("ORM_respondido_por", this.getDetachedCriteria());
 		reportes_mensaje = new CollectionExpression("ORM_reportes_mensaje", this.getDetachedCriteria());
 		media_mensaje = new CollectionExpression("ORM_media_mensaje", this.getDetachedCriteria());
@@ -55,7 +57,7 @@ public class MensajeDetachedCriteria extends AbstractORMDetachedCriteria {
 	}
 	
 	public MensajeDetachedCriteria(DetachedCriteria aDetachedCriteria) {
-		super(aDetachedCriteria, MensajeCriteria.class);
+		super(aDetachedCriteria, com.MDS2.ForoUal.Backend.ORM.src.MensajeCriteria.class);
 		ID = new IntegerExpression("ID", this.getDetachedCriteria());
 		envia_mensajeId = new LongExpression("envia_mensaje.ID", this.getDetachedCriteria());
 		envia_mensaje = new AssociationExpression("envia_mensaje", this.getDetachedCriteria());
@@ -66,6 +68,7 @@ public class MensajeDetachedCriteria extends AbstractORMDetachedCriteria {
 		numeroMeGusta = new IntegerExpression("numeroMeGusta", this.getDetachedCriteria());
 		nombreUsuario = new StringExpression("nombreUsuario", this.getDetachedCriteria());
 		marcado = new BooleanExpression("marcado", this.getDetachedCriteria());
+		fechaCreacion = new DateExpression("fechaCreacion", this.getDetachedCriteria());
 		respondido_por = new CollectionExpression("ORM_respondido_por", this.getDetachedCriteria());
 		reportes_mensaje = new CollectionExpression("ORM_reportes_mensaje", this.getDetachedCriteria());
 		media_mensaje = new CollectionExpression("ORM_media_mensaje", this.getDetachedCriteria());
@@ -73,12 +76,12 @@ public class MensajeDetachedCriteria extends AbstractORMDetachedCriteria {
 		respuesta_de = new CollectionExpression("ORM_respuesta_de", this.getDetachedCriteria());
 	}
 	
-	public UsuarioDetachedCriteria createEnvia_mensajeCriteria() {
-		return new UsuarioDetachedCriteria(createCriteria("envia_mensaje"));
+	public com.MDS2.ForoUal.Backend.ORM.src.UsuarioDetachedCriteria createEnvia_mensajeCriteria() {
+		return new com.MDS2.ForoUal.Backend.ORM.src.UsuarioDetachedCriteria(createCriteria("envia_mensaje"));
 	}
 	
-	public TemaDetachedCriteria createMensaje_Criteria() {
-		return new TemaDetachedCriteria(createCriteria("mensaje_"));
+	public com.MDS2.ForoUal.Backend.ORM.src.TemaDetachedCriteria createMensaje_Criteria() {
+		return new com.MDS2.ForoUal.Backend.ORM.src.TemaDetachedCriteria(createCriteria("mensaje_"));
 	}
 	
 	public MensajeDetachedCriteria createRespondido_porCriteria() {

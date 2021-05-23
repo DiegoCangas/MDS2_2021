@@ -146,6 +146,6 @@ public class Crear_Mensaje extends Crear_Mensaje_Ventana{
 	}
 	public void crear() {
 				
-		foroUI.db.Crear_Mensaje(texto.getValue(),urls, respuestaAMensaje);
+		foroUI.db.Crear_Mensaje(texto.getValue(),urls, respuestaAMensaje,foroUI.user.getORMID());
 	}
 }

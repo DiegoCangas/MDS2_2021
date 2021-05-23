@@ -10,8 +10,8 @@
 /**
  * Licensee: PABLO DANIEL(University of Almeria)
  * License Type: Academic
- */package com.MDS2.ForoUal.Backend.ORM.src;
-
+ */
+package com.MDS2.ForoUal.Backend.ORM.src;
 
 import org.hibernate.Criteria;
 import org.orm.PersistentException;
@@ -59,7 +59,7 @@ public class TemaCriteria extends AbstractORMCriteria {
 	}
 	
 	public TemaCriteria() throws PersistentException {
-		this(MDS1PersistentManager.instance().getSession());
+		this(com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession());
 	}
 	
 	public UsuarioCriteria createCrea_temaCriteria() {
@@ -70,12 +70,12 @@ public class TemaCriteria extends AbstractORMCriteria {
 		return new SeccionCriteria(createCriteria("contiene"));
 	}
 	
-	public MensajeCriteria createComponeCriteria() {
-		return new MensajeCriteria(createCriteria("ORM_compone"));
+	public com.MDS2.ForoUal.Backend.ORM.src.MensajeCriteria createComponeCriteria() {
+		return new com.MDS2.ForoUal.Backend.ORM.src.MensajeCriteria(createCriteria("ORM_compone"));
 	}
 	
-	public UsuarioCriteria createGustaTemaCriteria() {
-		return new UsuarioCriteria(createCriteria("ORM_gustaTema"));
+	public com.MDS2.ForoUal.Backend.ORM.src.UsuarioCriteria createGustaTemaCriteria() {
+		return new com.MDS2.ForoUal.Backend.ORM.src.UsuarioCriteria(createCriteria("ORM_gustaTema"));
 	}
 	
 	public Tema uniqueTema() {

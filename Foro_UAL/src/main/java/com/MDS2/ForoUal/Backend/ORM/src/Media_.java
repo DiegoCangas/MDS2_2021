@@ -23,8 +23,8 @@ public class Media_ implements Serializable {
 	}
 	
 	private void this_setOwner(Object owner, int key) {
-		if (key == ORMConstants.KEY_MEDIA__MENSAJE_MEDIA) {
-			this.mensaje_media = (Mensaje) owner;
+		if (key == com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_MEDIA__MENSAJE_MEDIA) {
+			this.mensaje_media = (com.MDS2.ForoUal.Backend.ORM.src.Mensaje) owner;
 		}
 	}
 	
@@ -38,15 +38,15 @@ public class Media_ implements Serializable {
 	
 	@Column(name="`IDmedia`", nullable=false, length=20)	
 	@Id	
-	@GeneratedValue(generator="MEDIA__IDMEDIA_GENERATOR")	
-	@org.hibernate.annotations.GenericGenerator(name="MEDIA__IDMEDIA_GENERATOR", strategy="native")	
+	@GeneratedValue(generator="COM_MDS2_FOROUAL_BACKEND_ORM_SRC_MEDIA__IDMEDIA_GENERATOR")	
+	@org.hibernate.annotations.GenericGenerator(name="COM_MDS2_FOROUAL_BACKEND_ORM_SRC_MEDIA__IDMEDIA_GENERATOR", strategy="native")	
 	private Long IDmedia;
 	
-	@ManyToOne(targetEntity=Mensaje.class, fetch=FetchType.LAZY)	
+	@ManyToOne(targetEntity=com.MDS2.ForoUal.Backend.ORM.src.Mensaje.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
 	@JoinColumns(value={ @JoinColumn(name="`MensajeID`", referencedColumnName="`ID`") }, foreignKey=@ForeignKey(name="FKMedia_293025"))	
 	@org.hibernate.annotations.LazyToOne(value=org.hibernate.annotations.LazyToOneOption.NO_PROXY)	
-	private Mensaje mensaje_media;
+	private com.MDS2.ForoUal.Backend.ORM.src.Mensaje mensaje_media;
 	
 	@Column(name="`Url`", nullable=false, length=255)	
 	private String url;
@@ -75,7 +75,7 @@ public class Media_ implements Serializable {
 		return url;
 	}
 	
-	public void setMensaje_media(Mensaje value) {
+	public void setMensaje_media(com.MDS2.ForoUal.Backend.ORM.src.Mensaje value) {
 		if (mensaje_media != null) {
 			mensaje_media.media_mensaje.remove(this);
 		}
@@ -84,18 +84,18 @@ public class Media_ implements Serializable {
 		}
 	}
 	
-	public Mensaje getMensaje_media() {
+	public com.MDS2.ForoUal.Backend.ORM.src.Mensaje getMensaje_media() {
 		return mensaje_media;
 	}
 	
 	/**
 	 * This method is for internal use only.
 	 */
-	public void setORM_Mensaje_media(Mensaje value) {
+	public void setORM_Mensaje_media(com.MDS2.ForoUal.Backend.ORM.src.Mensaje value) {
 		this.mensaje_media = value;
 	}
 	
-	private Mensaje getORM_Mensaje_media() {
+	private com.MDS2.ForoUal.Backend.ORM.src.Mensaje getORM_Mensaje_media() {
 		return mensaje_media;
 	}
 	

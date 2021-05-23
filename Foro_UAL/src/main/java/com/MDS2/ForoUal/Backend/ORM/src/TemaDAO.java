@@ -21,7 +21,7 @@ import java.util.List;
 public class TemaDAO {
 	public static Tema loadTemaByORMID(int ID) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return loadTemaByORMID(session, ID);
 		}
 		catch (Exception e) {
@@ -32,7 +32,7 @@ public class TemaDAO {
 	
 	public static Tema getTemaByORMID(int ID) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return getTemaByORMID(session, ID);
 		}
 		catch (Exception e) {
@@ -43,7 +43,7 @@ public class TemaDAO {
 	
 	public static Tema loadTemaByORMID(int ID, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return loadTemaByORMID(session, ID, lockMode);
 		}
 		catch (Exception e) {
@@ -54,7 +54,7 @@ public class TemaDAO {
 	
 	public static Tema getTemaByORMID(int ID, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return getTemaByORMID(session, ID, lockMode);
 		}
 		catch (Exception e) {
@@ -65,7 +65,7 @@ public class TemaDAO {
 	
 	public static Tema loadTemaByORMID(PersistentSession session, int ID) throws PersistentException {
 		try {
-			return (Tema) session.load(Tema.class, new Integer(ID));
+			return (Tema) session.load(com.MDS2.ForoUal.Backend.ORM.src.Tema.class, new Integer(ID));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -75,7 +75,7 @@ public class TemaDAO {
 	
 	public static Tema getTemaByORMID(PersistentSession session, int ID) throws PersistentException {
 		try {
-			return (Tema) session.get(Tema.class, new Integer(ID));
+			return (Tema) session.get(com.MDS2.ForoUal.Backend.ORM.src.Tema.class, new Integer(ID));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -85,7 +85,7 @@ public class TemaDAO {
 	
 	public static Tema loadTemaByORMID(PersistentSession session, int ID, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Tema) session.load(Tema.class, new Integer(ID), lockMode);
+			return (Tema) session.load(com.MDS2.ForoUal.Backend.ORM.src.Tema.class, new Integer(ID), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -95,7 +95,7 @@ public class TemaDAO {
 	
 	public static Tema getTemaByORMID(PersistentSession session, int ID, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Tema) session.get(Tema.class, new Integer(ID), lockMode);
+			return (Tema) session.get(com.MDS2.ForoUal.Backend.ORM.src.Tema.class, new Integer(ID), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -105,7 +105,7 @@ public class TemaDAO {
 	
 	public static List queryTema(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return queryTema(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -116,7 +116,7 @@ public class TemaDAO {
 	
 	public static List queryTema(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return queryTema(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -127,7 +127,7 @@ public class TemaDAO {
 	
 	public static Tema[] listTemaByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return listTemaByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -138,7 +138,7 @@ public class TemaDAO {
 	
 	public static Tema[] listTemaByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return listTemaByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -148,7 +148,7 @@ public class TemaDAO {
 	}
 	
 	public static List queryTema(PersistentSession session, String condition, String orderBy) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From Tema as Tema");
+		StringBuffer sb = new StringBuffer("From com.MDS2.ForoUal.Backend.ORM.src.Tema as Tema");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -164,7 +164,7 @@ public class TemaDAO {
 	}
 	
 	public static List queryTema(PersistentSession session, String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From Tema as Tema");
+		StringBuffer sb = new StringBuffer("From com.MDS2.ForoUal.Backend.ORM.src.Tema as Tema");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -204,7 +204,7 @@ public class TemaDAO {
 	
 	public static Tema loadTemaByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return loadTemaByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -215,7 +215,7 @@ public class TemaDAO {
 	
 	public static Tema loadTemaByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return loadTemaByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -242,7 +242,7 @@ public class TemaDAO {
 	
 	public static java.util.Iterator iterateTemaByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return iterateTemaByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -253,7 +253,7 @@ public class TemaDAO {
 	
 	public static java.util.Iterator iterateTemaByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return iterateTemaByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -263,7 +263,7 @@ public class TemaDAO {
 	}
 	
 	public static java.util.Iterator iterateTemaByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From Tema as Tema");
+		StringBuffer sb = new StringBuffer("From com.MDS2.ForoUal.Backend.ORM.src.Tema as Tema");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -279,7 +279,7 @@ public class TemaDAO {
 	}
 	
 	public static java.util.Iterator iterateTemaByQuery(PersistentSession session, String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From Tema as Tema");
+		StringBuffer sb = new StringBuffer("From com.MDS2.ForoUal.Backend.ORM.src.Tema as Tema");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -296,12 +296,12 @@ public class TemaDAO {
 	}
 	
 	public static Tema createTema() {
-		return new Tema();
+		return new com.MDS2.ForoUal.Backend.ORM.src.Tema();
 	}
 	
-	public static boolean save(Tema tema) throws PersistentException {
+	public static boolean save(com.MDS2.ForoUal.Backend.ORM.src.Tema tema) throws PersistentException {
 		try {
-			MDS1PersistentManager.instance().saveObject(tema);
+			com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().saveObject(tema);
 			return true;
 		}
 		catch (Exception e) {
@@ -310,9 +310,9 @@ public class TemaDAO {
 		}
 	}
 	
-	public static boolean delete(Tema tema) throws PersistentException {
+	public static boolean delete(com.MDS2.ForoUal.Backend.ORM.src.Tema tema) throws PersistentException {
 		try {
-			MDS1PersistentManager.instance().deleteObject(tema);
+			com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().deleteObject(tema);
 			return true;
 		}
 		catch (Exception e) {
@@ -321,7 +321,7 @@ public class TemaDAO {
 		}
 	}
 	
-	public static boolean deleteAndDissociate(Tema tema)throws PersistentException {
+	public static boolean deleteAndDissociate(com.MDS2.ForoUal.Backend.ORM.src.Tema tema)throws PersistentException {
 		try {
 			if (tema.getCrea_tema() != null) {
 				tema.getCrea_tema().es_creado.remove(tema);
@@ -331,11 +331,11 @@ public class TemaDAO {
 				tema.getContiene().temas.remove(tema);
 			}
 			
-			Mensaje[] lCompones = tema.compone.toArray();
+			com.MDS2.ForoUal.Backend.ORM.src.Mensaje[] lCompones = tema.compone.toArray();
 			for(int i = 0; i < lCompones.length; i++) {
 				lCompones[i].setMensaje_(null);
 			}
-			Usuario[] lGustaTemas = tema.gustaTema.toArray();
+			com.MDS2.ForoUal.Backend.ORM.src.Usuario[] lGustaTemas = tema.gustaTema.toArray();
 			for(int i = 0; i < lGustaTemas.length; i++) {
 				lGustaTemas[i].megusta_tema.remove(tema);
 			}
@@ -347,7 +347,7 @@ public class TemaDAO {
 		}
 	}
 	
-	public static boolean deleteAndDissociate(Tema tema, org.orm.PersistentSession session)throws PersistentException {
+	public static boolean deleteAndDissociate(com.MDS2.ForoUal.Backend.ORM.src.Tema tema, org.orm.PersistentSession session)throws PersistentException {
 		try {
 			if (tema.getCrea_tema() != null) {
 				tema.getCrea_tema().es_creado.remove(tema);
@@ -357,11 +357,11 @@ public class TemaDAO {
 				tema.getContiene().temas.remove(tema);
 			}
 			
-			Mensaje[] lCompones = tema.compone.toArray();
+			com.MDS2.ForoUal.Backend.ORM.src.Mensaje[] lCompones = tema.compone.toArray();
 			for(int i = 0; i < lCompones.length; i++) {
 				lCompones[i].setMensaje_(null);
 			}
-			Usuario[] lGustaTemas = tema.gustaTema.toArray();
+			com.MDS2.ForoUal.Backend.ORM.src.Usuario[] lGustaTemas = tema.gustaTema.toArray();
 			for(int i = 0; i < lGustaTemas.length; i++) {
 				lGustaTemas[i].megusta_tema.remove(tema);
 			}
@@ -378,9 +378,9 @@ public class TemaDAO {
 		}
 	}
 	
-	public static boolean refresh(Tema tema) throws PersistentException {
+	public static boolean refresh(com.MDS2.ForoUal.Backend.ORM.src.Tema tema) throws PersistentException {
 		try {
-			MDS1PersistentManager.instance().getSession().refresh(tema);
+			com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession().refresh(tema);
 			return true;
 		}
 		catch (Exception e) {
@@ -389,9 +389,9 @@ public class TemaDAO {
 		}
 	}
 	
-	public static boolean evict(Tema tema) throws PersistentException {
+	public static boolean evict(com.MDS2.ForoUal.Backend.ORM.src.Tema tema) throws PersistentException {
 		try {
-			MDS1PersistentManager.instance().getSession().evict(tema);
+			com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession().evict(tema);
 			return true;
 		}
 		catch (Exception e) {

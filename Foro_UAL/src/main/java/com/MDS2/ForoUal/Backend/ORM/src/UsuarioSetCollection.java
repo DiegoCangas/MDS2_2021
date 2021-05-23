@@ -80,6 +80,7 @@ public class UsuarioSetCollection extends org.orm.util.ORMSet {
 	 * <li>baneado</li>
 	 * <li>IDusuario</li>
 	 * <li>nombreReal</li>
+	 * <li>esModerador</li>
 	 * </ul>
 	 * @return The persistent objects sorted array
 	 */
@@ -100,6 +101,7 @@ public class UsuarioSetCollection extends org.orm.util.ORMSet {
 	 * <li>baneado</li>
 	 * <li>IDusuario</li>
 	 * <li>nombreReal</li>
+	 * <li>esModerador</li>
 	 * </ul>
 	 * @param ascending true for ascending, false for descending
 	 * @return The persistent objects sorted array
@@ -109,7 +111,7 @@ public class UsuarioSetCollection extends org.orm.util.ORMSet {
 	}
 	
 	protected PersistentManager getPersistentManager() throws PersistentException {
-		return MDS1PersistentManager.instance();
+		return com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance();
 	}
 	
 }

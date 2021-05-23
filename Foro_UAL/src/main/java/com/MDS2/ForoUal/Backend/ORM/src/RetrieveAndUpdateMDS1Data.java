@@ -7,35 +7,32 @@ package com.MDS2.ForoUal.Backend.ORM.src;
 import org.orm.*;
 public class RetrieveAndUpdateMDS1Data {
 	public void retrieveAndUpdateTestData() throws PersistentException {
-		PersistentTransaction t = MDS1PersistentManager.instance().getSession().beginTransaction();
+		PersistentTransaction t = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession().beginTransaction();
 		try {
-			Reporte reporte = ReporteDAO.loadReporteByQuery(null, null);
+			com.MDS2.ForoUal.Backend.ORM.src.Reporte lpackage_comMDS2ForoUalBackendORMsrcReporte = com.MDS2.ForoUal.Backend.ORM.src.ReporteDAO.loadReporteByQuery(null, null);
 			// Update the properties of the persistent object
-			ReporteDAO.save(reporte);
-			Tema tema = TemaDAO.loadTemaByQuery(null, null);
+			com.MDS2.ForoUal.Backend.ORM.src.ReporteDAO.save(lpackage_comMDS2ForoUalBackendORMsrcReporte);
+			com.MDS2.ForoUal.Backend.ORM.src.Tema lpackage_comMDS2ForoUalBackendORMsrcTema = com.MDS2.ForoUal.Backend.ORM.src.TemaDAO.loadTemaByQuery(null, null);
 			// Update the properties of the persistent object
-			TemaDAO.save(tema);
-			Seccion seccion = SeccionDAO.loadSeccionByQuery(null, null);
+			com.MDS2.ForoUal.Backend.ORM.src.TemaDAO.save(lpackage_comMDS2ForoUalBackendORMsrcTema);
+			com.MDS2.ForoUal.Backend.ORM.src.Seccion lpackage_comMDS2ForoUalBackendORMsrcSeccion = com.MDS2.ForoUal.Backend.ORM.src.SeccionDAO.loadSeccionByQuery(null, null);
 			// Update the properties of the persistent object
-			SeccionDAO.save(seccion);
-			Mensaje mensaje = MensajeDAO.loadMensajeByQuery(null, null);
+			com.MDS2.ForoUal.Backend.ORM.src.SeccionDAO.save(lpackage_comMDS2ForoUalBackendORMsrcSeccion);
+			com.MDS2.ForoUal.Backend.ORM.src.Mensaje lpackage_comMDS2ForoUalBackendORMsrcMensaje = com.MDS2.ForoUal.Backend.ORM.src.MensajeDAO.loadMensajeByQuery(null, null);
 			// Update the properties of the persistent object
-			MensajeDAO.save(mensaje);
-			Usuario usuario = UsuarioDAO.loadUsuarioByQuery(null, null);
+			com.MDS2.ForoUal.Backend.ORM.src.MensajeDAO.save(lpackage_comMDS2ForoUalBackendORMsrcMensaje);
+			com.MDS2.ForoUal.Backend.ORM.src.Usuario lpackage_comMDS2ForoUalBackendORMsrcUsuario = com.MDS2.ForoUal.Backend.ORM.src.UsuarioDAO.loadUsuarioByQuery(null, null);
 			// Update the properties of the persistent object
-			UsuarioDAO.save(usuario);
-			Moderador moderador = ModeradorDAO.loadModeradorByQuery(null, null);
+			com.MDS2.ForoUal.Backend.ORM.src.UsuarioDAO.save(lpackage_comMDS2ForoUalBackendORMsrcUsuario);
+			com.MDS2.ForoUal.Backend.ORM.src.Media_ lpackage_comMDS2ForoUalBackendORMsrcMedia_ = com.MDS2.ForoUal.Backend.ORM.src.Media_DAO.loadMedia_ByQuery(null, null);
 			// Update the properties of the persistent object
-			ModeradorDAO.save(moderador);
-			Administrador administrador = AdministradorDAO.loadAdministradorByQuery(null, null);
+			com.MDS2.ForoUal.Backend.ORM.src.Media_DAO.save(lpackage_comMDS2ForoUalBackendORMsrcMedia_);
+			com.MDS2.ForoUal.Backend.ORM.src.Notificacion lpackage_comMDS2ForoUalBackendORMsrcNotificacion = com.MDS2.ForoUal.Backend.ORM.src.NotificacionDAO.loadNotificacionByQuery(null, null);
 			// Update the properties of the persistent object
-			AdministradorDAO.save(administrador);
-			Media_ media_ = Media_DAO.loadMedia_ByQuery(null, null);
+			com.MDS2.ForoUal.Backend.ORM.src.NotificacionDAO.save(lpackage_comMDS2ForoUalBackendORMsrcNotificacion);
+			com.MDS2.ForoUal.Backend.ORM.src.Administrador lpackage_comMDS2ForoUalBackendORMsrcAdministrador = com.MDS2.ForoUal.Backend.ORM.src.AdministradorDAO.loadAdministradorByQuery(null, null);
 			// Update the properties of the persistent object
-			Media_DAO.save(media_);
-			Notificacion notificacion = NotificacionDAO.loadNotificacionByQuery(null, null);
-			// Update the properties of the persistent object
-			NotificacionDAO.save(notificacion);
+			com.MDS2.ForoUal.Backend.ORM.src.AdministradorDAO.save(lpackage_comMDS2ForoUalBackendORMsrcAdministrador);
 			t.commit();
 		}
 		catch (Exception e) {
@@ -46,58 +43,52 @@ public class RetrieveAndUpdateMDS1Data {
 	
 	public void retrieveByCriteria() throws PersistentException {
 		System.out.println("Retrieving Reporte by ReporteCriteria");
-		ReporteCriteria reporteCriteria = new ReporteCriteria();
+		com.MDS2.ForoUal.Backend.ORM.src.ReporteCriteria lpackage_comMDS2ForoUalBackendORMsrcReporteCriteria = new com.MDS2.ForoUal.Backend.ORM.src.ReporteCriteria();
 		// Please uncomment the follow line and fill in parameter(s)
-		//reporteCriteria.idReporte.eq();
-		System.out.println(reporteCriteria.uniqueReporte());
+		//lpackage_comMDS2ForoUalBackendORMsrcReporteCriteria.idReporte.eq();
+		System.out.println(lpackage_comMDS2ForoUalBackendORMsrcReporteCriteria.uniqueReporte());
 		
 		System.out.println("Retrieving Tema by TemaCriteria");
-		TemaCriteria temaCriteria = new TemaCriteria();
+		com.MDS2.ForoUal.Backend.ORM.src.TemaCriteria lpackage_comMDS2ForoUalBackendORMsrcTemaCriteria = new com.MDS2.ForoUal.Backend.ORM.src.TemaCriteria();
 		// Please uncomment the follow line and fill in parameter(s)
-		//temaCriteria.ID.eq();
-		System.out.println(temaCriteria.uniqueTema());
+		//lpackage_comMDS2ForoUalBackendORMsrcTemaCriteria.ID.eq();
+		System.out.println(lpackage_comMDS2ForoUalBackendORMsrcTemaCriteria.uniqueTema());
 		
 		System.out.println("Retrieving Seccion by SeccionCriteria");
-		SeccionCriteria seccionCriteria = new SeccionCriteria();
+		com.MDS2.ForoUal.Backend.ORM.src.SeccionCriteria lpackage_comMDS2ForoUalBackendORMsrcSeccionCriteria = new com.MDS2.ForoUal.Backend.ORM.src.SeccionCriteria();
 		// Please uncomment the follow line and fill in parameter(s)
-		//seccionCriteria.ID.eq();
-		System.out.println(seccionCriteria.uniqueSeccion());
+		//lpackage_comMDS2ForoUalBackendORMsrcSeccionCriteria.ID.eq();
+		System.out.println(lpackage_comMDS2ForoUalBackendORMsrcSeccionCriteria.uniqueSeccion());
 		
 		System.out.println("Retrieving Mensaje by MensajeCriteria");
-		MensajeCriteria mensajeCriteria = new MensajeCriteria();
+		com.MDS2.ForoUal.Backend.ORM.src.MensajeCriteria lpackage_comMDS2ForoUalBackendORMsrcMensajeCriteria = new com.MDS2.ForoUal.Backend.ORM.src.MensajeCriteria();
 		// Please uncomment the follow line and fill in parameter(s)
-		//mensajeCriteria.ID.eq();
-		System.out.println(mensajeCriteria.uniqueMensaje());
+		//lpackage_comMDS2ForoUalBackendORMsrcMensajeCriteria.ID.eq();
+		System.out.println(lpackage_comMDS2ForoUalBackendORMsrcMensajeCriteria.uniqueMensaje());
 		
 		System.out.println("Retrieving Usuario by UsuarioCriteria");
-		UsuarioCriteria usuarioCriteria = new UsuarioCriteria();
+		com.MDS2.ForoUal.Backend.ORM.src.UsuarioCriteria lpackage_comMDS2ForoUalBackendORMsrcUsuarioCriteria = new com.MDS2.ForoUal.Backend.ORM.src.UsuarioCriteria();
 		// Please uncomment the follow line and fill in parameter(s)
-		//usuarioCriteria.ID.eq();
-		System.out.println(usuarioCriteria.uniqueUsuario());
-		
-		System.out.println("Retrieving Moderador by ModeradorCriteria");
-		ModeradorCriteria moderadorCriteria = new ModeradorCriteria();
-		// Please uncomment the follow line and fill in parameter(s)
-		//moderadorCriteria.ID.eq();
-		System.out.println(moderadorCriteria.uniqueModerador());
-		
-		System.out.println("Retrieving Administrador by AdministradorCriteria");
-		AdministradorCriteria administradorCriteria = new AdministradorCriteria();
-		// Please uncomment the follow line and fill in parameter(s)
-		//administradorCriteria.ID.eq();
-		System.out.println(administradorCriteria.uniqueAdministrador());
+		//lpackage_comMDS2ForoUalBackendORMsrcUsuarioCriteria.ID.eq();
+		System.out.println(lpackage_comMDS2ForoUalBackendORMsrcUsuarioCriteria.uniqueUsuario());
 		
 		System.out.println("Retrieving Media_ by Media_Criteria");
-		Media_Criteria media_Criteria = new Media_Criteria();
+		com.MDS2.ForoUal.Backend.ORM.src.Media_Criteria lpackage_comMDS2ForoUalBackendORMsrcMedia_Criteria = new com.MDS2.ForoUal.Backend.ORM.src.Media_Criteria();
 		// Please uncomment the follow line and fill in parameter(s)
-		//media_Criteria.IDmedia.eq();
-		System.out.println(media_Criteria.uniqueMedia_());
+		//lpackage_comMDS2ForoUalBackendORMsrcMedia_Criteria.IDmedia.eq();
+		System.out.println(lpackage_comMDS2ForoUalBackendORMsrcMedia_Criteria.uniqueMedia_());
 		
 		System.out.println("Retrieving Notificacion by NotificacionCriteria");
-		NotificacionCriteria notificacionCriteria = new NotificacionCriteria();
+		com.MDS2.ForoUal.Backend.ORM.src.NotificacionCriteria lpackage_comMDS2ForoUalBackendORMsrcNotificacionCriteria = new com.MDS2.ForoUal.Backend.ORM.src.NotificacionCriteria();
 		// Please uncomment the follow line and fill in parameter(s)
-		//notificacionCriteria.idnotificacion.eq();
-		System.out.println(notificacionCriteria.uniqueNotificacion());
+		//lpackage_comMDS2ForoUalBackendORMsrcNotificacionCriteria.idnotificacion.eq();
+		System.out.println(lpackage_comMDS2ForoUalBackendORMsrcNotificacionCriteria.uniqueNotificacion());
+		
+		System.out.println("Retrieving Administrador by AdministradorCriteria");
+		com.MDS2.ForoUal.Backend.ORM.src.AdministradorCriteria lpackage_comMDS2ForoUalBackendORMsrcAdministradorCriteria = new com.MDS2.ForoUal.Backend.ORM.src.AdministradorCriteria();
+		// Please uncomment the follow line and fill in parameter(s)
+		//lpackage_comMDS2ForoUalBackendORMsrcAdministradorCriteria.ID.eq();
+		System.out.println(lpackage_comMDS2ForoUalBackendORMsrcAdministradorCriteria.uniqueAdministrador());
 		
 	}
 	
@@ -110,7 +101,7 @@ public class RetrieveAndUpdateMDS1Data {
 				//retrieveAndUpdateMDS1Data.retrieveByCriteria();
 			}
 			finally {
-				MDS1PersistentManager.instance().disposePersistentManager();
+				com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().disposePersistentManager();
 			}
 		}
 		catch (Exception e) {

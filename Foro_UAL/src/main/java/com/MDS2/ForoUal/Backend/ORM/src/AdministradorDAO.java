@@ -1,5 +1,3 @@
-package com.MDS2.ForoUal.Backend.ORM.src;
-
 /**
  * "Visual Paradigm: DO NOT MODIFY THIS FILE!"
  * 
@@ -13,6 +11,8 @@ package com.MDS2.ForoUal.Backend.ORM.src;
  * Licensee: PABLO DANIEL(University of Almeria)
  * License Type: Academic
  */
+package com.MDS2.ForoUal.Backend.ORM.src;
+
 import org.orm.*;
 import org.hibernate.Query;
 import org.hibernate.LockMode;
@@ -21,7 +21,7 @@ import java.util.List;
 public class AdministradorDAO {
 	public static Administrador loadAdministradorByORMID(long ID) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return loadAdministradorByORMID(session, ID);
 		}
 		catch (Exception e) {
@@ -32,7 +32,7 @@ public class AdministradorDAO {
 	
 	public static Administrador getAdministradorByORMID(long ID) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return getAdministradorByORMID(session, ID);
 		}
 		catch (Exception e) {
@@ -43,7 +43,7 @@ public class AdministradorDAO {
 	
 	public static Administrador loadAdministradorByORMID(long ID, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return loadAdministradorByORMID(session, ID, lockMode);
 		}
 		catch (Exception e) {
@@ -54,7 +54,7 @@ public class AdministradorDAO {
 	
 	public static Administrador getAdministradorByORMID(long ID, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return getAdministradorByORMID(session, ID, lockMode);
 		}
 		catch (Exception e) {
@@ -65,7 +65,7 @@ public class AdministradorDAO {
 	
 	public static Administrador loadAdministradorByORMID(PersistentSession session, long ID) throws PersistentException {
 		try {
-			return (Administrador) session.load(Administrador.class, new Long(ID));
+			return (Administrador) session.load(com.MDS2.ForoUal.Backend.ORM.src.Administrador.class, new Long(ID));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -75,7 +75,7 @@ public class AdministradorDAO {
 	
 	public static Administrador getAdministradorByORMID(PersistentSession session, long ID) throws PersistentException {
 		try {
-			return (Administrador) session.get(Administrador.class, new Long(ID));
+			return (Administrador) session.get(com.MDS2.ForoUal.Backend.ORM.src.Administrador.class, new Long(ID));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -85,7 +85,7 @@ public class AdministradorDAO {
 	
 	public static Administrador loadAdministradorByORMID(PersistentSession session, long ID, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Administrador) session.load(Administrador.class, new Long(ID), lockMode);
+			return (Administrador) session.load(com.MDS2.ForoUal.Backend.ORM.src.Administrador.class, new Long(ID), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -95,7 +95,7 @@ public class AdministradorDAO {
 	
 	public static Administrador getAdministradorByORMID(PersistentSession session, long ID, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Administrador) session.get(Administrador.class, new Long(ID), lockMode);
+			return (Administrador) session.get(com.MDS2.ForoUal.Backend.ORM.src.Administrador.class, new Long(ID), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -105,7 +105,7 @@ public class AdministradorDAO {
 	
 	public static List queryAdministrador(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return queryAdministrador(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -116,7 +116,7 @@ public class AdministradorDAO {
 	
 	public static List queryAdministrador(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return queryAdministrador(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -127,7 +127,7 @@ public class AdministradorDAO {
 	
 	public static Administrador[] listAdministradorByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return listAdministradorByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -138,7 +138,7 @@ public class AdministradorDAO {
 	
 	public static Administrador[] listAdministradorByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return listAdministradorByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -148,7 +148,7 @@ public class AdministradorDAO {
 	}
 	
 	public static List queryAdministrador(PersistentSession session, String condition, String orderBy) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From Administrador as Administrador");
+		StringBuffer sb = new StringBuffer("From com.MDS2.ForoUal.Backend.ORM.src.Administrador as Administrador");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -164,7 +164,7 @@ public class AdministradorDAO {
 	}
 	
 	public static List queryAdministrador(PersistentSession session, String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From Administrador as Administrador");
+		StringBuffer sb = new StringBuffer("From com.MDS2.ForoUal.Backend.ORM.src.Administrador as Administrador");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -204,7 +204,7 @@ public class AdministradorDAO {
 	
 	public static Administrador loadAdministradorByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return loadAdministradorByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -215,7 +215,7 @@ public class AdministradorDAO {
 	
 	public static Administrador loadAdministradorByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return loadAdministradorByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -242,7 +242,7 @@ public class AdministradorDAO {
 	
 	public static java.util.Iterator iterateAdministradorByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return iterateAdministradorByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -253,7 +253,7 @@ public class AdministradorDAO {
 	
 	public static java.util.Iterator iterateAdministradorByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return iterateAdministradorByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -263,7 +263,7 @@ public class AdministradorDAO {
 	}
 	
 	public static java.util.Iterator iterateAdministradorByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From Administrador as Administrador");
+		StringBuffer sb = new StringBuffer("From com.MDS2.ForoUal.Backend.ORM.src.Administrador as Administrador");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -279,7 +279,7 @@ public class AdministradorDAO {
 	}
 	
 	public static java.util.Iterator iterateAdministradorByQuery(PersistentSession session, String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From Administrador as Administrador");
+		StringBuffer sb = new StringBuffer("From com.MDS2.ForoUal.Backend.ORM.src.Administrador as Administrador");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -296,12 +296,12 @@ public class AdministradorDAO {
 	}
 	
 	public static Administrador createAdministrador() {
-		return new Administrador();
+		return new com.MDS2.ForoUal.Backend.ORM.src.Administrador();
 	}
 	
-	public static boolean save(Administrador administrador) throws PersistentException {
+	public static boolean save(com.MDS2.ForoUal.Backend.ORM.src.Administrador administrador) throws PersistentException {
 		try {
-			MDS1PersistentManager.instance().saveObject(administrador);
+			com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().saveObject(administrador);
 			return true;
 		}
 		catch (Exception e) {
@@ -310,9 +310,9 @@ public class AdministradorDAO {
 		}
 	}
 	
-	public static boolean delete(Administrador administrador) throws PersistentException {
+	public static boolean delete(com.MDS2.ForoUal.Backend.ORM.src.Administrador administrador) throws PersistentException {
 		try {
-			MDS1PersistentManager.instance().deleteObject(administrador);
+			com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().deleteObject(administrador);
 			return true;
 		}
 		catch (Exception e) {
@@ -321,41 +321,41 @@ public class AdministradorDAO {
 		}
 	}
 	
-	public static boolean deleteAndDissociate(Administrador administrador)throws PersistentException {
+	public static boolean deleteAndDissociate(com.MDS2.ForoUal.Backend.ORM.src.Administrador administrador)throws PersistentException {
 		try {
-			Seccion[] lEs_creadas = administrador.es_creada.toArray();
+			com.MDS2.ForoUal.Backend.ORM.src.Seccion[] lEs_creadas = administrador.es_creada.toArray();
 			for(int i = 0; i < lEs_creadas.length; i++) {
 				lEs_creadas[i].setCrea(null);
 			}
-			Reporte[] lReportes_usuarios = administrador.reportes_usuario.toArray();
+			com.MDS2.ForoUal.Backend.ORM.src.Reporte[] lReportes_usuarios = administrador.reportes_usuario.toArray();
 			for(int i = 0; i < lReportes_usuarios.length; i++) {
 				lReportes_usuarios[i].setUsuario_reporte(null);
 			}
-			Usuario[] lAmigo_des = administrador.amigo_de.toArray();
+			com.MDS2.ForoUal.Backend.ORM.src.Usuario[] lAmigo_des = administrador.amigo_de.toArray();
 			for(int i = 0; i < lAmigo_des.length; i++) {
 				lAmigo_des[i].usuarios.remove(administrador);
 			}
-			Mensaje[] lPerteneces = administrador.pertenece.toArray();
+			com.MDS2.ForoUal.Backend.ORM.src.Mensaje[] lPerteneces = administrador.pertenece.toArray();
 			for(int i = 0; i < lPerteneces.length; i++) {
 				lPerteneces[i].setEnvia_mensaje(null);
 			}
-			Usuario[] lUsuarioss = administrador.usuarios.toArray();
+			com.MDS2.ForoUal.Backend.ORM.src.Usuario[] lUsuarioss = administrador.usuarios.toArray();
 			for(int i = 0; i < lUsuarioss.length; i++) {
 				lUsuarioss[i].amigo_de.remove(administrador);
 			}
-			Tema[] lEs_creados = administrador.es_creado.toArray();
+			com.MDS2.ForoUal.Backend.ORM.src.Tema[] lEs_creados = administrador.es_creado.toArray();
 			for(int i = 0; i < lEs_creados.length; i++) {
 				lEs_creados[i].setCrea_tema(null);
 			}
-			Notificacion[] lNotificacion_usuarios = administrador.notificacion_usuario.toArray();
+			com.MDS2.ForoUal.Backend.ORM.src.Notificacion[] lNotificacion_usuarios = administrador.notificacion_usuario.toArray();
 			for(int i = 0; i < lNotificacion_usuarios.length; i++) {
 				lNotificacion_usuarios[i].setUsuario_ticket(null);
 			}
-			Mensaje[] lMegustas = administrador.megusta.toArray();
+			com.MDS2.ForoUal.Backend.ORM.src.Mensaje[] lMegustas = administrador.megusta.toArray();
 			for(int i = 0; i < lMegustas.length; i++) {
 				lMegustas[i].gustaMensaje.remove(administrador);
 			}
-			Tema[] lMegusta_temas = administrador.megusta_tema.toArray();
+			com.MDS2.ForoUal.Backend.ORM.src.Tema[] lMegusta_temas = administrador.megusta_tema.toArray();
 			for(int i = 0; i < lMegusta_temas.length; i++) {
 				lMegusta_temas[i].gustaTema.remove(administrador);
 			}
@@ -367,41 +367,41 @@ public class AdministradorDAO {
 		}
 	}
 	
-	public static boolean deleteAndDissociate(Administrador administrador, org.orm.PersistentSession session)throws PersistentException {
+	public static boolean deleteAndDissociate(com.MDS2.ForoUal.Backend.ORM.src.Administrador administrador, org.orm.PersistentSession session)throws PersistentException {
 		try {
-			Seccion[] lEs_creadas = administrador.es_creada.toArray();
+			com.MDS2.ForoUal.Backend.ORM.src.Seccion[] lEs_creadas = administrador.es_creada.toArray();
 			for(int i = 0; i < lEs_creadas.length; i++) {
 				lEs_creadas[i].setCrea(null);
 			}
-			Reporte[] lReportes_usuarios = administrador.reportes_usuario.toArray();
+			com.MDS2.ForoUal.Backend.ORM.src.Reporte[] lReportes_usuarios = administrador.reportes_usuario.toArray();
 			for(int i = 0; i < lReportes_usuarios.length; i++) {
 				lReportes_usuarios[i].setUsuario_reporte(null);
 			}
-			Usuario[] lAmigo_des = administrador.amigo_de.toArray();
+			com.MDS2.ForoUal.Backend.ORM.src.Usuario[] lAmigo_des = administrador.amigo_de.toArray();
 			for(int i = 0; i < lAmigo_des.length; i++) {
 				lAmigo_des[i].usuarios.remove(administrador);
 			}
-			Mensaje[] lPerteneces = administrador.pertenece.toArray();
+			com.MDS2.ForoUal.Backend.ORM.src.Mensaje[] lPerteneces = administrador.pertenece.toArray();
 			for(int i = 0; i < lPerteneces.length; i++) {
 				lPerteneces[i].setEnvia_mensaje(null);
 			}
-			Usuario[] lUsuarioss = administrador.usuarios.toArray();
+			com.MDS2.ForoUal.Backend.ORM.src.Usuario[] lUsuarioss = administrador.usuarios.toArray();
 			for(int i = 0; i < lUsuarioss.length; i++) {
 				lUsuarioss[i].amigo_de.remove(administrador);
 			}
-			Tema[] lEs_creados = administrador.es_creado.toArray();
+			com.MDS2.ForoUal.Backend.ORM.src.Tema[] lEs_creados = administrador.es_creado.toArray();
 			for(int i = 0; i < lEs_creados.length; i++) {
 				lEs_creados[i].setCrea_tema(null);
 			}
-			Notificacion[] lNotificacion_usuarios = administrador.notificacion_usuario.toArray();
+			com.MDS2.ForoUal.Backend.ORM.src.Notificacion[] lNotificacion_usuarios = administrador.notificacion_usuario.toArray();
 			for(int i = 0; i < lNotificacion_usuarios.length; i++) {
 				lNotificacion_usuarios[i].setUsuario_ticket(null);
 			}
-			Mensaje[] lMegustas = administrador.megusta.toArray();
+			com.MDS2.ForoUal.Backend.ORM.src.Mensaje[] lMegustas = administrador.megusta.toArray();
 			for(int i = 0; i < lMegustas.length; i++) {
 				lMegustas[i].gustaMensaje.remove(administrador);
 			}
-			Tema[] lMegusta_temas = administrador.megusta_tema.toArray();
+			com.MDS2.ForoUal.Backend.ORM.src.Tema[] lMegusta_temas = administrador.megusta_tema.toArray();
 			for(int i = 0; i < lMegusta_temas.length; i++) {
 				lMegusta_temas[i].gustaTema.remove(administrador);
 			}
@@ -418,9 +418,9 @@ public class AdministradorDAO {
 		}
 	}
 	
-	public static boolean refresh(Administrador administrador) throws PersistentException {
+	public static boolean refresh(com.MDS2.ForoUal.Backend.ORM.src.Administrador administrador) throws PersistentException {
 		try {
-			MDS1PersistentManager.instance().getSession().refresh(administrador);
+			com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession().refresh(administrador);
 			return true;
 		}
 		catch (Exception e) {
@@ -429,9 +429,9 @@ public class AdministradorDAO {
 		}
 	}
 	
-	public static boolean evict(Administrador administrador) throws PersistentException {
+	public static boolean evict(com.MDS2.ForoUal.Backend.ORM.src.Administrador administrador) throws PersistentException {
 		try {
-			MDS1PersistentManager.instance().getSession().evict(administrador);
+			com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession().evict(administrador);
 			return true;
 		}
 		catch (Exception e) {

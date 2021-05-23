@@ -21,7 +21,7 @@ import java.util.List;
 public class UsuarioDAO {
 	public static Usuario loadUsuarioByORMID(long ID) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return loadUsuarioByORMID(session, ID);
 		}
 		catch (Exception e) {
@@ -32,7 +32,7 @@ public class UsuarioDAO {
 	
 	public static Usuario getUsuarioByORMID(long ID) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return getUsuarioByORMID(session, ID);
 		}
 		catch (Exception e) {
@@ -43,7 +43,7 @@ public class UsuarioDAO {
 	
 	public static Usuario loadUsuarioByORMID(long ID, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return loadUsuarioByORMID(session, ID, lockMode);
 		}
 		catch (Exception e) {
@@ -54,7 +54,7 @@ public class UsuarioDAO {
 	
 	public static Usuario getUsuarioByORMID(long ID, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return getUsuarioByORMID(session, ID, lockMode);
 		}
 		catch (Exception e) {
@@ -65,7 +65,7 @@ public class UsuarioDAO {
 	
 	public static Usuario loadUsuarioByORMID(PersistentSession session, long ID) throws PersistentException {
 		try {
-			return (Usuario) session.load(Usuario.class, new Long(ID));
+			return (Usuario) session.load(com.MDS2.ForoUal.Backend.ORM.src.Usuario.class, new Long(ID));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -75,7 +75,7 @@ public class UsuarioDAO {
 	
 	public static Usuario getUsuarioByORMID(PersistentSession session, long ID) throws PersistentException {
 		try {
-			return (Usuario) session.get(Usuario.class, new Long(ID));
+			return (Usuario) session.get(com.MDS2.ForoUal.Backend.ORM.src.Usuario.class, new Long(ID));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -85,7 +85,7 @@ public class UsuarioDAO {
 	
 	public static Usuario loadUsuarioByORMID(PersistentSession session, long ID, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Usuario) session.load(Usuario.class, new Long(ID), lockMode);
+			return (Usuario) session.load(com.MDS2.ForoUal.Backend.ORM.src.Usuario.class, new Long(ID), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -95,7 +95,7 @@ public class UsuarioDAO {
 	
 	public static Usuario getUsuarioByORMID(PersistentSession session, long ID, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Usuario) session.get(Usuario.class, new Long(ID), lockMode);
+			return (Usuario) session.get(com.MDS2.ForoUal.Backend.ORM.src.Usuario.class, new Long(ID), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -105,7 +105,7 @@ public class UsuarioDAO {
 	
 	public static List queryUsuario(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return queryUsuario(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -116,7 +116,7 @@ public class UsuarioDAO {
 	
 	public static List queryUsuario(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return queryUsuario(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -127,7 +127,7 @@ public class UsuarioDAO {
 	
 	public static Usuario[] listUsuarioByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return listUsuarioByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -138,7 +138,7 @@ public class UsuarioDAO {
 	
 	public static Usuario[] listUsuarioByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return listUsuarioByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -148,7 +148,7 @@ public class UsuarioDAO {
 	}
 	
 	public static List queryUsuario(PersistentSession session, String condition, String orderBy) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From Usuario as Usuario");
+		StringBuffer sb = new StringBuffer("From com.MDS2.ForoUal.Backend.ORM.src.Usuario as Usuario");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -164,7 +164,7 @@ public class UsuarioDAO {
 	}
 	
 	public static List queryUsuario(PersistentSession session, String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From Usuario as Usuario");
+		StringBuffer sb = new StringBuffer("From com.MDS2.ForoUal.Backend.ORM.src.Usuario as Usuario");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -204,7 +204,7 @@ public class UsuarioDAO {
 	
 	public static Usuario loadUsuarioByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return loadUsuarioByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -215,7 +215,7 @@ public class UsuarioDAO {
 	
 	public static Usuario loadUsuarioByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return loadUsuarioByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -242,7 +242,7 @@ public class UsuarioDAO {
 	
 	public static java.util.Iterator iterateUsuarioByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return iterateUsuarioByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -253,7 +253,7 @@ public class UsuarioDAO {
 	
 	public static java.util.Iterator iterateUsuarioByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return iterateUsuarioByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -263,7 +263,7 @@ public class UsuarioDAO {
 	}
 	
 	public static java.util.Iterator iterateUsuarioByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From Usuario as Usuario");
+		StringBuffer sb = new StringBuffer("From com.MDS2.ForoUal.Backend.ORM.src.Usuario as Usuario");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -279,7 +279,7 @@ public class UsuarioDAO {
 	}
 	
 	public static java.util.Iterator iterateUsuarioByQuery(PersistentSession session, String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From Usuario as Usuario");
+		StringBuffer sb = new StringBuffer("From com.MDS2.ForoUal.Backend.ORM.src.Usuario as Usuario");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -296,12 +296,12 @@ public class UsuarioDAO {
 	}
 	
 	public static Usuario createUsuario() {
-		return new Usuario();
+		return new com.MDS2.ForoUal.Backend.ORM.src.Usuario();
 	}
 	
-	public static boolean save(Usuario usuario) throws PersistentException {
+	public static boolean save(com.MDS2.ForoUal.Backend.ORM.src.Usuario usuario) throws PersistentException {
 		try {
-			MDS1PersistentManager.instance().saveObject(usuario);
+			com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().saveObject(usuario);
 			return true;
 		}
 		catch (Exception e) {
@@ -310,9 +310,9 @@ public class UsuarioDAO {
 		}
 	}
 	
-	public static boolean delete(Usuario usuario) throws PersistentException {
+	public static boolean delete(com.MDS2.ForoUal.Backend.ORM.src.Usuario usuario) throws PersistentException {
 		try {
-			MDS1PersistentManager.instance().deleteObject(usuario);
+			com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().deleteObject(usuario);
 			return true;
 		}
 		catch (Exception e) {
@@ -321,41 +321,41 @@ public class UsuarioDAO {
 		}
 	}
 	
-	public static boolean deleteAndDissociate(Usuario usuario)throws PersistentException {
-		if (usuario instanceof Moderador) {
-			return ModeradorDAO.deleteAndDissociate((Moderador) usuario);
+	public static boolean deleteAndDissociate(com.MDS2.ForoUal.Backend.ORM.src.Usuario usuario)throws PersistentException {
+		if (usuario instanceof com.MDS2.ForoUal.Backend.ORM.src.Administrador) {
+			return com.MDS2.ForoUal.Backend.ORM.src.AdministradorDAO.deleteAndDissociate((com.MDS2.ForoUal.Backend.ORM.src.Administrador) usuario);
 		}
 		
 		try {
-			Reporte[] lReportes_usuarios = usuario.reportes_usuario.toArray();
+			com.MDS2.ForoUal.Backend.ORM.src.Reporte[] lReportes_usuarios = usuario.reportes_usuario.toArray();
 			for(int i = 0; i < lReportes_usuarios.length; i++) {
 				lReportes_usuarios[i].setUsuario_reporte(null);
 			}
-			Usuario[] lAmigo_des = usuario.amigo_de.toArray();
+			com.MDS2.ForoUal.Backend.ORM.src.Usuario[] lAmigo_des = usuario.amigo_de.toArray();
 			for(int i = 0; i < lAmigo_des.length; i++) {
 				lAmigo_des[i].usuarios.remove(usuario);
 			}
-			Mensaje[] lPerteneces = usuario.pertenece.toArray();
+			com.MDS2.ForoUal.Backend.ORM.src.Mensaje[] lPerteneces = usuario.pertenece.toArray();
 			for(int i = 0; i < lPerteneces.length; i++) {
 				lPerteneces[i].setEnvia_mensaje(null);
 			}
-			Usuario[] lUsuarioss = usuario.usuarios.toArray();
+			com.MDS2.ForoUal.Backend.ORM.src.Usuario[] lUsuarioss = usuario.usuarios.toArray();
 			for(int i = 0; i < lUsuarioss.length; i++) {
 				lUsuarioss[i].amigo_de.remove(usuario);
 			}
-			Tema[] lEs_creados = usuario.es_creado.toArray();
+			com.MDS2.ForoUal.Backend.ORM.src.Tema[] lEs_creados = usuario.es_creado.toArray();
 			for(int i = 0; i < lEs_creados.length; i++) {
 				lEs_creados[i].setCrea_tema(null);
 			}
-			Notificacion[] lNotificacion_usuarios = usuario.notificacion_usuario.toArray();
+			com.MDS2.ForoUal.Backend.ORM.src.Notificacion[] lNotificacion_usuarios = usuario.notificacion_usuario.toArray();
 			for(int i = 0; i < lNotificacion_usuarios.length; i++) {
 				lNotificacion_usuarios[i].setUsuario_ticket(null);
 			}
-			Mensaje[] lMegustas = usuario.megusta.toArray();
+			com.MDS2.ForoUal.Backend.ORM.src.Mensaje[] lMegustas = usuario.megusta.toArray();
 			for(int i = 0; i < lMegustas.length; i++) {
 				lMegustas[i].gustaMensaje.remove(usuario);
 			}
-			Tema[] lMegusta_temas = usuario.megusta_tema.toArray();
+			com.MDS2.ForoUal.Backend.ORM.src.Tema[] lMegusta_temas = usuario.megusta_tema.toArray();
 			for(int i = 0; i < lMegusta_temas.length; i++) {
 				lMegusta_temas[i].gustaTema.remove(usuario);
 			}
@@ -367,41 +367,41 @@ public class UsuarioDAO {
 		}
 	}
 	
-	public static boolean deleteAndDissociate(Usuario usuario, org.orm.PersistentSession session)throws PersistentException {
-		if (usuario instanceof Moderador) {
-			return ModeradorDAO.deleteAndDissociate((Moderador) usuario, session);
+	public static boolean deleteAndDissociate(com.MDS2.ForoUal.Backend.ORM.src.Usuario usuario, org.orm.PersistentSession session)throws PersistentException {
+		if (usuario instanceof com.MDS2.ForoUal.Backend.ORM.src.Administrador) {
+			return com.MDS2.ForoUal.Backend.ORM.src.AdministradorDAO.deleteAndDissociate((com.MDS2.ForoUal.Backend.ORM.src.Administrador) usuario, session);
 		}
 		
 		try {
-			Reporte[] lReportes_usuarios = usuario.reportes_usuario.toArray();
+			com.MDS2.ForoUal.Backend.ORM.src.Reporte[] lReportes_usuarios = usuario.reportes_usuario.toArray();
 			for(int i = 0; i < lReportes_usuarios.length; i++) {
 				lReportes_usuarios[i].setUsuario_reporte(null);
 			}
-			Usuario[] lAmigo_des = usuario.amigo_de.toArray();
+			com.MDS2.ForoUal.Backend.ORM.src.Usuario[] lAmigo_des = usuario.amigo_de.toArray();
 			for(int i = 0; i < lAmigo_des.length; i++) {
 				lAmigo_des[i].usuarios.remove(usuario);
 			}
-			Mensaje[] lPerteneces = usuario.pertenece.toArray();
+			com.MDS2.ForoUal.Backend.ORM.src.Mensaje[] lPerteneces = usuario.pertenece.toArray();
 			for(int i = 0; i < lPerteneces.length; i++) {
 				lPerteneces[i].setEnvia_mensaje(null);
 			}
-			Usuario[] lUsuarioss = usuario.usuarios.toArray();
+			com.MDS2.ForoUal.Backend.ORM.src.Usuario[] lUsuarioss = usuario.usuarios.toArray();
 			for(int i = 0; i < lUsuarioss.length; i++) {
 				lUsuarioss[i].amigo_de.remove(usuario);
 			}
-			Tema[] lEs_creados = usuario.es_creado.toArray();
+			com.MDS2.ForoUal.Backend.ORM.src.Tema[] lEs_creados = usuario.es_creado.toArray();
 			for(int i = 0; i < lEs_creados.length; i++) {
 				lEs_creados[i].setCrea_tema(null);
 			}
-			Notificacion[] lNotificacion_usuarios = usuario.notificacion_usuario.toArray();
+			com.MDS2.ForoUal.Backend.ORM.src.Notificacion[] lNotificacion_usuarios = usuario.notificacion_usuario.toArray();
 			for(int i = 0; i < lNotificacion_usuarios.length; i++) {
 				lNotificacion_usuarios[i].setUsuario_ticket(null);
 			}
-			Mensaje[] lMegustas = usuario.megusta.toArray();
+			com.MDS2.ForoUal.Backend.ORM.src.Mensaje[] lMegustas = usuario.megusta.toArray();
 			for(int i = 0; i < lMegustas.length; i++) {
 				lMegustas[i].gustaMensaje.remove(usuario);
 			}
-			Tema[] lMegusta_temas = usuario.megusta_tema.toArray();
+			com.MDS2.ForoUal.Backend.ORM.src.Tema[] lMegusta_temas = usuario.megusta_tema.toArray();
 			for(int i = 0; i < lMegusta_temas.length; i++) {
 				lMegusta_temas[i].gustaTema.remove(usuario);
 			}
@@ -418,9 +418,9 @@ public class UsuarioDAO {
 		}
 	}
 	
-	public static boolean refresh(Usuario usuario) throws PersistentException {
+	public static boolean refresh(com.MDS2.ForoUal.Backend.ORM.src.Usuario usuario) throws PersistentException {
 		try {
-			MDS1PersistentManager.instance().getSession().refresh(usuario);
+			com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession().refresh(usuario);
 			return true;
 		}
 		catch (Exception e) {
@@ -429,9 +429,9 @@ public class UsuarioDAO {
 		}
 	}
 	
-	public static boolean evict(Usuario usuario) throws PersistentException {
+	public static boolean evict(com.MDS2.ForoUal.Backend.ORM.src.Usuario usuario) throws PersistentException {
 		try {
-			MDS1PersistentManager.instance().getSession().evict(usuario);
+			com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession().evict(usuario);
 			return true;
 		}
 		catch (Exception e) {

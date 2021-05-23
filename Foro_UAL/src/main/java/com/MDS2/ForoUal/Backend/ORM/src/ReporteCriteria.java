@@ -41,7 +41,7 @@ public class ReporteCriteria extends AbstractORMCriteria {
 	}
 	
 	public ReporteCriteria() throws PersistentException {
-		this(MDS1PersistentManager.instance().getSession());
+		this(com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession());
 	}
 	
 	public MensajeCriteria createMensaje_reporteCriteria() {

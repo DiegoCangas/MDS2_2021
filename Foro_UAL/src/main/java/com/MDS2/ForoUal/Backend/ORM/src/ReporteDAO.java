@@ -21,7 +21,7 @@ import java.util.List;
 public class ReporteDAO {
 	public static Reporte loadReporteByORMID(Long idReporte) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return loadReporteByORMID(session, idReporte);
 		}
 		catch (Exception e) {
@@ -32,7 +32,7 @@ public class ReporteDAO {
 	
 	public static Reporte getReporteByORMID(Long idReporte) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return getReporteByORMID(session, idReporte);
 		}
 		catch (Exception e) {
@@ -43,7 +43,7 @@ public class ReporteDAO {
 	
 	public static Reporte loadReporteByORMID(Long idReporte, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return loadReporteByORMID(session, idReporte, lockMode);
 		}
 		catch (Exception e) {
@@ -54,7 +54,7 @@ public class ReporteDAO {
 	
 	public static Reporte getReporteByORMID(Long idReporte, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return getReporteByORMID(session, idReporte, lockMode);
 		}
 		catch (Exception e) {
@@ -65,7 +65,7 @@ public class ReporteDAO {
 	
 	public static Reporte loadReporteByORMID(PersistentSession session, Long idReporte) throws PersistentException {
 		try {
-			return (Reporte) session.load(Reporte.class, idReporte);
+			return (Reporte) session.load(com.MDS2.ForoUal.Backend.ORM.src.Reporte.class, idReporte);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -75,7 +75,7 @@ public class ReporteDAO {
 	
 	public static Reporte getReporteByORMID(PersistentSession session, Long idReporte) throws PersistentException {
 		try {
-			return (Reporte) session.get(Reporte.class, idReporte);
+			return (Reporte) session.get(com.MDS2.ForoUal.Backend.ORM.src.Reporte.class, idReporte);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -85,7 +85,7 @@ public class ReporteDAO {
 	
 	public static Reporte loadReporteByORMID(PersistentSession session, Long idReporte, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Reporte) session.load(Reporte.class, idReporte, lockMode);
+			return (Reporte) session.load(com.MDS2.ForoUal.Backend.ORM.src.Reporte.class, idReporte, lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -95,7 +95,7 @@ public class ReporteDAO {
 	
 	public static Reporte getReporteByORMID(PersistentSession session, Long idReporte, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Reporte) session.get(Reporte.class, idReporte, lockMode);
+			return (Reporte) session.get(com.MDS2.ForoUal.Backend.ORM.src.Reporte.class, idReporte, lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -105,7 +105,7 @@ public class ReporteDAO {
 	
 	public static List queryReporte(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return queryReporte(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -116,7 +116,7 @@ public class ReporteDAO {
 	
 	public static List queryReporte(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return queryReporte(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -127,7 +127,7 @@ public class ReporteDAO {
 	
 	public static Reporte[] listReporteByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return listReporteByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -138,7 +138,7 @@ public class ReporteDAO {
 	
 	public static Reporte[] listReporteByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return listReporteByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -148,7 +148,7 @@ public class ReporteDAO {
 	}
 	
 	public static List queryReporte(PersistentSession session, String condition, String orderBy) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From Reporte as Reporte");
+		StringBuffer sb = new StringBuffer("From com.MDS2.ForoUal.Backend.ORM.src.Reporte as Reporte");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -164,7 +164,7 @@ public class ReporteDAO {
 	}
 	
 	public static List queryReporte(PersistentSession session, String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From Reporte as Reporte");
+		StringBuffer sb = new StringBuffer("From com.MDS2.ForoUal.Backend.ORM.src.Reporte as Reporte");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -204,7 +204,7 @@ public class ReporteDAO {
 	
 	public static Reporte loadReporteByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return loadReporteByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -215,7 +215,7 @@ public class ReporteDAO {
 	
 	public static Reporte loadReporteByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return loadReporteByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -242,7 +242,7 @@ public class ReporteDAO {
 	
 	public static java.util.Iterator iterateReporteByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return iterateReporteByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -253,7 +253,7 @@ public class ReporteDAO {
 	
 	public static java.util.Iterator iterateReporteByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return iterateReporteByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -263,7 +263,7 @@ public class ReporteDAO {
 	}
 	
 	public static java.util.Iterator iterateReporteByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From Reporte as Reporte");
+		StringBuffer sb = new StringBuffer("From com.MDS2.ForoUal.Backend.ORM.src.Reporte as Reporte");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -279,7 +279,7 @@ public class ReporteDAO {
 	}
 	
 	public static java.util.Iterator iterateReporteByQuery(PersistentSession session, String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From Reporte as Reporte");
+		StringBuffer sb = new StringBuffer("From com.MDS2.ForoUal.Backend.ORM.src.Reporte as Reporte");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -296,12 +296,12 @@ public class ReporteDAO {
 	}
 	
 	public static Reporte createReporte() {
-		return new Reporte();
+		return new com.MDS2.ForoUal.Backend.ORM.src.Reporte();
 	}
 	
-	public static boolean save(Reporte reporte) throws PersistentException {
+	public static boolean save(com.MDS2.ForoUal.Backend.ORM.src.Reporte reporte) throws PersistentException {
 		try {
-			MDS1PersistentManager.instance().saveObject(reporte);
+			com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().saveObject(reporte);
 			return true;
 		}
 		catch (Exception e) {
@@ -310,9 +310,9 @@ public class ReporteDAO {
 		}
 	}
 	
-	public static boolean delete(Reporte reporte) throws PersistentException {
+	public static boolean delete(com.MDS2.ForoUal.Backend.ORM.src.Reporte reporte) throws PersistentException {
 		try {
-			MDS1PersistentManager.instance().deleteObject(reporte);
+			com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().deleteObject(reporte);
 			return true;
 		}
 		catch (Exception e) {
@@ -321,7 +321,7 @@ public class ReporteDAO {
 		}
 	}
 	
-	public static boolean deleteAndDissociate(Reporte reporte)throws PersistentException {
+	public static boolean deleteAndDissociate(com.MDS2.ForoUal.Backend.ORM.src.Reporte reporte)throws PersistentException {
 		try {
 			if (reporte.getMensaje_reporte() != null) {
 				reporte.getMensaje_reporte().reportes_mensaje.remove(reporte);
@@ -339,7 +339,7 @@ public class ReporteDAO {
 		}
 	}
 	
-	public static boolean deleteAndDissociate(Reporte reporte, org.orm.PersistentSession session)throws PersistentException {
+	public static boolean deleteAndDissociate(com.MDS2.ForoUal.Backend.ORM.src.Reporte reporte, org.orm.PersistentSession session)throws PersistentException {
 		try {
 			if (reporte.getMensaje_reporte() != null) {
 				reporte.getMensaje_reporte().reportes_mensaje.remove(reporte);
@@ -362,9 +362,9 @@ public class ReporteDAO {
 		}
 	}
 	
-	public static boolean refresh(Reporte reporte) throws PersistentException {
+	public static boolean refresh(com.MDS2.ForoUal.Backend.ORM.src.Reporte reporte) throws PersistentException {
 		try {
-			MDS1PersistentManager.instance().getSession().refresh(reporte);
+			com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession().refresh(reporte);
 			return true;
 		}
 		catch (Exception e) {
@@ -373,9 +373,9 @@ public class ReporteDAO {
 		}
 	}
 	
-	public static boolean evict(Reporte reporte) throws PersistentException {
+	public static boolean evict(com.MDS2.ForoUal.Backend.ORM.src.Reporte reporte) throws PersistentException {
 		try {
-			MDS1PersistentManager.instance().getSession().evict(reporte);
+			com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession().evict(reporte);
 			return true;
 		}
 		catch (Exception e) {

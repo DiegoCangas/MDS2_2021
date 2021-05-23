@@ -16,9 +16,13 @@ public class Ver_Temas extends Ver_Temas_Ventanas{
 	//public Vector<Visualizar_Temas_No_Reg> _visualizar_Temas_No_Reg = new Vector<Visualizar_Temas_No_Reg>();
 	//public Vector<Visualizar_Temas_Registrado> _visualizar_Temas = new Vector<Visualizar_Temas_Registrado>();
 	public Vector<Ver_Tema> _visualizar_Tema = new Vector<Ver_Tema>();
-	public static int temaFuc = 0;
+	public static int temaFuc;
 	public static int order = 0;
-	Seccion s;
+	Seccion s = new Seccion();
+	
+	public Ver_Temas() {
+		
+	}
 	
 	public Ver_Temas(Seccion s) {
 		temaFuc = 0;

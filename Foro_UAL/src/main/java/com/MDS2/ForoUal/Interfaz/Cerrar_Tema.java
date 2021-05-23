@@ -12,15 +12,17 @@ import com.vaadin.ui.Button.ClickEvent;
 public class Cerrar_Tema extends Cerrar_Tema_Ventana{
 	private Event _cerrar;
 	private Event _selectTema;
-	private Tema _tema;
+	private Tema _tema = new Tema();
 	public Opciones_Temas_Administrador _opciones_Temas_Administrador;
 
 	public Cerrar_Tema(Tema t) {
+
+		_tema = t;
 		continuar.addClickListener(new Button.ClickListener() {
 			
 			@Override
 			public void buttonClick(ClickEvent event) {
-				cerrar_Tema(t);
+				cerrar_Tema();
 				UI c = UI.getCurrent();
 				Window w = (Window)c.getWindows().toArray()[c.getWindows().size()-1];
 				c.removeWindow(w);
@@ -39,7 +41,7 @@ public class Cerrar_Tema extends Cerrar_Tema_Ventana{
 			}
 		});
 		}
-	public void cerrar_Tema(Tema t) {
-		foroUI.db.Cambiar_Estado(t,(long)3);	
+	public void cerrar_Tema() {
+		foroUI.db.Cambiar_Estado((long)_tema.getORMID(),(long)3);	
 	}
 }

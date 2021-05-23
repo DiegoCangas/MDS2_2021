@@ -14,8 +14,6 @@
 package com.MDS2.ForoUal.Backend.ORM.src;
 
 import java.io.Serializable;
-import java.util.Date;
-
 import javax.persistence.*;
 @Entity
 @org.hibernate.annotations.Proxy(lazy=false)
@@ -25,19 +23,19 @@ public class Mensaje implements Serializable {
 	}
 	
 	private java.util.Set this_getSet (int key) {
-		if (key == ORMConstants.KEY_MENSAJE_RESPONDIDO_POR) {
+		if (key == com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_MENSAJE_RESPONDIDO_POR) {
 			return ORM_respondido_por;
 		}
-		else if (key == ORMConstants.KEY_MENSAJE_REPORTES_MENSAJE) {
+		else if (key == com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_MENSAJE_REPORTES_MENSAJE) {
 			return ORM_reportes_mensaje;
 		}
-		else if (key == ORMConstants.KEY_MENSAJE_MEDIA_MENSAJE) {
+		else if (key == com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_MENSAJE_MEDIA_MENSAJE) {
 			return ORM_media_mensaje;
 		}
-		else if (key == ORMConstants.KEY_MENSAJE_GUSTAMENSAJE) {
+		else if (key == com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_MENSAJE_GUSTAMENSAJE) {
 			return ORM_gustaMensaje;
 		}
-		else if (key == ORMConstants.KEY_MENSAJE_RESPUESTA_DE) {
+		else if (key == com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_MENSAJE_RESPUESTA_DE) {
 			return ORM_respuesta_de;
 		}
 		
@@ -45,12 +43,12 @@ public class Mensaje implements Serializable {
 	}
 	
 	private void this_setOwner(Object owner, int key) {
-		if (key == ORMConstants.KEY_MENSAJE_ENVIA_MENSAJE) {
-			this.envia_mensaje = (Usuario) owner;
+		if (key == com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_MENSAJE_ENVIA_MENSAJE) {
+			this.envia_mensaje = (com.MDS2.ForoUal.Backend.ORM.src.Usuario) owner;
 		}
 		
-		else if (key == ORMConstants.KEY_MENSAJE_MENSAJE_) {
-			this.mensaje_ = (Tema) owner;
+		else if (key == com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_MENSAJE_MENSAJE_) {
+			this.mensaje_ = (com.MDS2.ForoUal.Backend.ORM.src.Tema) owner;
 		}
 	}
 	
@@ -68,21 +66,21 @@ public class Mensaje implements Serializable {
 	
 	@Column(name="`ID`", nullable=false, length=10)	
 	@Id	
-	@GeneratedValue(generator="MENSAJE_ID_GENERATOR")	
-	@org.hibernate.annotations.GenericGenerator(name="MENSAJE_ID_GENERATOR", strategy="native")	
+	@GeneratedValue(generator="COM_MDS2_FOROUAL_BACKEND_ORM_SRC_MENSAJE_ID_GENERATOR")	
+	@org.hibernate.annotations.GenericGenerator(name="COM_MDS2_FOROUAL_BACKEND_ORM_SRC_MENSAJE_ID_GENERATOR", strategy="native")	
 	private int ID;
 	
-	@ManyToOne(targetEntity=Usuario.class, fetch=FetchType.LAZY)	
+	@ManyToOne(targetEntity=com.MDS2.ForoUal.Backend.ORM.src.Usuario.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
 	@JoinColumns(value={ @JoinColumn(name="`UsuarioID`", referencedColumnName="`ID`") }, foreignKey=@ForeignKey(name="FKMensaje983572"))	
 	@org.hibernate.annotations.LazyToOne(value=org.hibernate.annotations.LazyToOneOption.NO_PROXY)	
-	private Usuario envia_mensaje;
+	private com.MDS2.ForoUal.Backend.ORM.src.Usuario envia_mensaje;
 	
-	@ManyToOne(targetEntity=Tema.class, fetch=FetchType.LAZY)	
+	@ManyToOne(targetEntity=com.MDS2.ForoUal.Backend.ORM.src.Tema.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
 	@JoinColumns(value={ @JoinColumn(name="`TemaID`", referencedColumnName="`ID`") }, foreignKey=@ForeignKey(name="FKMensaje66743"))	
 	@org.hibernate.annotations.LazyToOne(value=org.hibernate.annotations.LazyToOneOption.NO_PROXY)	
-	private Tema mensaje_;
+	private com.MDS2.ForoUal.Backend.ORM.src.Tema mensaje_;
 	
 	@Column(name="`IdMensaje`", nullable=true, length=20)	
 	private Long idMensaje;
@@ -100,31 +98,32 @@ public class Mensaje implements Serializable {
 	private boolean marcado;
 	
 	@Column(name="`FechaCreacion`", nullable=true)	
-	private Date fechaCreacion;
+	@Temporal(TemporalType.DATE)	
+	private java.util.Date fechaCreacion;
 	
-	@ManyToMany(targetEntity=Mensaje.class)	
+	@ManyToMany(targetEntity=com.MDS2.ForoUal.Backend.ORM.src.Mensaje.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
 	@JoinTable(name="`Mensaje_Mensaje`", joinColumns={ @JoinColumn(name="`MensajeID2`") }, inverseJoinColumns={ @JoinColumn(name="`MensajeID`") })	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_respondido_por = new java.util.HashSet();
 	
-	@OneToMany(mappedBy="mensaje_reporte", targetEntity=Reporte.class)	
+	@OneToMany(mappedBy="mensaje_reporte", targetEntity=com.MDS2.ForoUal.Backend.ORM.src.Reporte.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_reportes_mensaje = new java.util.HashSet();
 	
-	@OneToMany(mappedBy="mensaje_media", targetEntity=Media_.class)	
+	@OneToMany(mappedBy="mensaje_media", targetEntity=com.MDS2.ForoUal.Backend.ORM.src.Media_.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_media_mensaje = new java.util.HashSet();
 	
-	@ManyToMany(targetEntity=Usuario.class)	
+	@ManyToMany(targetEntity=com.MDS2.ForoUal.Backend.ORM.src.Usuario.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
 	@JoinTable(name="`Usuario_Mensaje`", joinColumns={ @JoinColumn(name="`MensajeID`") }, inverseJoinColumns={ @JoinColumn(name="`UsuarioID`") })	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_gustaMensaje = new java.util.HashSet();
 	
-	@ManyToMany(mappedBy="ORM_respondido_por", targetEntity=Mensaje.class)	
+	@ManyToMany(mappedBy="ORM_respondido_por", targetEntity=com.MDS2.ForoUal.Backend.ORM.src.Mensaje.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_respuesta_de = new java.util.HashSet();
@@ -185,15 +184,15 @@ public class Mensaje implements Serializable {
 		return marcado;
 	}
 	
-	public void setFechaCreacion(Date value) {
+	public void setFechaCreacion(java.util.Date value) {
 		this.fechaCreacion = value;
 	}
 	
-	public Date getFechaCreacion() {
+	public java.util.Date getFechaCreacion() {
 		return fechaCreacion;
 	}
 	
-	public void setEnvia_mensaje(Usuario value) {
+	public void setEnvia_mensaje(com.MDS2.ForoUal.Backend.ORM.src.Usuario value) {
 		if (envia_mensaje != null) {
 			envia_mensaje.pertenece.remove(this);
 		}
@@ -202,18 +201,18 @@ public class Mensaje implements Serializable {
 		}
 	}
 	
-	public Usuario getEnvia_mensaje() {
+	public com.MDS2.ForoUal.Backend.ORM.src.Usuario getEnvia_mensaje() {
 		return envia_mensaje;
 	}
 	
 	/**
 	 * This method is for internal use only.
 	 */
-	public void setORM_Envia_mensaje(Usuario value) {
+	public void setORM_Envia_mensaje(com.MDS2.ForoUal.Backend.ORM.src.Usuario value) {
 		this.envia_mensaje = value;
 	}
 	
-	private Usuario getORM_Envia_mensaje() {
+	private com.MDS2.ForoUal.Backend.ORM.src.Usuario getORM_Envia_mensaje() {
 		return envia_mensaje;
 	}
 	
@@ -226,7 +225,7 @@ public class Mensaje implements Serializable {
 	}
 	
 	@Transient	
-	public final MensajeSetCollection respondido_por = new MensajeSetCollection(this, _ormAdapter, ORMConstants.KEY_MENSAJE_RESPONDIDO_POR, ORMConstants.KEY_MENSAJE_RESPUESTA_DE, ORMConstants.KEY_MUL_MANY_TO_MANY);
+	public final com.MDS2.ForoUal.Backend.ORM.src.MensajeSetCollection respondido_por = new com.MDS2.ForoUal.Backend.ORM.src.MensajeSetCollection(this, _ormAdapter, com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_MENSAJE_RESPONDIDO_POR, com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_MENSAJE_RESPUESTA_DE, com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_MUL_MANY_TO_MANY);
 	
 	private void setORM_Reportes_mensaje(java.util.Set value) {
 		this.ORM_reportes_mensaje = value;
@@ -237,7 +236,7 @@ public class Mensaje implements Serializable {
 	}
 	
 	@Transient	
-	public final ReporteSetCollection reportes_mensaje = new ReporteSetCollection(this, _ormAdapter, ORMConstants.KEY_MENSAJE_REPORTES_MENSAJE, ORMConstants.KEY_REPORTE_MENSAJE_REPORTE, ORMConstants.KEY_MUL_ONE_TO_MANY);
+	public final com.MDS2.ForoUal.Backend.ORM.src.ReporteSetCollection reportes_mensaje = new com.MDS2.ForoUal.Backend.ORM.src.ReporteSetCollection(this, _ormAdapter, com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_MENSAJE_REPORTES_MENSAJE, com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_REPORTE_MENSAJE_REPORTE, com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
 	private void setORM_Media_mensaje(java.util.Set value) {
 		this.ORM_media_mensaje = value;
@@ -248,7 +247,7 @@ public class Mensaje implements Serializable {
 	}
 	
 	@Transient	
-	public final Media_SetCollection media_mensaje = new Media_SetCollection(this, _ormAdapter, ORMConstants.KEY_MENSAJE_MEDIA_MENSAJE, ORMConstants.KEY_MEDIA__MENSAJE_MEDIA, ORMConstants.KEY_MUL_ONE_TO_MANY);
+	public final com.MDS2.ForoUal.Backend.ORM.src.Media_SetCollection media_mensaje = new com.MDS2.ForoUal.Backend.ORM.src.Media_SetCollection(this, _ormAdapter, com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_MENSAJE_MEDIA_MENSAJE, com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_MEDIA__MENSAJE_MEDIA, com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
 	private void setORM_GustaMensaje(java.util.Set value) {
 		this.ORM_gustaMensaje = value;
@@ -259,9 +258,9 @@ public class Mensaje implements Serializable {
 	}
 	
 	@Transient	
-	public final UsuarioSetCollection gustaMensaje = new UsuarioSetCollection(this, _ormAdapter, ORMConstants.KEY_MENSAJE_GUSTAMENSAJE, ORMConstants.KEY_USUARIO_MEGUSTA, ORMConstants.KEY_MUL_MANY_TO_MANY);
+	public final com.MDS2.ForoUal.Backend.ORM.src.UsuarioSetCollection gustaMensaje = new com.MDS2.ForoUal.Backend.ORM.src.UsuarioSetCollection(this, _ormAdapter, com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_MENSAJE_GUSTAMENSAJE, com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_USUARIO_MEGUSTA, com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_MUL_MANY_TO_MANY);
 	
-	public void setMensaje_(Tema value) {
+	public void setMensaje_(com.MDS2.ForoUal.Backend.ORM.src.Tema value) {
 		if (mensaje_ != null) {
 			mensaje_.compone.remove(this);
 		}
@@ -270,18 +269,18 @@ public class Mensaje implements Serializable {
 		}
 	}
 	
-	public Tema getMensaje_() {
+	public com.MDS2.ForoUal.Backend.ORM.src.Tema getMensaje_() {
 		return mensaje_;
 	}
 	
 	/**
 	 * This method is for internal use only.
 	 */
-	public void setORM_Mensaje_(Tema value) {
+	public void setORM_Mensaje_(com.MDS2.ForoUal.Backend.ORM.src.Tema value) {
 		this.mensaje_ = value;
 	}
 	
-	private Tema getORM_Mensaje_() {
+	private com.MDS2.ForoUal.Backend.ORM.src.Tema getORM_Mensaje_() {
 		return mensaje_;
 	}
 	
@@ -294,7 +293,7 @@ public class Mensaje implements Serializable {
 	}
 	
 	@Transient	
-	public final MensajeSetCollection respuesta_de = new MensajeSetCollection(this, _ormAdapter, ORMConstants.KEY_MENSAJE_RESPUESTA_DE, ORMConstants.KEY_MENSAJE_RESPONDIDO_POR, ORMConstants.KEY_MUL_MANY_TO_MANY);
+	public final com.MDS2.ForoUal.Backend.ORM.src.MensajeSetCollection respuesta_de = new com.MDS2.ForoUal.Backend.ORM.src.MensajeSetCollection(this, _ormAdapter, com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_MENSAJE_RESPUESTA_DE, com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_MENSAJE_RESPONDIDO_POR, com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_MUL_MANY_TO_MANY);
 	
 	public String toString() {
 		return String.valueOf(getID());

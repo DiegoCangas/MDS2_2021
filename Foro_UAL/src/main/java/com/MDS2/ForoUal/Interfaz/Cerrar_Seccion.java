@@ -10,12 +10,17 @@ import com.vaadin.ui.Window;
 import com.vaadin.ui.Button.ClickEvent;
 
 public class Cerrar_Seccion extends Cerrar_Seccion_Ventana{
+	
+	private Seccion seccion = new Seccion();
+	
 	public Cerrar_Seccion(Seccion s) {
+		
+		seccion = s;
 		continuar.addClickListener(new Button.ClickListener() {
 			
 			@Override
 			public void buttonClick(ClickEvent event) {
-				cerrar_Seccion(s);
+				cerrar_Seccion();
 				UI c = UI.getCurrent();
 				Window w = (Window)c.getWindows().toArray()[c.getWindows().size()-1];
 				c.removeWindow(w);
@@ -34,7 +39,7 @@ public class Cerrar_Seccion extends Cerrar_Seccion_Ventana{
 			}
 		});
 		}
-	public void cerrar_Seccion(Seccion s) {
-		foroUI.db.Eliminar_Seccion(s.getORMID());
+	public void cerrar_Seccion() {
+		foroUI.db.Eliminar_Seccion(seccion.getORMID());
 	}
 }

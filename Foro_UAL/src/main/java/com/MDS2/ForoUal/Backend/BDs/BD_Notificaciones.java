@@ -11,11 +11,7 @@ import com.MDS2.ForoUal.Backend.ORM.src.UsuarioDAO;
 
 public class BD_Notificaciones {
 	public BD_Principal _bd_main_notificaciones;
-	public Vector<NotificacionDAO> _unnamed_Ticket_ = new Vector<NotificacionDAO>();
-
-	public void Eliminar_Notificacion(Long aId) {
-		throw new UnsupportedOperationException();
-	}
+	public Vector<Notificacion> _unnamed_Notificacion_ = new Vector<Notificacion>();
 
 	public Notificacion Notificar_Admin(String aNombreUsuario, String aMensaje) {
 		try {
@@ -34,10 +30,10 @@ public class BD_Notificaciones {
 			return null;
 		}
 	}
-	public void Crear_Notificacion (int aId, String aMensaje) {
+	public void Crear_Notificacion (Long aId, String aMensaje) {
 		Usuario u;
 		try {
-			u = UsuarioDAO.getUsuarioByORMID((long)aId);
+			u = UsuarioDAO.getUsuarioByORMID(aId);
 			Notificacion t = NotificacionDAO.createNotificacion();
 			t.setMensaje(aMensaje);
 			t.setUsuario_ticket(u);
@@ -47,7 +43,7 @@ public class BD_Notificaciones {
 		}
 
 	}
-	public Notificacion[] Cargar_Notificaciones(int aId) {
+	public Notificacion[] Cargar_Notificaciones(Long aId) {
 		try {
 			return NotificacionDAO.listNotificacionByQuery("UsuarioID = " +aId, "idnotificacion DESC");
 		} catch (PersistentException e) {
@@ -55,5 +51,9 @@ public class BD_Notificaciones {
 			e.printStackTrace();
 			return new Notificacion[] {};
 		}
+	}
+
+	public void Eliminar_Notificacion(Long aId) {
+		throw new UnsupportedOperationException();
 	}
 }

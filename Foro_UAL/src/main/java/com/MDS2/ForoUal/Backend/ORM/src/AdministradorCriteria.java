@@ -1,5 +1,3 @@
-package com.MDS2.ForoUal.Backend.ORM.src;
-
 /**
  * "Visual Paradigm: DO NOT MODIFY THIS FILE!"
  * 
@@ -13,6 +11,8 @@ package com.MDS2.ForoUal.Backend.ORM.src;
  * Licensee: PABLO DANIEL(University of Almeria)
  * License Type: Academic
  */
+package com.MDS2.ForoUal.Backend.ORM.src;
+
 import org.hibernate.Criteria;
 import org.orm.PersistentException;
 import org.orm.PersistentSession;
@@ -29,6 +29,7 @@ public class AdministradorCriteria extends AbstractORMCriteria {
 	public final BooleanExpression baneado;
 	public final LongExpression IDusuario;
 	public final StringExpression nombreReal;
+	public final BooleanExpression esModerador;
 	public final CollectionExpression reportes_usuario;
 	public final CollectionExpression amigo_de;
 	public final CollectionExpression pertenece;
@@ -37,7 +38,6 @@ public class AdministradorCriteria extends AbstractORMCriteria {
 	public final CollectionExpression notificacion_usuario;
 	public final CollectionExpression megusta;
 	public final CollectionExpression megusta_tema;
-	public final LongExpression idMod;
 	public final LongExpression idAdmin;
 	public final CollectionExpression es_creada;
 	
@@ -53,6 +53,7 @@ public class AdministradorCriteria extends AbstractORMCriteria {
 		baneado = new BooleanExpression("baneado", this);
 		IDusuario = new LongExpression("IDusuario", this);
 		nombreReal = new StringExpression("nombreReal", this);
+		esModerador = new BooleanExpression("esModerador", this);
 		reportes_usuario = new CollectionExpression("ORM_reportes_usuario", this);
 		amigo_de = new CollectionExpression("ORM_amigo_de", this);
 		pertenece = new CollectionExpression("ORM_pertenece", this);
@@ -61,7 +62,6 @@ public class AdministradorCriteria extends AbstractORMCriteria {
 		notificacion_usuario = new CollectionExpression("ORM_notificacion_usuario", this);
 		megusta = new CollectionExpression("ORM_megusta", this);
 		megusta_tema = new CollectionExpression("ORM_megusta_tema", this);
-		idMod = new LongExpression("idMod", this);
 		idAdmin = new LongExpression("idAdmin", this);
 		es_creada = new CollectionExpression("ORM_es_creada", this);
 	}
@@ -71,43 +71,43 @@ public class AdministradorCriteria extends AbstractORMCriteria {
 	}
 	
 	public AdministradorCriteria() throws PersistentException {
-		this(MDS1PersistentManager.instance().getSession());
+		this(com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession());
 	}
 	
-	public SeccionCriteria createEs_creadaCriteria() {
-		return new SeccionCriteria(createCriteria("ORM_es_creada"));
+	public com.MDS2.ForoUal.Backend.ORM.src.SeccionCriteria createEs_creadaCriteria() {
+		return new com.MDS2.ForoUal.Backend.ORM.src.SeccionCriteria(createCriteria("ORM_es_creada"));
 	}
 	
-	public ReporteCriteria createReportes_usuarioCriteria() {
-		return new ReporteCriteria(createCriteria("ORM_reportes_usuario"));
+	public com.MDS2.ForoUal.Backend.ORM.src.ReporteCriteria createReportes_usuarioCriteria() {
+		return new com.MDS2.ForoUal.Backend.ORM.src.ReporteCriteria(createCriteria("ORM_reportes_usuario"));
 	}
 	
-	public UsuarioCriteria createAmigo_deCriteria() {
-		return new UsuarioCriteria(createCriteria("ORM_amigo_de"));
+	public com.MDS2.ForoUal.Backend.ORM.src.UsuarioCriteria createAmigo_deCriteria() {
+		return new com.MDS2.ForoUal.Backend.ORM.src.UsuarioCriteria(createCriteria("ORM_amigo_de"));
 	}
 	
-	public MensajeCriteria createPerteneceCriteria() {
-		return new MensajeCriteria(createCriteria("ORM_pertenece"));
+	public com.MDS2.ForoUal.Backend.ORM.src.MensajeCriteria createPerteneceCriteria() {
+		return new com.MDS2.ForoUal.Backend.ORM.src.MensajeCriteria(createCriteria("ORM_pertenece"));
 	}
 	
-	public UsuarioCriteria createUsuariosCriteria() {
-		return new UsuarioCriteria(createCriteria("ORM_usuarios"));
+	public com.MDS2.ForoUal.Backend.ORM.src.UsuarioCriteria createUsuariosCriteria() {
+		return new com.MDS2.ForoUal.Backend.ORM.src.UsuarioCriteria(createCriteria("ORM_usuarios"));
 	}
 	
-	public TemaCriteria createEs_creadoCriteria() {
-		return new TemaCriteria(createCriteria("ORM_es_creado"));
+	public com.MDS2.ForoUal.Backend.ORM.src.TemaCriteria createEs_creadoCriteria() {
+		return new com.MDS2.ForoUal.Backend.ORM.src.TemaCriteria(createCriteria("ORM_es_creado"));
 	}
 	
-	public NotificacionCriteria createNotificacion_usuarioCriteria() {
-		return new NotificacionCriteria(createCriteria("ORM_notificacion_usuario"));
+	public com.MDS2.ForoUal.Backend.ORM.src.NotificacionCriteria createNotificacion_usuarioCriteria() {
+		return new com.MDS2.ForoUal.Backend.ORM.src.NotificacionCriteria(createCriteria("ORM_notificacion_usuario"));
 	}
 	
-	public MensajeCriteria createMegustaCriteria() {
-		return new MensajeCriteria(createCriteria("ORM_megusta"));
+	public com.MDS2.ForoUal.Backend.ORM.src.MensajeCriteria createMegustaCriteria() {
+		return new com.MDS2.ForoUal.Backend.ORM.src.MensajeCriteria(createCriteria("ORM_megusta"));
 	}
 	
-	public TemaCriteria createMegusta_temaCriteria() {
-		return new TemaCriteria(createCriteria("ORM_megusta_tema"));
+	public com.MDS2.ForoUal.Backend.ORM.src.TemaCriteria createMegusta_temaCriteria() {
+		return new com.MDS2.ForoUal.Backend.ORM.src.TemaCriteria(createCriteria("ORM_megusta_tema"));
 	}
 	
 	public Administrador uniqueAdministrador() {

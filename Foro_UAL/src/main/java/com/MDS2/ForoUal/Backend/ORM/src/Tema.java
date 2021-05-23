@@ -23,10 +23,10 @@ public class Tema implements Serializable {
 	}
 	
 	private java.util.Set this_getSet (int key) {
-		if (key == ORMConstants.KEY_TEMA_COMPONE) {
+		if (key == com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_TEMA_COMPONE) {
 			return ORM_compone;
 		}
-		else if (key == ORMConstants.KEY_TEMA_GUSTATEMA) {
+		else if (key == com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_TEMA_GUSTATEMA) {
 			return ORM_gustaTema;
 		}
 		
@@ -34,12 +34,12 @@ public class Tema implements Serializable {
 	}
 	
 	private void this_setOwner(Object owner, int key) {
-		if (key == ORMConstants.KEY_TEMA_CREA_TEMA) {
-			this.crea_tema = (Usuario) owner;
+		if (key == com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_TEMA_CREA_TEMA) {
+			this.crea_tema = (com.MDS2.ForoUal.Backend.ORM.src.Usuario) owner;
 		}
 		
-		else if (key == ORMConstants.KEY_TEMA_CONTIENE) {
-			this.contiene = (Seccion) owner;
+		else if (key == com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_TEMA_CONTIENE) {
+			this.contiene = (com.MDS2.ForoUal.Backend.ORM.src.Seccion) owner;
 		}
 	}
 	
@@ -57,21 +57,21 @@ public class Tema implements Serializable {
 	
 	@Column(name="`ID`", nullable=false, length=10)	
 	@Id	
-	@GeneratedValue(generator="TEMA_ID_GENERATOR")	
-	@org.hibernate.annotations.GenericGenerator(name="TEMA_ID_GENERATOR", strategy="native")	
+	@GeneratedValue(generator="COM_MDS2_FOROUAL_BACKEND_ORM_SRC_TEMA_ID_GENERATOR")	
+	@org.hibernate.annotations.GenericGenerator(name="COM_MDS2_FOROUAL_BACKEND_ORM_SRC_TEMA_ID_GENERATOR", strategy="native")	
 	private int ID;
 	
-	@ManyToOne(targetEntity=Usuario.class, fetch=FetchType.LAZY)	
+	@ManyToOne(targetEntity=com.MDS2.ForoUal.Backend.ORM.src.Usuario.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
 	@JoinColumns(value={ @JoinColumn(name="`UsuarioID`", referencedColumnName="`ID`") }, foreignKey=@ForeignKey(name="FKTema627555"))	
 	@org.hibernate.annotations.LazyToOne(value=org.hibernate.annotations.LazyToOneOption.NO_PROXY)	
-	private Usuario crea_tema;
+	private com.MDS2.ForoUal.Backend.ORM.src.Usuario crea_tema;
 	
-	@ManyToOne(targetEntity=Seccion.class, fetch=FetchType.LAZY)	
+	@ManyToOne(targetEntity=com.MDS2.ForoUal.Backend.ORM.src.Seccion.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
 	@JoinColumns(value={ @JoinColumn(name="`SeccionID`", referencedColumnName="`ID`") }, foreignKey=@ForeignKey(name="FKTema567611"))	
 	@org.hibernate.annotations.LazyToOne(value=org.hibernate.annotations.LazyToOneOption.NO_PROXY)	
-	private Seccion contiene;
+	private com.MDS2.ForoUal.Backend.ORM.src.Seccion contiene;
 	
 	@Column(name="`NumeroMeGusta`", nullable=true, length=10)	
 	private int numeroMeGusta;
@@ -98,12 +98,12 @@ public class Tema implements Serializable {
 	@Column(name="`IdTema`", nullable=true, length=20)	
 	private long idTema;
 	
-	@OneToMany(mappedBy="mensaje_", targetEntity=Mensaje.class)	
+	@OneToMany(mappedBy="mensaje_", targetEntity=com.MDS2.ForoUal.Backend.ORM.src.Mensaje.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_compone = new java.util.HashSet();
 	
-	@ManyToMany(targetEntity=Usuario.class)	
+	@ManyToMany(targetEntity=com.MDS2.ForoUal.Backend.ORM.src.Usuario.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
 	@JoinTable(name="`Usuario_Tema`", joinColumns={ @JoinColumn(name="`TemaID`") }, inverseJoinColumns={ @JoinColumn(name="`UsuarioID`") })	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
@@ -198,9 +198,9 @@ public class Tema implements Serializable {
 	}
 	
 	@Transient	
-	public final MensajeSetCollection compone = new MensajeSetCollection(this, _ormAdapter, ORMConstants.KEY_TEMA_COMPONE, ORMConstants.KEY_MENSAJE_MENSAJE_, ORMConstants.KEY_MUL_ONE_TO_MANY);
+	public final com.MDS2.ForoUal.Backend.ORM.src.MensajeSetCollection compone = new com.MDS2.ForoUal.Backend.ORM.src.MensajeSetCollection(this, _ormAdapter, com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_TEMA_COMPONE, com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_MENSAJE_MENSAJE_, com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
-	public void setCrea_tema(Usuario value) {
+	public void setCrea_tema(com.MDS2.ForoUal.Backend.ORM.src.Usuario value) {
 		if (crea_tema != null) {
 			crea_tema.es_creado.remove(this);
 		}
@@ -209,18 +209,18 @@ public class Tema implements Serializable {
 		}
 	}
 	
-	public Usuario getCrea_tema() {
+	public com.MDS2.ForoUal.Backend.ORM.src.Usuario getCrea_tema() {
 		return crea_tema;
 	}
 	
 	/**
 	 * This method is for internal use only.
 	 */
-	public void setORM_Crea_tema(Usuario value) {
+	public void setORM_Crea_tema(com.MDS2.ForoUal.Backend.ORM.src.Usuario value) {
 		this.crea_tema = value;
 	}
 	
-	private Usuario getORM_Crea_tema() {
+	private com.MDS2.ForoUal.Backend.ORM.src.Usuario getORM_Crea_tema() {
 		return crea_tema;
 	}
 	
@@ -233,9 +233,9 @@ public class Tema implements Serializable {
 	}
 	
 	@Transient	
-	public final UsuarioSetCollection gustaTema = new UsuarioSetCollection(this, _ormAdapter, ORMConstants.KEY_TEMA_GUSTATEMA, ORMConstants.KEY_USUARIO_MEGUSTA_TEMA, ORMConstants.KEY_MUL_MANY_TO_MANY);
+	public final com.MDS2.ForoUal.Backend.ORM.src.UsuarioSetCollection gustaTema = new com.MDS2.ForoUal.Backend.ORM.src.UsuarioSetCollection(this, _ormAdapter, com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_TEMA_GUSTATEMA, com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_USUARIO_MEGUSTA_TEMA, com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_MUL_MANY_TO_MANY);
 	
-	public void setContiene(Seccion value) {
+	public void setContiene(com.MDS2.ForoUal.Backend.ORM.src.Seccion value) {
 		if (contiene != null) {
 			contiene.temas.remove(this);
 		}
@@ -244,18 +244,18 @@ public class Tema implements Serializable {
 		}
 	}
 	
-	public Seccion getContiene() {
+	public com.MDS2.ForoUal.Backend.ORM.src.Seccion getContiene() {
 		return contiene;
 	}
 	
 	/**
 	 * This method is for internal use only.
 	 */
-	public void setORM_Contiene(Seccion value) {
+	public void setORM_Contiene(com.MDS2.ForoUal.Backend.ORM.src.Seccion value) {
 		this.contiene = value;
 	}
 	
-	private Seccion getORM_Contiene() {
+	private com.MDS2.ForoUal.Backend.ORM.src.Seccion getORM_Contiene() {
 		return contiene;
 	}
 	

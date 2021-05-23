@@ -27,7 +27,7 @@ public class ReporteDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final StringExpression motivo;
 	
 	public ReporteDetachedCriteria() {
-		super(Reporte.class, ReporteCriteria.class);
+		super(com.MDS2.ForoUal.Backend.ORM.src.Reporte.class, com.MDS2.ForoUal.Backend.ORM.src.ReporteCriteria.class);
 		idReporte = new LongExpression("idReporte", this.getDetachedCriteria());
 		mensaje_reporteId = new IntegerExpression("mensaje_reporte.ID", this.getDetachedCriteria());
 		mensaje_reporte = new AssociationExpression("mensaje_reporte", this.getDetachedCriteria());
@@ -37,7 +37,7 @@ public class ReporteDetachedCriteria extends AbstractORMDetachedCriteria {
 	}
 	
 	public ReporteDetachedCriteria(DetachedCriteria aDetachedCriteria) {
-		super(aDetachedCriteria, ReporteCriteria.class);
+		super(aDetachedCriteria, com.MDS2.ForoUal.Backend.ORM.src.ReporteCriteria.class);
 		idReporte = new LongExpression("idReporte", this.getDetachedCriteria());
 		mensaje_reporteId = new IntegerExpression("mensaje_reporte.ID", this.getDetachedCriteria());
 		mensaje_reporte = new AssociationExpression("mensaje_reporte", this.getDetachedCriteria());
@@ -46,12 +46,12 @@ public class ReporteDetachedCriteria extends AbstractORMDetachedCriteria {
 		motivo = new StringExpression("motivo", this.getDetachedCriteria());
 	}
 	
-	public MensajeDetachedCriteria createMensaje_reporteCriteria() {
-		return new MensajeDetachedCriteria(createCriteria("mensaje_reporte"));
+	public com.MDS2.ForoUal.Backend.ORM.src.MensajeDetachedCriteria createMensaje_reporteCriteria() {
+		return new com.MDS2.ForoUal.Backend.ORM.src.MensajeDetachedCriteria(createCriteria("mensaje_reporte"));
 	}
 	
-	public UsuarioDetachedCriteria createUsuario_reporteCriteria() {
-		return new UsuarioDetachedCriteria(createCriteria("usuario_reporte"));
+	public com.MDS2.ForoUal.Backend.ORM.src.UsuarioDetachedCriteria createUsuario_reporteCriteria() {
+		return new com.MDS2.ForoUal.Backend.ORM.src.UsuarioDetachedCriteria(createCriteria("usuario_reporte"));
 	}
 	
 	public Reporte uniqueReporte(PersistentSession session) {

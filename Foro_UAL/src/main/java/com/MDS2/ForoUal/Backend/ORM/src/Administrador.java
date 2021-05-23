@@ -1,6 +1,3 @@
-package com.MDS2.ForoUal.Backend.ORM.src;
-
-
 /**
  * "Visual Paradigm: DO NOT MODIFY THIS FILE!"
  * 
@@ -14,6 +11,7 @@ package com.MDS2.ForoUal.Backend.ORM.src;
  * Licensee: PABLO DANIEL(University of Almeria)
  * License Type: Academic
  */
+package com.MDS2.ForoUal.Backend.ORM.src;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -22,12 +20,13 @@ import javax.persistence.*;
 @Table(name="`Administrador`")
 @Inheritance(strategy=InheritanceType.JOINED)
 @DiscriminatorValue("Administradores")
-public class Administrador extends Moderador implements Serializable {
+@PrimaryKeyJoinColumn(name="`UsuarioID`", referencedColumnName="`ID`")
+public class Administrador extends com.MDS2.ForoUal.Backend.ORM.src.Usuario implements Serializable {
 	public Administrador() {
 	}
 	
 	private java.util.Set this_getSet (int key) {
-		if (key == ORMConstants.KEY_ADMINISTRADOR_ES_CREADA) {
+		if (key == com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_ADMINISTRADOR_ES_CREADA) {
 			return ORM_es_creada;
 		}
 		
@@ -45,7 +44,7 @@ public class Administrador extends Moderador implements Serializable {
 	@Column(name="`IdAdmin`", nullable=true, length=20)	
 	private Long idAdmin;
 	
-	@OneToMany(mappedBy="crea", targetEntity=Seccion.class)	
+	@OneToMany(mappedBy="crea", targetEntity=com.MDS2.ForoUal.Backend.ORM.src.Seccion.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_es_creada = new java.util.HashSet();
@@ -71,7 +70,7 @@ public class Administrador extends Moderador implements Serializable {
 	}
 	
 	@Transient	
-	public final SeccionSetCollection es_creada = new SeccionSetCollection(this, _ormAdapter, ORMConstants.KEY_ADMINISTRADOR_ES_CREADA, ORMConstants.KEY_SECCION_CREA, ORMConstants.KEY_MUL_ONE_TO_MANY);
+	public final com.MDS2.ForoUal.Backend.ORM.src.SeccionSetCollection es_creada = new com.MDS2.ForoUal.Backend.ORM.src.SeccionSetCollection(this, _ormAdapter, com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_ADMINISTRADOR_ES_CREADA, com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_SECCION_CREA, com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
 	public String toString() {
 		return super.toString();

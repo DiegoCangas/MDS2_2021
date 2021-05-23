@@ -21,7 +21,7 @@ import java.util.List;
 public class SeccionDAO {
 	public static Seccion loadSeccionByORMID(int ID) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return loadSeccionByORMID(session, ID);
 		}
 		catch (Exception e) {
@@ -32,7 +32,7 @@ public class SeccionDAO {
 	
 	public static Seccion getSeccionByORMID(int ID) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return getSeccionByORMID(session, ID);
 		}
 		catch (Exception e) {
@@ -43,7 +43,7 @@ public class SeccionDAO {
 	
 	public static Seccion loadSeccionByORMID(int ID, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return loadSeccionByORMID(session, ID, lockMode);
 		}
 		catch (Exception e) {
@@ -54,7 +54,7 @@ public class SeccionDAO {
 	
 	public static Seccion getSeccionByORMID(int ID, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return getSeccionByORMID(session, ID, lockMode);
 		}
 		catch (Exception e) {
@@ -65,7 +65,7 @@ public class SeccionDAO {
 	
 	public static Seccion loadSeccionByORMID(PersistentSession session, int ID) throws PersistentException {
 		try {
-			return (Seccion) session.load(Seccion.class, new Integer(ID));
+			return (Seccion) session.load(com.MDS2.ForoUal.Backend.ORM.src.Seccion.class, new Integer(ID));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -75,7 +75,7 @@ public class SeccionDAO {
 	
 	public static Seccion getSeccionByORMID(PersistentSession session, int ID) throws PersistentException {
 		try {
-			return (Seccion) session.get(Seccion.class, new Integer(ID));
+			return (Seccion) session.get(com.MDS2.ForoUal.Backend.ORM.src.Seccion.class, new Integer(ID));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -85,7 +85,7 @@ public class SeccionDAO {
 	
 	public static Seccion loadSeccionByORMID(PersistentSession session, int ID, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Seccion) session.load(Seccion.class, new Integer(ID), lockMode);
+			return (Seccion) session.load(com.MDS2.ForoUal.Backend.ORM.src.Seccion.class, new Integer(ID), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -95,7 +95,7 @@ public class SeccionDAO {
 	
 	public static Seccion getSeccionByORMID(PersistentSession session, int ID, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Seccion) session.get(Seccion.class, new Integer(ID), lockMode);
+			return (Seccion) session.get(com.MDS2.ForoUal.Backend.ORM.src.Seccion.class, new Integer(ID), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -105,7 +105,7 @@ public class SeccionDAO {
 	
 	public static List querySeccion(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return querySeccion(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -116,7 +116,7 @@ public class SeccionDAO {
 	
 	public static List querySeccion(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return querySeccion(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -127,7 +127,7 @@ public class SeccionDAO {
 	
 	public static Seccion[] listSeccionByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return listSeccionByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -138,7 +138,7 @@ public class SeccionDAO {
 	
 	public static Seccion[] listSeccionByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return listSeccionByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -148,7 +148,7 @@ public class SeccionDAO {
 	}
 	
 	public static List querySeccion(PersistentSession session, String condition, String orderBy) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From Seccion as Seccion");
+		StringBuffer sb = new StringBuffer("From com.MDS2.ForoUal.Backend.ORM.src.Seccion as Seccion");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -164,7 +164,7 @@ public class SeccionDAO {
 	}
 	
 	public static List querySeccion(PersistentSession session, String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From Seccion as Seccion");
+		StringBuffer sb = new StringBuffer("From com.MDS2.ForoUal.Backend.ORM.src.Seccion as Seccion");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -204,7 +204,7 @@ public class SeccionDAO {
 	
 	public static Seccion loadSeccionByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return loadSeccionByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -215,7 +215,7 @@ public class SeccionDAO {
 	
 	public static Seccion loadSeccionByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return loadSeccionByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -242,7 +242,7 @@ public class SeccionDAO {
 	
 	public static java.util.Iterator iterateSeccionByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return iterateSeccionByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -253,7 +253,7 @@ public class SeccionDAO {
 	
 	public static java.util.Iterator iterateSeccionByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return iterateSeccionByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -263,7 +263,7 @@ public class SeccionDAO {
 	}
 	
 	public static java.util.Iterator iterateSeccionByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From Seccion as Seccion");
+		StringBuffer sb = new StringBuffer("From com.MDS2.ForoUal.Backend.ORM.src.Seccion as Seccion");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -279,7 +279,7 @@ public class SeccionDAO {
 	}
 	
 	public static java.util.Iterator iterateSeccionByQuery(PersistentSession session, String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From Seccion as Seccion");
+		StringBuffer sb = new StringBuffer("From com.MDS2.ForoUal.Backend.ORM.src.Seccion as Seccion");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -296,12 +296,12 @@ public class SeccionDAO {
 	}
 	
 	public static Seccion createSeccion() {
-		return new Seccion();
+		return new com.MDS2.ForoUal.Backend.ORM.src.Seccion();
 	}
 	
-	public static boolean save(Seccion seccion) throws PersistentException {
+	public static boolean save(com.MDS2.ForoUal.Backend.ORM.src.Seccion seccion) throws PersistentException {
 		try {
-			MDS1PersistentManager.instance().saveObject(seccion);
+			com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().saveObject(seccion);
 			return true;
 		}
 		catch (Exception e) {
@@ -310,9 +310,9 @@ public class SeccionDAO {
 		}
 	}
 	
-	public static boolean delete(Seccion seccion) throws PersistentException {
+	public static boolean delete(com.MDS2.ForoUal.Backend.ORM.src.Seccion seccion) throws PersistentException {
 		try {
-			MDS1PersistentManager.instance().deleteObject(seccion);
+			com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().deleteObject(seccion);
 			return true;
 		}
 		catch (Exception e) {
@@ -321,13 +321,13 @@ public class SeccionDAO {
 		}
 	}
 	
-	public static boolean deleteAndDissociate(Seccion seccion)throws PersistentException {
+	public static boolean deleteAndDissociate(com.MDS2.ForoUal.Backend.ORM.src.Seccion seccion)throws PersistentException {
 		try {
 			if (seccion.getCrea() != null) {
 				seccion.getCrea().es_creada.remove(seccion);
 			}
 			
-			Tema[] lTemass = seccion.temas.toArray();
+			com.MDS2.ForoUal.Backend.ORM.src.Tema[] lTemass = seccion.temas.toArray();
 			for(int i = 0; i < lTemass.length; i++) {
 				lTemass[i].setContiene(null);
 			}
@@ -339,13 +339,13 @@ public class SeccionDAO {
 		}
 	}
 	
-	public static boolean deleteAndDissociate(Seccion seccion, org.orm.PersistentSession session)throws PersistentException {
+	public static boolean deleteAndDissociate(com.MDS2.ForoUal.Backend.ORM.src.Seccion seccion, org.orm.PersistentSession session)throws PersistentException {
 		try {
 			if (seccion.getCrea() != null) {
 				seccion.getCrea().es_creada.remove(seccion);
 			}
 			
-			Tema[] lTemass = seccion.temas.toArray();
+			com.MDS2.ForoUal.Backend.ORM.src.Tema[] lTemass = seccion.temas.toArray();
 			for(int i = 0; i < lTemass.length; i++) {
 				lTemass[i].setContiene(null);
 			}
@@ -362,9 +362,9 @@ public class SeccionDAO {
 		}
 	}
 	
-	public static boolean refresh(Seccion seccion) throws PersistentException {
+	public static boolean refresh(com.MDS2.ForoUal.Backend.ORM.src.Seccion seccion) throws PersistentException {
 		try {
-			MDS1PersistentManager.instance().getSession().refresh(seccion);
+			com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession().refresh(seccion);
 			return true;
 		}
 		catch (Exception e) {
@@ -373,9 +373,9 @@ public class SeccionDAO {
 		}
 	}
 	
-	public static boolean evict(Seccion seccion) throws PersistentException {
+	public static boolean evict(com.MDS2.ForoUal.Backend.ORM.src.Seccion seccion) throws PersistentException {
 		try {
-			MDS1PersistentManager.instance().getSession().evict(seccion);
+			com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession().evict(seccion);
 			return true;
 		}
 		catch (Exception e) {

@@ -21,7 +21,7 @@ import java.util.List;
 public class NotificacionDAO {
 	public static Notificacion loadNotificacionByORMID(Long idnotificacion) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return loadNotificacionByORMID(session, idnotificacion);
 		}
 		catch (Exception e) {
@@ -32,7 +32,7 @@ public class NotificacionDAO {
 	
 	public static Notificacion getNotificacionByORMID(Long idnotificacion) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return getNotificacionByORMID(session, idnotificacion);
 		}
 		catch (Exception e) {
@@ -43,7 +43,7 @@ public class NotificacionDAO {
 	
 	public static Notificacion loadNotificacionByORMID(Long idnotificacion, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return loadNotificacionByORMID(session, idnotificacion, lockMode);
 		}
 		catch (Exception e) {
@@ -54,7 +54,7 @@ public class NotificacionDAO {
 	
 	public static Notificacion getNotificacionByORMID(Long idnotificacion, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return getNotificacionByORMID(session, idnotificacion, lockMode);
 		}
 		catch (Exception e) {
@@ -65,7 +65,7 @@ public class NotificacionDAO {
 	
 	public static Notificacion loadNotificacionByORMID(PersistentSession session, Long idnotificacion) throws PersistentException {
 		try {
-			return (Notificacion) session.load(Notificacion.class, idnotificacion);
+			return (Notificacion) session.load(com.MDS2.ForoUal.Backend.ORM.src.Notificacion.class, idnotificacion);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -75,7 +75,7 @@ public class NotificacionDAO {
 	
 	public static Notificacion getNotificacionByORMID(PersistentSession session, Long idnotificacion) throws PersistentException {
 		try {
-			return (Notificacion) session.get(Notificacion.class, idnotificacion);
+			return (Notificacion) session.get(com.MDS2.ForoUal.Backend.ORM.src.Notificacion.class, idnotificacion);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -85,7 +85,7 @@ public class NotificacionDAO {
 	
 	public static Notificacion loadNotificacionByORMID(PersistentSession session, Long idnotificacion, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Notificacion) session.load(Notificacion.class, idnotificacion, lockMode);
+			return (Notificacion) session.load(com.MDS2.ForoUal.Backend.ORM.src.Notificacion.class, idnotificacion, lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -95,7 +95,7 @@ public class NotificacionDAO {
 	
 	public static Notificacion getNotificacionByORMID(PersistentSession session, Long idnotificacion, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Notificacion) session.get(Notificacion.class, idnotificacion, lockMode);
+			return (Notificacion) session.get(com.MDS2.ForoUal.Backend.ORM.src.Notificacion.class, idnotificacion, lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -105,7 +105,7 @@ public class NotificacionDAO {
 	
 	public static List queryNotificacion(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return queryNotificacion(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -116,7 +116,7 @@ public class NotificacionDAO {
 	
 	public static List queryNotificacion(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return queryNotificacion(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -127,7 +127,7 @@ public class NotificacionDAO {
 	
 	public static Notificacion[] listNotificacionByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return listNotificacionByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -138,7 +138,7 @@ public class NotificacionDAO {
 	
 	public static Notificacion[] listNotificacionByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return listNotificacionByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -148,7 +148,7 @@ public class NotificacionDAO {
 	}
 	
 	public static List queryNotificacion(PersistentSession session, String condition, String orderBy) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From Notificacion as Notificacion");
+		StringBuffer sb = new StringBuffer("From com.MDS2.ForoUal.Backend.ORM.src.Notificacion as Notificacion");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -164,7 +164,7 @@ public class NotificacionDAO {
 	}
 	
 	public static List queryNotificacion(PersistentSession session, String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From Notificacion as Notificacion");
+		StringBuffer sb = new StringBuffer("From com.MDS2.ForoUal.Backend.ORM.src.Notificacion as Notificacion");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -204,7 +204,7 @@ public class NotificacionDAO {
 	
 	public static Notificacion loadNotificacionByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return loadNotificacionByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -215,7 +215,7 @@ public class NotificacionDAO {
 	
 	public static Notificacion loadNotificacionByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return loadNotificacionByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -242,7 +242,7 @@ public class NotificacionDAO {
 	
 	public static java.util.Iterator iterateNotificacionByQuery(String condition, String orderBy) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return iterateNotificacionByQuery(session, condition, orderBy);
 		}
 		catch (Exception e) {
@@ -253,7 +253,7 @@ public class NotificacionDAO {
 	
 	public static java.util.Iterator iterateNotificacionByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			PersistentSession session = MDS1PersistentManager.instance().getSession();
+			PersistentSession session = com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession();
 			return iterateNotificacionByQuery(session, condition, orderBy, lockMode);
 		}
 		catch (Exception e) {
@@ -263,7 +263,7 @@ public class NotificacionDAO {
 	}
 	
 	public static java.util.Iterator iterateNotificacionByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From Notificacion as Notificacion");
+		StringBuffer sb = new StringBuffer("From com.MDS2.ForoUal.Backend.ORM.src.Notificacion as Notificacion");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -279,7 +279,7 @@ public class NotificacionDAO {
 	}
 	
 	public static java.util.Iterator iterateNotificacionByQuery(PersistentSession session, String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From Notificacion as Notificacion");
+		StringBuffer sb = new StringBuffer("From com.MDS2.ForoUal.Backend.ORM.src.Notificacion as Notificacion");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -296,12 +296,12 @@ public class NotificacionDAO {
 	}
 	
 	public static Notificacion createNotificacion() {
-		return new Notificacion();
+		return new com.MDS2.ForoUal.Backend.ORM.src.Notificacion();
 	}
 	
-	public static boolean save(Notificacion notificacion) throws PersistentException {
+	public static boolean save(com.MDS2.ForoUal.Backend.ORM.src.Notificacion notificacion) throws PersistentException {
 		try {
-			MDS1PersistentManager.instance().saveObject(notificacion);
+			com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().saveObject(notificacion);
 			return true;
 		}
 		catch (Exception e) {
@@ -310,9 +310,9 @@ public class NotificacionDAO {
 		}
 	}
 	
-	public static boolean delete(Notificacion notificacion) throws PersistentException {
+	public static boolean delete(com.MDS2.ForoUal.Backend.ORM.src.Notificacion notificacion) throws PersistentException {
 		try {
-			MDS1PersistentManager.instance().deleteObject(notificacion);
+			com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().deleteObject(notificacion);
 			return true;
 		}
 		catch (Exception e) {
@@ -321,7 +321,7 @@ public class NotificacionDAO {
 		}
 	}
 	
-	public static boolean deleteAndDissociate(Notificacion notificacion)throws PersistentException {
+	public static boolean deleteAndDissociate(com.MDS2.ForoUal.Backend.ORM.src.Notificacion notificacion)throws PersistentException {
 		try {
 			if (notificacion.getUsuario_ticket() != null) {
 				notificacion.getUsuario_ticket().notificacion_usuario.remove(notificacion);
@@ -335,7 +335,7 @@ public class NotificacionDAO {
 		}
 	}
 	
-	public static boolean deleteAndDissociate(Notificacion notificacion, org.orm.PersistentSession session)throws PersistentException {
+	public static boolean deleteAndDissociate(com.MDS2.ForoUal.Backend.ORM.src.Notificacion notificacion, org.orm.PersistentSession session)throws PersistentException {
 		try {
 			if (notificacion.getUsuario_ticket() != null) {
 				notificacion.getUsuario_ticket().notificacion_usuario.remove(notificacion);
@@ -354,9 +354,9 @@ public class NotificacionDAO {
 		}
 	}
 	
-	public static boolean refresh(Notificacion notificacion) throws PersistentException {
+	public static boolean refresh(com.MDS2.ForoUal.Backend.ORM.src.Notificacion notificacion) throws PersistentException {
 		try {
-			MDS1PersistentManager.instance().getSession().refresh(notificacion);
+			com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession().refresh(notificacion);
 			return true;
 		}
 		catch (Exception e) {
@@ -365,9 +365,9 @@ public class NotificacionDAO {
 		}
 	}
 	
-	public static boolean evict(Notificacion notificacion) throws PersistentException {
+	public static boolean evict(com.MDS2.ForoUal.Backend.ORM.src.Notificacion notificacion) throws PersistentException {
 		try {
-			MDS1PersistentManager.instance().getSession().evict(notificacion);
+			com.MDS2.ForoUal.Backend.ORM.src.MDS1PersistentManager.instance().getSession().evict(notificacion);
 			return true;
 		}
 		catch (Exception e) {

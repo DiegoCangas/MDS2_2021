@@ -1,18 +1,24 @@
 package com.MDS2.ForoUal.Backend.BDs;
 
+import java.util.List;
 import java.util.Vector;
-
-import com.MDS2.ForoUal.foroUI;
-import com.MDS2.ForoUal.Backend.ORM.src.*;
-import com.MDS2.ForoUal.Interfaz.Ver_OtroPerfil;
 
 import org.orm.PersistentException;
 
-import antlr.collections.List;
+import com.MDS2.ForoUal.foroUI;
+import com.MDS2.ForoUal.Backend.ORM.src.Administrador;
+import com.MDS2.ForoUal.Backend.ORM.src.AdministradorDAO;
+import com.MDS2.ForoUal.Backend.ORM.src.Mensaje;
+import com.MDS2.ForoUal.Backend.ORM.src.MensajeDAO;
+import com.MDS2.ForoUal.Backend.ORM.src.Usuario;
+import com.MDS2.ForoUal.Backend.ORM.src.UsuarioDAO;
+import com.MDS2.ForoUal.Backend.Utils.PasswordUtils;
+import com.MDS2.ForoUal.Interfaz.Ver_OtroPerfil;
+import com.vaadin.ui.Image;
 
 public class BD_Usuarios {
-	public BD_Principal _unnamed_BD_Principal_;
-	public Vector<UsuarioDAO> _unnamed_Usuario_ = new Vector<UsuarioDAO>();
+	public BD_Principal _bd_main_usuarios;
+	public Vector<Usuario> _unnamed_Usuario_ = new Vector<Usuario>();
 
 	public void Banear(String aNombre) {
 		Usuario u = null;
@@ -74,7 +80,6 @@ public class BD_Usuarios {
 			e.printStackTrace();
 			return new Usuario[] {};
 		}
-		
 	}
 
 	public Mensaje[] Cargar_Ultimos_Mensajes(String aNombre) {
@@ -102,7 +107,6 @@ public class BD_Usuarios {
 	}
 
 	public Mensaje[] Devolver_Ultimos_Mensajes(Usuario aUser, int aNummensajes) {
-		
 		try {
 			Mensaje[] m2 = MensajeDAO.listMensajeByQuery("UsuarioID = "+aUser.getORMID(), "FechaCreacion");
 			Mensaje[] m = new Mensaje[Math.min(m2.length, Ver_OtroPerfil.messageLimit)];
@@ -129,26 +133,26 @@ public class BD_Usuarios {
 		}
 	}
 
-	public void Editar_Perfil(String aDescripcion, String aEmail, String fotoPerfil, String aNombre_completo) {
-		
-		foroUI.user.setDescripcion(aDescripcion);
-		foroUI.user.setEmail(aEmail);
-		foroUI.user.setNombreReal(aNombre_completo);
-		foroUI.user.setFotoPerfil(fotoPerfil);
-		
+	public void Eliminar_Amigo(String aNombre, Long aIdUsuarioElimina) {
+		Usuario u;
 		try {
-			UsuarioDAO.save(foroUI.user);
+			Usuario user = UsuarioDAO.getUsuarioByORMID(aIdUsuarioElimina);
+			u = UsuarioDAO.loadUsuarioByQuery(String.format("NombreUsuario = '%s'",aNombre), null);
+			user.amigo_de.remove(u);
+			UsuarioDAO.save(user);
 		} catch (PersistentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
-	public void Eliminar_Amigo(String aNombre) {
-		Usuario u;
+	public void Editar_Perfil(String aDescripcion, String aEmail, String aImagen, String aNombre_completo) {
+		foroUI.user.setDescripcion(aDescripcion);
+		foroUI.user.setEmail(aEmail);
+		foroUI.user.setNombreReal(aNombre_completo);
+		foroUI.user.setFotoPerfil(aImagen);
+		
 		try {
-			u = UsuarioDAO.loadUsuarioByQuery(String.format("NombreUsuario = '%s'",aNombre), null);
-			foroUI.user.amigo_de.remove(u);
 			UsuarioDAO.save(foroUI.user);
 		} catch (PersistentException e) {
 			// TODO Auto-generated catch block
@@ -157,23 +161,18 @@ public class BD_Usuarios {
 	}
 
 	public boolean Iniciar_Sesion(String aNombre, String aContrasenia) {
-		
 		String key = "EqdmPh53c9x33EygXpTpcoJvc4VXLK";
 		aContrasenia = PasswordUtils.generateSecurePassword(aContrasenia, key);
 
 		try {
 			Usuario u = UsuarioDAO.loadUsuarioByQuery(String.format("Email = '%s' AND Contrasenia = '%s'",aNombre,aContrasenia), "Email");
+			if(u == null) return false;
 			foroUI.user = u;
 			
 			//Privilegios
-			try {
-			Moderador mod = ModeradorDAO.getModeradorByORMID(u.getID());
-			if(mod != null) foroUI.privilegios = foroUI.Privilegios.moderador;
-			}
-			catch (Exception e)
-			{
-				
-			}
+			if(u.getEsModerador())
+				foroUI.privilegios = foroUI.Privilegios.moderador;
+
 			
 			try {
 			Administrador ad = AdministradorDAO.getAdministradorByORMID(u.getID());
@@ -181,7 +180,6 @@ public class BD_Usuarios {
 			}
 			catch (Exception e)
 			{
-				
 			}
 			
 			//Visualizar
@@ -190,32 +188,36 @@ public class BD_Usuarios {
 			System.out.println("Login as: " + foroUI.privilegios);
 			return u != null;
 			
-		} catch (PersistentException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return false;
 		}
 	}
 
-	public void Insertar_Amigo(String aNombre) {
+	public void Insertar_Amigo(String aANombre, Long aIdUsuarioInserta) {
 		Usuario u;
 		try {
-			u = UsuarioDAO.loadUsuarioByQuery(String.format("NombreUsuario = '%s'",aNombre), null);
-			foroUI.user.amigo_de.add(u);
-			UsuarioDAO.save(foroUI.user);
+			u = UsuarioDAO.loadUsuarioByQuery(String.format("NombreUsuario = '%s'",aANombre), null);
+			Usuario user = UsuarioDAO.getUsuarioByORMID(aIdUsuarioInserta);
+			user.amigo_de.add(u);
+			UsuarioDAO.save(user);
 		} catch (PersistentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 	}
 
-	public void Recuperar_Contrasenia_Perfil(String aNombre, String aContrasenia) {
+	public boolean Modificar_Rol(String aNombre) {
+		throw new UnsupportedOperationException();
+	}
+
+	public void Recuperar_Contrasenia_Perfil(String aNombre, String aNuevaContrasenia) {
 		String key = "EqdmPh53c9x33EygXpTpcoJvc4VXLK";
-		aContrasenia = PasswordUtils.generateSecurePassword(aContrasenia, key);
+		aNuevaContrasenia = PasswordUtils.generateSecurePassword(aNuevaContrasenia, key);
 		try {
 			Usuario u = UsuarioDAO.loadUsuarioByQuery(String.format("Email = '%s'",aNombre), null);
-			u.setContrasenia(aContrasenia);
+			u.setContrasenia(aNuevaContrasenia);
 			UsuarioDAO.save(u);
 		} catch (PersistentException e) {
 			// TODO Auto-generated catch block
@@ -223,7 +225,8 @@ public class BD_Usuarios {
 		}
 	}
 
-	public boolean Registrar_Usuario(String aEmail, String aNombre, String aContrasenia, String aNombre_completo, String aFoto_perfil, String aDescripcion) {
+	public boolean Registrar_Usuario(String aEmail, String aNombre, String aContrasenia, String aRepetirContrasenia,String aNombre_completo, String aFoto_perfil, String aDescripcion) {
+		if (aRepetirContrasenia != aContrasenia) return false;
 		
 		String key = "EqdmPh53c9x33EygXpTpcoJvc4VXLK";
 		aContrasenia = PasswordUtils.generateSecurePassword(aContrasenia, key);
@@ -244,5 +247,16 @@ public class BD_Usuarios {
 			return false;
 		}
 	}
-	
+
+	public boolean EsModerador(Long aId) {
+		Usuario u;
+		try {
+			u = UsuarioDAO.getUsuarioByORMID(aId);
+			return u.getEsModerador();
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+	}
 }

@@ -67,7 +67,7 @@ public class Registrarse extends Registrase_Ventana{
 				String s = Validar_datos_Registras(userName.getValue().trim(),email.getValue().trim(),nombreCompleto.getValue().trim(),password.getValue(),description.getValue().trim());
 				if(s=="")
 				{
-					foroUI.db.Registrar_Usuario(email.getValue().trim(), userName.getValue().trim(), password.getValue(), nombreCompleto.getValue().trim(), photo.getValue().trim(), description.getValue().trim());
+					foroUI.db.Registrar_Usuario(email.getValue().trim(), userName.getValue().trim(), password.getValue(),password.getValue(), nombreCompleto.getValue().trim(), photo.getValue().trim(), description.getValue().trim());
 						UI c = UI.getCurrent();
 						Window w = (Window)c.getWindows().toArray()[c.getWindows().size()-1];
 						c.removeWindow(w);

@@ -37,15 +37,14 @@ public class MDS1PersistentManager extends PersistentManager {
 	@Override
 	protected void configureMetadataSources(MetadataSources aMetadataSources) {
 		super.configureMetadataSources(aMetadataSources);
-		aMetadataSources.addAnnotatedClass(Reporte.class);
-		aMetadataSources.addAnnotatedClass(Tema.class);
-		aMetadataSources.addAnnotatedClass(Seccion.class);
-		aMetadataSources.addAnnotatedClass(Mensaje.class);
-		aMetadataSources.addAnnotatedClass(Usuario.class);
-		aMetadataSources.addAnnotatedClass(Moderador.class);
-		aMetadataSources.addAnnotatedClass(Administrador.class);
-		aMetadataSources.addAnnotatedClass(Media_.class);
-		aMetadataSources.addAnnotatedClass(Notificacion.class);
+		aMetadataSources.addAnnotatedClass(com.MDS2.ForoUal.Backend.ORM.src.Reporte.class);
+		aMetadataSources.addAnnotatedClass(com.MDS2.ForoUal.Backend.ORM.src.Tema.class);
+		aMetadataSources.addAnnotatedClass(com.MDS2.ForoUal.Backend.ORM.src.Seccion.class);
+		aMetadataSources.addAnnotatedClass(com.MDS2.ForoUal.Backend.ORM.src.Mensaje.class);
+		aMetadataSources.addAnnotatedClass(com.MDS2.ForoUal.Backend.ORM.src.Usuario.class);
+		aMetadataSources.addAnnotatedClass(com.MDS2.ForoUal.Backend.ORM.src.Media_.class);
+		aMetadataSources.addAnnotatedClass(com.MDS2.ForoUal.Backend.ORM.src.Notificacion.class);
+		aMetadataSources.addAnnotatedClass(com.MDS2.ForoUal.Backend.ORM.src.Administrador.class);
 	}
 	
 	public String getProjectName() {

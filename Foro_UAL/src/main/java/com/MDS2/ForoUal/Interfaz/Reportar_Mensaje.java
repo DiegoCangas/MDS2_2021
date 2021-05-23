@@ -11,13 +11,16 @@ import com.vaadin.ui.Button.ClickEvent;
 public class Reportar_Mensaje extends Reportar_Mensaje_Ventana{
 	private Button _reportar;
 	public Opciones_Mensajes _opciones_Mensajes;
-
+	private Mensaje mensaje = new Mensaje();
+	
 	public Reportar_Mensaje(Mensaje m) {
+		mensaje = m;
+		
 		continuar.addClickListener(new Button.ClickListener() {
 			
 			@Override
 			public void buttonClick(ClickEvent event) {
-				reportar(m);
+				reportar();
 				UI c = UI.getCurrent();
 				Window w = (Window)c.getWindows().toArray()[c.getWindows().size()-1];
 				c.removeWindow(w);
@@ -38,8 +41,8 @@ public class Reportar_Mensaje extends Reportar_Mensaje_Ventana{
 			}
 		});
 	}
-	public void reportar(Mensaje m) {
-		foroUI.db.Denunciar_Mensaje((long)m.getORMID(),motivo.getValue());
+	public void reportar() {
+		foroUI.db.Crear_Reporte(mensaje.getORMID(),motivo.getValue());
 	}
 
 }

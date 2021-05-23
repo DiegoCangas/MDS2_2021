@@ -23,7 +23,7 @@ public class Seccion implements Serializable {
 	}
 	
 	private java.util.Set this_getSet (int key) {
-		if (key == ORMConstants.KEY_SECCION_TEMAS) {
+		if (key == com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_SECCION_TEMAS) {
 			return ORM_temas;
 		}
 		
@@ -31,8 +31,8 @@ public class Seccion implements Serializable {
 	}
 	
 	private void this_setOwner(Object owner, int key) {
-		if (key == ORMConstants.KEY_SECCION_CREA) {
-			this.crea = (Administrador) owner;
+		if (key == com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_SECCION_CREA) {
+			this.crea = (com.MDS2.ForoUal.Backend.ORM.src.Administrador) owner;
 		}
 	}
 	
@@ -50,15 +50,15 @@ public class Seccion implements Serializable {
 	
 	@Column(name="`ID`", nullable=false, length=10)	
 	@Id	
-	@GeneratedValue(generator="SECCION_ID_GENERATOR")	
-	@org.hibernate.annotations.GenericGenerator(name="SECCION_ID_GENERATOR", strategy="native")	
+	@GeneratedValue(generator="COM_MDS2_FOROUAL_BACKEND_ORM_SRC_SECCION_ID_GENERATOR")	
+	@org.hibernate.annotations.GenericGenerator(name="COM_MDS2_FOROUAL_BACKEND_ORM_SRC_SECCION_ID_GENERATOR", strategy="native")	
 	private int ID;
 	
-	@ManyToOne(targetEntity=Administrador.class, fetch=FetchType.LAZY)	
+	@ManyToOne(targetEntity=com.MDS2.ForoUal.Backend.ORM.src.Administrador.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
 	@JoinColumns(value={ @JoinColumn(name="`AdministradorUsuarioID`", referencedColumnName="`UsuarioID`") }, foreignKey=@ForeignKey(name="FKSeccion97224"))	
 	@org.hibernate.annotations.LazyToOne(value=org.hibernate.annotations.LazyToOneOption.NO_PROXY)	
-	private Administrador crea;
+	private com.MDS2.ForoUal.Backend.ORM.src.Administrador crea;
 	
 	@Column(name="`IDseccion`", nullable=true, length=20)	
 	private Long IDseccion;
@@ -79,7 +79,7 @@ public class Seccion implements Serializable {
 	@Column(name="`Marcado`", nullable=true, length=1)	
 	private boolean marcado;
 	
-	@OneToMany(mappedBy="contiene", targetEntity=Tema.class)	
+	@OneToMany(mappedBy="contiene", targetEntity=com.MDS2.ForoUal.Backend.ORM.src.Tema.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_temas = new java.util.HashSet();
@@ -157,9 +157,9 @@ public class Seccion implements Serializable {
 	}
 	
 	@Transient	
-	public final TemaSetCollection temas = new TemaSetCollection(this, _ormAdapter, ORMConstants.KEY_SECCION_TEMAS, ORMConstants.KEY_TEMA_CONTIENE, ORMConstants.KEY_MUL_ONE_TO_MANY);
+	public final com.MDS2.ForoUal.Backend.ORM.src.TemaSetCollection temas = new com.MDS2.ForoUal.Backend.ORM.src.TemaSetCollection(this, _ormAdapter, com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_SECCION_TEMAS, com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_TEMA_CONTIENE, com.MDS2.ForoUal.Backend.ORM.src.ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
-	public void setCrea(Administrador value) {
+	public void setCrea(com.MDS2.ForoUal.Backend.ORM.src.Administrador value) {
 		if (crea != null) {
 			crea.es_creada.remove(this);
 		}
@@ -168,18 +168,18 @@ public class Seccion implements Serializable {
 		}
 	}
 	
-	public Administrador getCrea() {
+	public com.MDS2.ForoUal.Backend.ORM.src.Administrador getCrea() {
 		return crea;
 	}
 	
 	/**
 	 * This method is for internal use only.
 	 */
-	public void setORM_Crea(Administrador value) {
+	public void setORM_Crea(com.MDS2.ForoUal.Backend.ORM.src.Administrador value) {
 		this.crea = value;
 	}
 	
-	private Administrador getORM_Crea() {
+	private com.MDS2.ForoUal.Backend.ORM.src.Administrador getORM_Crea() {
 		return crea;
 	}
 	

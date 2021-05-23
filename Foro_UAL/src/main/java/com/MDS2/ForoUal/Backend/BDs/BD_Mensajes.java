@@ -7,7 +7,6 @@ import java.util.Vector;
 import org.orm.PersistentException;
 
 import com.MDS2.ForoUal.foroUI;
-
 import com.MDS2.ForoUal.Backend.ORM.src.Media_;
 import com.MDS2.ForoUal.Backend.ORM.src.Media_DAO;
 import com.MDS2.ForoUal.Backend.ORM.src.Mensaje;
@@ -16,20 +15,28 @@ import com.MDS2.ForoUal.Backend.ORM.src.Seccion;
 import com.MDS2.ForoUal.Backend.ORM.src.SeccionDAO;
 import com.MDS2.ForoUal.Backend.ORM.src.Tema;
 import com.MDS2.ForoUal.Backend.ORM.src.TemaDAO;
+import com.MDS2.ForoUal.Backend.ORM.src.Usuario;
+import com.MDS2.ForoUal.Backend.ORM.src.UsuarioDAO;
 import com.MDS2.ForoUal.Interfaz.Visualizar_Mensajes;
 import com.MDS2.ForoUal.Interfaz.Visualizar_Temas_Registrado;
 
 public class BD_Mensajes {
 	public BD_Principal _bd_main_mensajes;
-	public Vector<MensajeDAO> _unnamed_Mensaje_ = new Vector<MensajeDAO>();
+	public Vector<Mensaje> _unnamed_Mensaje_ = new Vector<Mensaje>();
 
-	public Mensaje Crear_Mensaje(String aTexto, String[] urls, Mensaje respuestaA) {
+	public Mensaje[] Cargar_Mensajes(Tema aT) {
+		try {
+			return MensajeDAO.listMensajeByQuery("TemaID = " + aT.getID(), null);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return new Mensaje[] {};
+		}
+	}
+
+	public Mensaje Crear_Mensaje(String aTexto, String[] aMedia, Mensaje respuestaA, Long aIdCreador) {
 		Mensaje m = MensajeDAO.createMensaje();
 		
-		
-		
-		
-		m.setEnvia_mensaje(foroUI.user);
 		m.setTexto(aTexto);
 		m.setFechaCreacion(Time.from(Instant.now()));
 		if(respuestaA != null) m.respuesta_de.add(respuestaA);
@@ -37,6 +44,8 @@ public class BD_Mensajes {
 			
 		
 		try {
+			Usuario user = UsuarioDAO.getUsuarioByORMID(aIdCreador);
+			m.setEnvia_mensaje(user);
 			m.setIdMensaje((long)(MensajeDAO.listMensajeByQuery(null, null).length+10));
 		} catch (PersistentException e1) {
 			// TODO Auto-generated catch block
@@ -54,7 +63,7 @@ public class BD_Mensajes {
 			s.setNumMensajes(s.getNumMensajes()+1); 
 			SeccionDAO.save(s);
 			
-			for(String me : urls) {
+			for(String me : aMedia) {
 				if(me == "") continue;
 				Media_ med = Media_DAO.createMedia_();
 				med.setUrl(me);
@@ -74,18 +83,18 @@ public class BD_Mensajes {
 			e.printStackTrace();
 		}
 		return null;
-		
 	}
 
-	public void Dar_Megusta_Mensaje(Long aId) {
+	public void Dar_Megusta_Mensaje(Long aIdMensaje, Long aIdUsuario) {
 		Mensaje m = null;
 		try {
-			m = MensajeDAO.loadMensajeByORMID(aId.intValue());
+			m = MensajeDAO.loadMensajeByORMID(aIdMensaje.intValue());
+			Usuario user = UsuarioDAO.loadUsuarioByORMID(aIdUsuario);
 			System.out.println(m.gustaMensaje);
 			
-			if(!m.gustaMensaje.contains(foroUI.user))
-				m.gustaMensaje.add(foroUI.user);
-			else m.gustaMensaje.remove(foroUI.user);
+			if(!m.gustaMensaje.contains(user))
+				m.gustaMensaje.add(user);
+			else m.gustaMensaje.remove(user);
 			m.setNumeroMeGusta(m.gustaMensaje.size());
 			try {
 				MensajeDAO.save(m);
@@ -98,8 +107,6 @@ public class BD_Mensajes {
 			e1.printStackTrace();
 			return;
 		}
-		
-		
 	}
 
 	public void Eliminar_Mensaje(Long aId) {
@@ -123,36 +130,12 @@ public class BD_Mensajes {
 			e.printStackTrace();
 		}
 	}
-	
-/*	public void Denunciar_Mensaje(Long aId) {
-		Mensaje m = null;
-		try {
-			m = MensajeDAO.getMensajeByORMID(aId.intValue());
-		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		if(m==null) return;
-		m.setMarcado(true);
-		try {
-			MensajeDAO.save(m);
-		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}*/
 
 	public Mensaje[] Ordenar_Mensajes(Mensaje[] aMensajes, String aOrden) {
 		throw new UnsupportedOperationException();
 	}
-	
-	public Mensaje[] Cargar_Mensajes(Tema t) {
-		try {
-			return MensajeDAO.listMensajeByQuery("TemaID = " + t.getID(), null);
-		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return new Mensaje[] {};
-		}
+
+	public Mensaje[] Cargar_Mensajes_Moderador() {
+		throw new UnsupportedOperationException();
 	}
 }

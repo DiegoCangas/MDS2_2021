@@ -16,6 +16,9 @@ public class Ver_Tema extends Ver_Tema_Ventana {
 	public void Dar_Me_Gusta_Tema() {
 		throw new UnsupportedOperationException();
 	}
+	
+	private Tema tema = new Tema();
+	
 	public Ver_Tema (Tema t){
 		nombreTema.setValue(t.getTitulo());
 		descripcion.setValue(t.getSubtitulo());
@@ -57,8 +60,9 @@ public class Ver_Tema extends Ver_Tema_Ventana {
 			});
 		meGustaLayout.addLayoutClickListener(e -> {
 			if(foroUI.user == null) return;
-			foroUI.db.Dar_Megusta_Tema((long)t.getORMID());
+			foroUI.db.Dar_Megusta_Tema((long)t.getORMID(),foroUI.user.getORMID());
 			foroUI.singleton.VisualizarSeccion(t.getContiene());
 		});
 	}
+	
 }

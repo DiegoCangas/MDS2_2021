@@ -25,7 +25,7 @@ public class NotificacionDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final StringExpression mensaje;
 	
 	public NotificacionDetachedCriteria() {
-		super(Notificacion.class, NotificacionCriteria.class);
+		super(com.MDS2.ForoUal.Backend.ORM.src.Notificacion.class, com.MDS2.ForoUal.Backend.ORM.src.NotificacionCriteria.class);
 		idnotificacion = new LongExpression("idnotificacion", this.getDetachedCriteria());
 		usuario_ticketId = new LongExpression("usuario_ticket.ID", this.getDetachedCriteria());
 		usuario_ticket = new AssociationExpression("usuario_ticket", this.getDetachedCriteria());
@@ -33,15 +33,15 @@ public class NotificacionDetachedCriteria extends AbstractORMDetachedCriteria {
 	}
 	
 	public NotificacionDetachedCriteria(DetachedCriteria aDetachedCriteria) {
-		super(aDetachedCriteria, NotificacionCriteria.class);
+		super(aDetachedCriteria, com.MDS2.ForoUal.Backend.ORM.src.NotificacionCriteria.class);
 		idnotificacion = new LongExpression("idnotificacion", this.getDetachedCriteria());
 		usuario_ticketId = new LongExpression("usuario_ticket.ID", this.getDetachedCriteria());
 		usuario_ticket = new AssociationExpression("usuario_ticket", this.getDetachedCriteria());
 		mensaje = new StringExpression("mensaje", this.getDetachedCriteria());
 	}
 	
-	public UsuarioDetachedCriteria createUsuario_ticketCriteria() {
-		return new UsuarioDetachedCriteria(createCriteria("usuario_ticket"));
+	public com.MDS2.ForoUal.Backend.ORM.src.UsuarioDetachedCriteria createUsuario_ticketCriteria() {
+		return new com.MDS2.ForoUal.Backend.ORM.src.UsuarioDetachedCriteria(createCriteria("usuario_ticket"));
 	}
 	
 	public Notificacion uniqueNotificacion(PersistentSession session) {
