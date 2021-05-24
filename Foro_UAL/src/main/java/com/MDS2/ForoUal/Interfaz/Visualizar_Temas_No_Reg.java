@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.MDS2.ForoUal.foroUI;
 import com.MDS2.ForoUal.Backend.ORM.src.Seccion;
+import com.vaadin.event.MouseEvents.ClickEvent;
+import com.vaadin.ui.Button;
 import com.vaadin.ui.MenuBar.Command;
 import com.vaadin.ui.MenuBar.MenuItem;
 
@@ -52,6 +54,15 @@ public class Visualizar_Temas_No_Reg extends VIsualizar_temas_No_Reg_Ventana{
 					System.out.println("Prueba menu 2 ");
 					Ver_Temas.order = 2;
 					foroUI.singleton.VisualizarSeccion(s);
+				}
+			});
+			
+			return_button.addClickListener(new Button.ClickListener() {
+
+				@Override
+				public void buttonClick(com.vaadin.ui.Button.ClickEvent event) {
+					foroUI.singleton.VisualizarRaiz();
+					
 				}
 			});
 	}

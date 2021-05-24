@@ -26,7 +26,7 @@ public class Visualizar_Mensajes extends Visualizar_Mensajes_Ventana{
 		for(Mensaje m2 : m) {
 			if(foroUI.user == null || (foroUI.user != null && foroUI.privilegios == foroUI.Privilegios.usuario))
 				if(m2.getTexto().contains("<Ocultado>") || m2.getTexto().contains("<Borrado>")) continue;
-			if((foroUI.user != null && foroUI.privilegios == foroUI.Privilegios.moderador) && m2.getTexto().contains("<borrado>")) continue;
+			if((foroUI.user != null && foroUI.privilegios == foroUI.Privilegios.moderador) && m2.getTexto().contains("<Borrado>")) continue;
 			addComponent(new visualizar_Mensaje(m2));
 		}
 	}
@@ -35,7 +35,7 @@ public class Visualizar_Mensajes extends Visualizar_Mensajes_Ventana{
 		for(Mensaje m2 : me) {
 			if(foroUI.user == null || (foroUI.user != null && foroUI.privilegios == foroUI.Privilegios.usuario))
 				if(m2.getTexto().contains("<Ocultado>") || m2.getTexto().contains("<Borrado>")) continue;
-			if((foroUI.user != null && foroUI.privilegios == foroUI.Privilegios.moderador) && m2.getTexto().contains("<borrado>")) continue;
+			if((foroUI.user != null && foroUI.privilegios == foroUI.Privilegios.moderador) && m2.getTexto().contains("<Borrado>")) continue;
 			addComponent(new visualizar_Mensaje(m2));
 		}
 	}

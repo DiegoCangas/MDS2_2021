@@ -45,7 +45,7 @@ public class BD_Notificaciones {
 	}
 	public Notificacion[] Cargar_Notificaciones(Long aId) {
 		try {
-			return NotificacionDAO.listNotificacionByQuery("UsuarioID = " +aId, "idnotificacion DESC");
+			return NotificacionDAO.listNotificacionByQuery("UsuarioID = " +aId, "Idnotificacion DESC");
 		} catch (PersistentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

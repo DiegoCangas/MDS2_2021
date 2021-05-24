@@ -1,6 +1,9 @@
 package com.MDS2.ForoUal.Interfaz;
 
+import com.MDS2.ForoUal.foroUI;
 import com.MDS2.ForoUal.Backend.ORM.src.Tema;
+import com.vaadin.ui.Button;
+import com.vaadin.ui.Button.ClickEvent;
 
 public class Visualizar_Mensajes_Registrado extends Visualizar_Mensajes_Registrado_Ventana{
 	public Usuario_Logueado _usuario_Logueado;
@@ -16,6 +19,14 @@ public class Visualizar_Mensajes_Registrado extends Visualizar_Mensajes_Registra
 		panelOpcionesLayout.addComponent(_opciones_Mensajes);
 		titulo.setValue(t.getTitulo());
 		subtitulo.setValue(t.getSubtitulo());
+		
+		return_button.addClickListener(new Button.ClickListener() {
+			
+			@Override
+			public void buttonClick(ClickEvent event) {
+				foroUI.singleton.VisualizarSeccion(t.getContiene());
+				}
+		});
 	}
 	
 	public void cargarMensajes() {
