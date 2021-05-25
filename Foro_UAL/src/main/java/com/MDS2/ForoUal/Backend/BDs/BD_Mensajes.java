@@ -131,11 +131,4 @@ public class BD_Mensajes {
 		}
 	}
 
-	public Mensaje[] Ordenar_Mensajes(Mensaje[] aMensajes, String aOrden) {
-		throw new UnsupportedOperationException();
-	}
-
-	public Mensaje[] Cargar_Mensajes_Moderador() {
-		throw new UnsupportedOperationException();
-	}
 }

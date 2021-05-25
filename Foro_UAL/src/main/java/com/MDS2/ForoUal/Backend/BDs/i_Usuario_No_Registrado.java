@@ -13,11 +13,7 @@ public interface i_Usuario_No_Registrado {
 
 	public boolean Registrar_Usuario(String aEmail, String aNombre, String aContrasenia, String aRepetirContrasenia, String aNombre_completo, String aFoto_perfil, String aDescripcion);
 
-	public Mensaje[] Cargar_Mensajes_NoRegistrado();
-
 	public Mensaje[] Cargar_Mensajes(Tema t);
-
-	public Mensaje[] Ordenar_Mensajes(Mensaje[] aMensajes, String aOrden);
 
 	public Seccion[] Cargar_Secciones();
 

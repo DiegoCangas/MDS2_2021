@@ -74,10 +74,6 @@ public class BD_Principal implements i_Usuario_No_Registrado, i_Usuario_Registra
 		return _temas.Cargar_Temas_Moderador(aSeccion);
 	}
 
-	public Mensaje[] Cargar_Mensajes_Moderador() {
-		return _mensajes.Cargar_Mensajes_Moderador();
-	}
-
 	public Media_ Cargar_Media(Long aAMedia) {
 		return _medias.Cargar_Media(aAMedia);
 	}
@@ -90,16 +86,8 @@ public class BD_Principal implements i_Usuario_No_Registrado, i_Usuario_Registra
 		return _usuarios.Registrar_Usuario(aEmail, aNombre, aContrasenia, aRepetirContrasenia, aNombre_completo, aFoto_perfil, aDescripcion);
 	}
 
-	public Mensaje[] Cargar_Mensajes_NoRegistrado() {
-		throw new UnsupportedOperationException();
-	}
-
 	public Mensaje[] Cargar_Mensajes(Tema aT) {
 		return _mensajes.Cargar_Mensajes(aT);
-	}
-
-	public Mensaje[] Ordenar_Mensajes(Mensaje[] aMensajes, String aOrden) {
-		return _mensajes.Ordenar_Mensajes(aMensajes, aOrden);
 	}
 
 	public Seccion[] Cargar_Secciones() {
