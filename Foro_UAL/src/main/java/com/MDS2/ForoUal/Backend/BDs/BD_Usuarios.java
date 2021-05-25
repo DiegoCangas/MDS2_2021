@@ -86,19 +86,8 @@ public class BD_Usuarios {
 		Usuario u = null;
 		try {
 			u = UsuarioDAO.loadUsuarioByQuery("NombreUsuario = '"+aNombre+"'", null);
-		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return new Mensaje[] {};
-		}
-		try {
-			Mensaje[] m2 = MensajeDAO.listMensajeByQuery("UsuarioID = "+u.getORMID(), "FechaCreacion");
-			Mensaje[] m = new Mensaje[Math.min(m2.length, Ver_OtroPerfil.messageLimit)];
-			
-			for(int i = 0; i < Math.min(m2.length, Ver_OtroPerfil.messageLimit); i++)
-				m[i] = m2[i];
-			
-			return m;
+			return Devolver_Ultimos_Mensajes(u,Ver_OtroPerfil.messageLimit);
+
 		} catch (PersistentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -109,7 +98,7 @@ public class BD_Usuarios {
 	public Mensaje[] Devolver_Ultimos_Mensajes(Usuario aUser, int aNummensajes) {
 		try {
 			Mensaje[] m2 = MensajeDAO.listMensajeByQuery("UsuarioID = "+aUser.getORMID(), "FechaCreacion");
-			Mensaje[] m = new Mensaje[Math.min(m2.length, Ver_OtroPerfil.messageLimit)];
+			Mensaje[] m = new Mensaje[Math.min(m2.length, aNummensajes)];
 			
 			for(int i = 0; i < Math.min(m2.length, aNummensajes); i++)
 				m[i] = m2[i];

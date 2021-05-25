@@ -17,7 +17,6 @@ public class Ver_OtroPerfil extends Ver_OtroPerfil_Ventana{
 	public Usuario_no_Logueado _unnamed_Usuario_no_Logueado_;
 	public Usuario_Logueado _unnamed_Usuario_Logueado_;
 	public Ver_Amigos _unnamed_Ver_Amigos_;
-	public Ultimos_Mensajes _unnamed_Ultimos_Mensajes_;
 	private Usuario usuario = new Usuario();
 	
 	public static int messageLimit = 7;
