@@ -35,7 +35,7 @@ public class Ver_OtroPerfil extends Ver_OtroPerfil_Ventana{
 		descpription.setValue(usuario.getDescripcion());
 		//Media_ m = foroUI.db.Cargar_Media(u.getFotoPerfil());
 		//if(m != null)
-			fotoPerfil.setSource(new ExternalResource(usuario.getFotoPerfil()));
+		fotoPerfil.setSource(new ExternalResource(usuario.getFotoPerfil()));
 		
 		ultimosMensajes.setContent(new Visualizar_Mensajes(usuario));
 		 

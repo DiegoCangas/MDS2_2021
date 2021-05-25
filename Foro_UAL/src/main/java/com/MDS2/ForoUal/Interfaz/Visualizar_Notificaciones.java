@@ -9,7 +9,7 @@ public class Visualizar_Notificaciones extends Visualizar_Notificaciones_Ventana
 		Notificacion [] n = foroUI.db.Cargar_Notificaciones(foroUI.user.getORMID());
 		System.out.println("longitud " +n.length);
 		
-		for(int i = 0; i < Math.min(n.length, 7); i++)
+		for(int i = Math.min(n.length, 7)-1; i >= 0 ; i--)
 			notificaciones.addComponent(new Ver_Notificacion(n[i].getMensaje()));
 	}
 }

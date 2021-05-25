@@ -22,12 +22,14 @@ public class Ver_Tema extends Ver_Tema_Ventana {
 	public Ver_Tema (Tema t){
 		nombreTema.setValue(t.getTitulo());
 		descripcion.setValue(t.getSubtitulo());
-		creadorYFecha.setValue(t.getCrea_tema()+" el " + t.getFechaCreacion());
+		creadorYFecha.setValue(t.getCrea_tema().getNombreUsuario()+" el " + t.getFechaCreacion());
 		Mensaje m;
 		try {
-			m = MensajeDAO.loadMensajeByQuery("TemaID = "+t.getID(), "FechaCreacion");
+			Mensaje[] mensajes = MensajeDAO.listMensajeByQuery("TemaID = "+t.getID(), "FechaCreacion");
+			m = mensajes.length>0?mensajes[mensajes.length-1]:null;
+			//m = MensajeDAO.loadMensajeByQuery("TemaID = "+t.getID(), "FechaCreacion DESC");
 			if(m!=null)
-				ultimaEdicionYFecha.setValue(m.getNombreUsuario() + " el " + m.getFechaCreacion());
+				ultimaEdicionYFecha.setValue(m.getEnvia_mensaje().getNombreUsuario() + " el " + m.getFechaCreacion());
 			else
 				ultimaEdicionYFecha.setVisible(false);
 		} catch (PersistentException e) {

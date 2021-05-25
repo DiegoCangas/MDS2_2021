@@ -2,6 +2,7 @@ package com.MDS2.ForoUal.Backend.BDs;
 
 import com.MDS2.ForoUal.Backend.ORM.src.Media_;
 import com.MDS2.ForoUal.Backend.ORM.src.Mensaje;
+import com.MDS2.ForoUal.Backend.ORM.src.Notificacion;
 import com.MDS2.ForoUal.Backend.ORM.src.Reporte;
 import com.MDS2.ForoUal.Backend.ORM.src.Tema;
 import com.MDS2.ForoUal.Backend.ORM.src.Usuario;
@@ -35,4 +36,6 @@ public interface i_Usuario_Registrado {
 	public void Insertar_Amigo(String aANombre, Long aIdUsuarioInserta);
 
 	public void Recuperar_Contrasenia_Perfil(String aANombre, String aNuevaContrasenia);
+	
+	public Notificacion[] Cargar_Notificaciones(Long aId);
 }
