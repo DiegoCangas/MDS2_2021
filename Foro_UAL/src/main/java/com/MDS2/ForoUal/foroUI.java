@@ -85,7 +85,7 @@ public class foroUI extends UI {
     }
     public void VisualizarTema(Tema t) {
     	if(user == null)
-    		setContent(new Visualizar_Mensaje_NoRegistrado(t));
+    		setContent(new Visualizar_Mensajes_NoRegistrado(t));
     	else {
     		if(privilegios == Privilegios.administrador)
     			setContent(new Visualizar_Mensajes_Administrador(t));

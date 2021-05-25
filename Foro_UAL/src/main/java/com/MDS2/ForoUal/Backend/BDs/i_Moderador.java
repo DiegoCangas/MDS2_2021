@@ -16,4 +16,5 @@ public interface i_Moderador {
 	public Tema[] Cargar_Temas_Moderador(String aSeccion);
 
 	public Reporte Cargar_Reporte (Long aIdMentsaje);
+	
 }

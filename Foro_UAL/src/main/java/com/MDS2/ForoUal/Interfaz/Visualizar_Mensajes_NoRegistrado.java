@@ -5,11 +5,11 @@ import com.MDS2.ForoUal.Backend.ORM.src.Tema;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
 
-public class Visualizar_Mensaje_NoRegistrado extends Visualizar_Mensajes_NoRegistrado_Ventana{
+public class Visualizar_Mensajes_NoRegistrado extends Visualizar_Mensajes_NoRegistrado_Ventana{
 	public Usuario_no_Logueado _usuario_no_Logueado;
 	public Visualizar_Mensajes _visualizar_Mensajes;
 	
-	public Visualizar_Mensaje_NoRegistrado(Tema t) {
+	public Visualizar_Mensajes_NoRegistrado(Tema t) {
 		Panel_Superior ps = new Panel_Superior(this);
 		panelSuperior.setContent(ps);
 		_visualizar_Mensajes = new Visualizar_Mensajes(t);
