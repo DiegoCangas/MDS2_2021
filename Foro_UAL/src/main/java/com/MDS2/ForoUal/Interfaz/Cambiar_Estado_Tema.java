@@ -40,10 +40,13 @@ public class Cambiar_Estado_Tema extends Cambiar_Estado_Tema_Ventana{
 				Window w = (Window)c.getWindows().toArray()[c.getWindows().size()-1];
 				c.removeWindow(w);
 				
-					publicoPanel.setPrimaryStyleName("well");
-					privadoPanel.setPrimaryStyleName("");
-					ocultoPanel.setPrimaryStyleName("");
-					borradoPanel.setPrimaryStyleName("");
+				publicoPanel.setPrimaryStyleName("well");
+				privadoPanel.setPrimaryStyleName("");
+				ocultoPanel.setPrimaryStyleName("");
+				borradoPanel.setPrimaryStyleName("");
+					
+				foroUI.singleton.VisualizarSeccion(tema.getContiene());
+
 				
 				
 		});
@@ -58,6 +61,9 @@ public class Cambiar_Estado_Tema extends Cambiar_Estado_Tema_Ventana{
 			privadoPanel.setPrimaryStyleName("well");
 			ocultoPanel.setPrimaryStyleName("");
 			borradoPanel.setPrimaryStyleName("");
+			
+			foroUI.singleton.VisualizarSeccion(tema.getContiene());
+
 	});
 		oculto.addClickListener((event) -> {
 
@@ -70,6 +76,9 @@ public class Cambiar_Estado_Tema extends Cambiar_Estado_Tema_Ventana{
 			privadoPanel.setPrimaryStyleName("");
 			ocultoPanel.setPrimaryStyleName("well");
 			borradoPanel.setPrimaryStyleName("");
+			
+			foroUI.singleton.VisualizarSeccion(tema.getContiene());
+
 	});
 		borrado.addClickListener((event) -> {
 
@@ -82,6 +91,9 @@ public class Cambiar_Estado_Tema extends Cambiar_Estado_Tema_Ventana{
 			privadoPanel.setPrimaryStyleName("");
 			ocultoPanel.setPrimaryStyleName("");
 			borradoPanel.setPrimaryStyleName("well");
+			
+			foroUI.singleton.VisualizarSeccion(tema.getContiene());
+
 	});
 	}
 }

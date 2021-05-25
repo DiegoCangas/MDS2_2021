@@ -41,7 +41,7 @@ public class BD_Temas {
 	public void Cambiar_Estado(Long aId, Long estado) {
 		try {
 		Tema t = TemaDAO.getTemaByORMID(aId.intValue());
-		t.setTipoTema(aId.intValue());
+		t.setTipoTema(estado.intValue());
 		
 			TemaDAO.save(t);
 		} catch (PersistentException e) {
