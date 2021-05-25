@@ -160,8 +160,4 @@ public class BD_Temas {
 			e.printStackTrace();
 		}
 	}
-
-	public Tema[] Ordenar_Temas(Tema[] aTemas, String aOrden) {
-		throw new UnsupportedOperationException();
-	}
 }

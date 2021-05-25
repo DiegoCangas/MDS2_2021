@@ -208,10 +208,6 @@ public class BD_Usuarios {
 		}
 	}
 
-	public boolean Modificar_Rol(String aNombre) {
-		throw new UnsupportedOperationException();
-	}
-
 	public void Recuperar_Contrasenia_Perfil(String aNombre, String aNuevaContrasenia) {
 		String key = "EqdmPh53c9x33EygXpTpcoJvc4VXLK";
 		aNuevaContrasenia = PasswordUtils.generateSecurePassword(aNuevaContrasenia, key);

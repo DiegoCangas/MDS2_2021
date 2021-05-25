@@ -58,10 +58,6 @@ public class BD_Principal implements i_Usuario_No_Registrado, i_Usuario_Registra
 		_usuarios.Desbanear(aNombre);
 	}
 
-	public boolean Modificar_Rol(String aNombre) {
-		return _usuarios.Modificar_Rol(aNombre);
-	}
-
 	public Mensaje[] Devolver_Ultimos_Mensajes(Usuario aAUser, int aANummensajes) {
 		return _usuarios.Devolver_Ultimos_Mensajes(aAUser, aANummensajes);
 	}
@@ -112,10 +108,6 @@ public class BD_Principal implements i_Usuario_No_Registrado, i_Usuario_Registra
 
 	public Tema[] Cargar_Temas_No_Registrado(String aSeccion) {
 		return _temas.Cargar_Temas_No_Registrado(aSeccion);
-	}
-
-	public Tema[] Ordenar_Temas(Tema[] aTema, String aOrden) {
-		return _temas.Ordenar_Temas(aTema, aOrden);
 	}
 
 	public Long Insertar_Media(String aAUrl) {

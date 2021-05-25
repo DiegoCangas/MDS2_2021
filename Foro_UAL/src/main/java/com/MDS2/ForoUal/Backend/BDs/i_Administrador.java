@@ -22,8 +22,10 @@ public interface i_Administrador {
 	public void Banear(String aNombre);
 
 	public void Desbanear(String aNombre);
-
-	public boolean Modificar_Rol(String aNombre);
+	
+	public boolean Insertar_Moderador(Long id);
+	
+	public boolean Eliminar_Moderador (Long id);
 
 	public Mensaje[] Devolver_Ultimos_Mensajes(Usuario aAUser, int aANummensajes);
 }

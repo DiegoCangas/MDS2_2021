@@ -23,5 +23,4 @@ public interface i_Usuario_No_Registrado {
 
 	public Tema[] Cargar_Temas_No_Registrado(String aSeccion);
 
-	public Tema[] Ordenar_Temas(Tema[] aTema, String aOrden);
 }
